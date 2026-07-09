@@ -1,0 +1,1181 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CREATOR'ZZ 業務運用マニュアル v5.1</title>
+<base target="_blank">
+<style>
+:root{--navy:#0a1230;--blue:#1b6ef3;--cyan:#37c8ff;--ink:#1a2033;--sub:#5b6478;--line:#e4e8f2;--bg:#f4f6fb;--red:#c0392b;--redb:#fdecea;--amb:#b7791f;--ambb:#fff7e6;--infob:#eaf2ff;--gold:#f5c542;--grn:#1f8a54;--grnb:#e9f7ef}
+*{box-sizing:border-box}body{margin:0;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-size:15px}
+.wrap{max-width:1000px;margin:0 auto;padding:22px}
+.hero{background:radial-gradient(120% 140% at 85% -10%,rgba(55,200,255,.28),transparent 55%),linear-gradient(135deg,var(--navy),#0e1f52 55%,#1a3aa0);color:#fff;border-radius:20px;padding:38px 36px;margin-bottom:16px;position:relative;overflow:hidden;border:1px solid rgba(120,190,255,.18);box-shadow:0 18px 50px rgba(10,18,48,.35)}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(120,190,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(120,190,255,.06) 1px,transparent 1px);background-size:34px 34px;-webkit-mask:linear-gradient(120deg,#000,transparent 60%);mask:linear-gradient(120deg,#000,transparent 60%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.logomark{font-family:"Arial Black","Helvetica Neue",Impact,sans-serif;font-style:italic;font-weight:900;font-size:clamp(38px,8.5vw,68px);line-height:.9;letter-spacing:-3px;color:transparent;-webkit-text-stroke:1.6px #8fd0ff;transform:skewX(-7deg);margin:0 0 10px;text-shadow:0 0 26px rgba(55,200,255,.35);user-select:none}
+.hero .eb{font-size:12px;letter-spacing:.3em;color:var(--cyan);font-weight:700}
+.hero h1{margin:8px 0 6px;font-size:28px}.hero .lead{color:#c7d2ee;font-size:14px;margin:0 0 14px}
+.chip{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:999px;font-size:12px;color:#eaf1ff;margin:3px}
+.crit{background:var(--redb);border:1px solid #f3c2bb;border-left:5px solid var(--red);border-radius:12px;padding:13px 16px;margin-bottom:14px;color:#7a241a;font-size:13.5px}.crit b{color:var(--red)}
+.allbtn{background:#eef3ff;border:1px solid #d6e2fb;color:var(--blue);border-radius:8px;padding:7px 14px;cursor:pointer;font-size:13px;font-weight:700}
+.toolbar{position:sticky;top:0;z-index:50;background:rgba(244,246,251,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:9px 4px;margin-bottom:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.toolbar input{flex:1 1 200px;min-width:150px;border:1px solid #d6e2fb;border-radius:9px;padding:8px 12px;font-size:13px;background:#fff}
+.toolbar select{border:1px solid #d6e2fb;border-radius:9px;padding:8px 10px;font-size:13px;background:#fff;max-width:230px}
+.toolbar .cnt{font-size:11px;color:var(--sub);margin-left:auto}
+details.sec{scroll-margin-top:62px}
+.copybtn{background:#eef3ff;border:1px solid #d6e2fb;color:var(--blue);border-radius:7px;padding:2px 10px;font-size:11px;font-weight:700;cursor:pointer;position:absolute;top:8px;right:8px}
+.copybtn:hover{background:var(--blue);color:#fff}
+.copybtn.done{background:var(--grn);color:#fff;border-color:var(--grn)}
+.tmpl{position:relative;padding-right:66px}
+.backtop{position:fixed;right:18px;bottom:18px;z-index:60;background:var(--navy);color:#fff;width:44px;height:44px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.28);opacity:0;transition:.2s;pointer-events:none}
+.backtop.show{opacity:1;pointer-events:auto}
+details.sec>summary{border-left:5px solid transparent}
+details.sec[data-cat="contract"]>summary{border-left-color:var(--blue)}
+details.sec[data-cat="money"]>summary{border-left-color:var(--red)}
+details.sec[data-cat="grad"]>summary{border-left-color:#9b7ce0}
+details.sec[data-cat="tmpl"]>summary{border-left-color:var(--grn)}
+details.sec[data-cat="ops"]>summary{border-left-color:var(--amb)}
+details.sec.nomatch{display:none}
+.cbtn{position:fixed;right:18px;bottom:70px;z-index:62;background:linear-gradient(135deg,var(--blue),#0a58d6);color:#fff;border:none;border-radius:26px;padding:11px 16px;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 8px 22px rgba(27,110,243,.4)}
+.cpanel{position:fixed;right:18px;bottom:18px;z-index:63;width:min(370px,92vw);height:min(540px,74vh);background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 50px rgba(10,18,48,.3);display:none;flex-direction:column;overflow:hidden}
+.cpanel.open{display:flex}
+.chead{background:linear-gradient(135deg,var(--navy),#1a3aa0);color:#fff;padding:12px 14px;font-weight:800;font-size:14px;display:flex;align-items:center;gap:8px}
+.chead small{font-weight:500;color:#9fc4ff;font-size:11px}
+.chead .x{margin-left:auto;cursor:pointer;font-size:20px;opacity:.85;line-height:1}
+.cbody{flex:1;overflow-y:auto;padding:12px;background:#f4f6fb}
+.cmsg{max-width:88%;margin:6px 0;padding:9px 12px;border-radius:12px;font-size:12.5px;line-height:1.65}
+.cmsg.bot{background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px}
+.cmsg.me{background:var(--blue);color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+.cmsg.bot a{color:var(--blue)}
+.cchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.cchip{background:#eef3ff;border:1px solid #d6e2fb;color:var(--blue);border-radius:14px;padding:4px 11px;font-size:11px;cursor:pointer}
+.cfoot{display:flex;gap:6px;padding:10px;border-top:1px solid var(--line);background:#fff}
+.cfoot input{flex:1;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-size:13px}
+.cfoot button{background:var(--blue);color:#fff;border:none;border-radius:10px;padding:0 15px;font-weight:700;cursor:pointer}
+details.sec{background:#fff;border:1px solid var(--line);border-radius:13px;margin-bottom:12px;box-shadow:0 2px 12px rgba(16,30,70,.06);overflow:hidden}
+details.sec>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:11px;padding:16px 22px;font-size:18px;font-weight:800;color:var(--navy)}
+details.sec>summary::-webkit-details-marker{display:none}
+details.sec>summary::after{content:"▾";margin-left:auto;color:var(--blue);transition:.2s}
+details.sec[open]>summary::after{transform:rotate(180deg)}
+details.sec>summary:hover{background:#f7f9ff}details.sec[open]>summary{border-bottom:1px solid var(--line)}
+.n{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;background:var(--blue);color:#fff;border-radius:8px;font-size:13px;font-weight:800;padding:0 6px}
+.body{padding:8px 22px 20px}.sub{color:var(--sub);font-size:12.5px;margin:6px 0 12px}
+h3{font-size:15px;color:var(--navy);margin:18px 0 8px;padding-left:11px;border-left:4px solid var(--blue)}
+h4{font-size:13.5px;margin:14px 0 6px}
+.tw{overflow-x:auto;margin:10px 0;border-radius:9px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:500px}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f0f4fc;color:var(--navy);font-weight:700;font-size:11.5px}
+tr:last-child td{border-bottom:none}tbody tr:hover{background:#f8faff}
+.who{display:inline-block;background:#eef3ff;color:var(--blue);border-radius:6px;padding:1px 7px;font-size:11px;font-weight:600}
+.st{display:inline-block;border-radius:6px;padding:1px 8px;font-size:11px;font-weight:700}
+.st.d{background:var(--grnb);color:var(--grn)}.st.w{background:#fff3d6;color:var(--amb)}.st.t{background:var(--redb);color:var(--red)}.st.k{background:#eef3ff;color:var(--blue)}
+.call{border-radius:10px;padding:11px 14px;margin:12px 0;font-size:12.5px;border:1px solid}
+.call .t{font-weight:700;display:block}
+.warn{background:var(--ambb);border-color:#f0dcae;color:#6d4c12}.warn .t{color:var(--amb)}
+.dang{background:var(--redb);border-color:#f3c2bb;color:#7a241a}.dang .t{color:var(--red)}
+.info{background:var(--infob);border-color:#c9dcff;color:#1c3a72}.info .t{color:var(--blue)}
+.tmpl{background:#f6f8fd;border:1px dashed #c3d2f0;border-radius:9px;padding:12px 14px;font-size:12px;color:#33405e;white-space:pre-wrap;margin:8px 0}
+.chk{list-style:none;padding-left:0}.chk li{padding-left:24px;position:relative}.chk li::before{content:"";position:absolute;left:0;top:5px;width:14px;height:14px;border:2px solid var(--blue);border-radius:4px}
+.org{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:12px 0}
+.org .o{background:#f7f9ff;border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+.org .role{font-size:10.5px;color:var(--blue);font-weight:700}.org .nm{font-size:14px;font-weight:800;color:var(--navy);margin:2px 0}.org .rp{font-size:11px;color:var(--sub)}
+.org .top{grid-column:1/-1;background:var(--navy);color:#fff;border:none}.org .top .role{color:var(--cyan)}.org .top .nm{color:#fff}.org .top .rp{color:#b7c6ea}
+.ref .body{background:linear-gradient(135deg,#050a1f,#122a6b);color:#eaf1ff;border-radius:0 0 13px 13px}
+.big{font-size:30px;font-weight:900;color:var(--gold);text-align:center;margin:6px 0}.big small{display:block;font-size:13px;color:#cfe0ff}
+.cond{display:flex;flex-wrap:wrap;gap:10px}.cond .c{flex:1 1 210px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:11px;padding:12px 14px}
+.cond .k{font-size:11px;color:var(--cyan);font-weight:700}.cond .v{font-weight:700;margin-top:3px}.cond .d{font-size:12px;color:#b8c8ec;margin-top:3px}
+.ref a{color:var(--cyan)}.ref h3{color:#eaf1ff;border-left-color:var(--cyan)}
+footer{color:var(--sub);font-size:12px;text-align:center;padding:18px}
+a{color:var(--blue)}
+.board{background:linear-gradient(135deg,#fffaf0,#fff3d6);border:1px solid #f0dcae;border-left:5px solid var(--gold);border-radius:13px;padding:15px 20px;margin-bottom:14px;box-shadow:0 2px 12px rgba(180,140,20,.08)}
+.board h2{margin:0 0 3px;font-size:16px;color:#7a5a12;display:flex;align-items:center;gap:8px}
+.board .cap{font-size:11.5px;color:#9a7b30;margin-bottom:10px}
+.board .item{background:#fff;border:1px solid #f0e2bf;border-radius:9px;padding:10px 13px;font-size:13px;margin:7px 0;display:flex;gap:11px;align-items:flex-start}
+.board .date{background:var(--gold);color:#5a4410;border-radius:6px;padding:2px 9px;font-size:11px;font-weight:800;white-space:nowrap}
+.board .txt b{color:#a0590f}
+.defnum{background:#6a4bd1!important}
+.mindmap{display:flex;align-items:center;overflow-x:auto;margin:14px 0;padding:6px 2px}
+.mm-root{flex:0 0 auto;background:linear-gradient(135deg,var(--navy),#1a3aa0);color:#fff;border-radius:14px;padding:14px 16px;font-weight:800;font-size:13.5px;text-align:center;line-height:1.4;box-shadow:0 4px 16px rgba(10,18,48,.2)}
+.mm-root small{display:block;font-weight:600;color:#9fc4ff;font-size:10.5px;margin-top:3px}
+.mm-link{flex:0 0 auto;width:26px;height:2px;background:#c2d4f5}
+.mm-branches{display:flex;flex-direction:column;gap:7px;position:relative;padding-left:26px}
+.mm-branches::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:2px;background:#c2d4f5}
+.mm-node{position:relative;background:#f2f6ff;border:1px solid #d6e2fb;border-left:4px solid var(--blue);border-radius:10px;padding:8px 13px;min-width:240px}
+.mm-node::before{content:"";position:absolute;left:-26px;top:50%;width:26px;height:2px;background:#c2d4f5}
+.mm-node b{display:block;color:var(--navy2);font-size:12.5px}
+.mm-node span{color:var(--sub);font-size:11px}
+.lineflow{margin:12px 0;position:relative;padding-left:24px}
+.lineflow::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:#bfe3c9}
+.lf{position:relative;margin:0 0 11px}
+.lf::before{content:"";position:absolute;left:-23px;top:8px;width:12px;height:12px;border-radius:50%;background:#06c755;border:2px solid #fff;box-shadow:0 0 0 2px #bfe3c9}
+.lf .msg{background:#f4faf5;border:1px solid #d5e9d9;border-radius:10px;padding:9px 13px;font-size:12.5px}
+.lf .msg b{color:#1f8a54}
+.lf .act{margin-top:5px;background:#eaf2ff;border:1px dashed #b9d0f5;border-radius:8px;padding:6px 12px;font-size:12px;color:#1c3a72}
+.lf .act b{color:var(--blue)}
+.sflow{margin:6px 0 2px}
+.sfrow{display:flex;gap:10px;padding:8px 11px;border-radius:9px;background:#f7f9ff;border:1px solid var(--line);margin:6px 0;font-size:12.5px;align-items:flex-start}
+.sfrow .lb{flex:0 0 110px;font-weight:700;font-size:10.5px;color:var(--navy2);background:#eef3ff;border:1px solid #d6e2fb;border-radius:6px;padding:3px 8px;text-align:center}
+.sfrow .ct{flex:1;line-height:1.6}
+.sfrow.msg{background:#f4faf5;border-color:#d5e9d9}
+.sfrow.msg .lb{background:#e3f3e8;border-color:#c7e3cf;color:#1f8a54}
+.sfrow.re{background:#fff7ea;border-color:#f0dcae}
+.sfrow.re .lb{background:#fdeccb;border-color:#f0dcae;color:#8a6516}
+.todo{color:var(--sub);font-style:italic}
+.taskacc{border:1px solid var(--line);border-radius:11px;overflow:hidden;margin:12px 0;box-shadow:0 2px 10px rgba(16,30,70,.05)}
+.taskhead{display:flex;gap:12px;padding:9px 14px;background:#f0f4fc;font-size:11.5px;font-weight:700;color:var(--navy);border-bottom:1px solid var(--line)}
+.taskrow{border-bottom:1px solid var(--line)}
+.taskrow:last-child{border-bottom:none}
+.taskrow>summary{list-style:none;cursor:pointer;display:flex;gap:12px;align-items:center;padding:13px 14px;font-size:13.5px}
+.taskrow>summary::-webkit-details-marker{display:none}
+.taskrow>summary:hover{background:#f7f9ff}
+.taskrow>summary::after{content:"▾";margin-left:8px;color:var(--blue);transition:.2s;flex:0 0 auto;font-size:12px}
+.taskrow[open]>summary::after{transform:rotate(180deg)}
+.taskrow[open]>summary{background:#eef3ff;border-bottom:1px solid var(--line)}
+.taskrow>.subbody{padding:10px 14px 16px;background:#fbfcff}
+.tc1{flex:0 0 30px;font-weight:800;color:var(--blue);text-align:center}
+.tc2{flex:0 0 190px;font-weight:700;color:var(--ink)}
+.tc3{flex:1 1 auto;min-width:0;color:var(--sub);font-size:12px}
+.taskhead .tc2,.taskhead .tc3{font-weight:700;color:var(--navy)}
+@media(max-width:560px){.tc2{flex:0 0 110px;font-size:12.5px}.tc3{font-size:11px}}
+.stepacc{border:1px solid var(--line);border-radius:9px;margin:8px 0;background:#fff;overflow:hidden}
+.stepacc>summary{list-style:none;cursor:pointer;padding:10px 12px;font-size:13px;font-weight:800;color:var(--navy);background:#f2f6ff;display:flex;align-items:center;gap:8px}
+.stepacc>summary::-webkit-details-marker{display:none}
+.stepacc>summary::after{content:"▾";margin-left:auto;color:var(--blue);transition:.2s;font-size:12px}
+.stepacc>summary:hover{background:#e6eeff}
+.stepacc[open]{border-color:var(--blue);box-shadow:0 3px 14px rgba(27,110,243,.18)}
+.stepacc[open]>summary{background:linear-gradient(135deg,var(--blue),#0a58d6);color:#fff;border-bottom:1px solid #c9dcff}
+.stepacc[open]>summary::after{transform:rotate(180deg);color:#fff}
+.stepacc[open]>summary:hover{background:linear-gradient(135deg,#1a66e6,#0a52cc)}
+.stepacc>.stepbody{padding:9px 12px 12px}
+.stepacc[open]>.stepbody{background:#f7faff}
+</style></head><body><div class="wrap">
+<div class="hero"><div class="logomark">CREATOR'ZZ</div><div class="eb">OPERATION MANUAL ／ Visual Creative Unit</div><h1>業務運用マニュアル</h1><div class="lead">契約が決まってから卒業までの完全運用ガイド ／ マネージャー・CS・運営向け</div>
+</div>
+<div class="crit"><b>⚠️ 大原則</b> 金額に関係する意思決定は<b>すべて運営（森本・杉山）が判断</b>する。MG／CSは受付と取次まで。</div>
+<div class="board"><h2>📋 回覧板 — 最新の共有・変更</h2><div class="cap">直近30日以内の変更を記載。運営定例で随時更新。</div>
+<div class="item"><span class="date">2026/07〜</span><span class="txt"><b>契約後面談での1on1日程調整を廃止。</b> 1on1は入学ガイダンスまでにDiscordで調整する運用に変更。</span></div>
+</div>
+<div class="toolbar">
+<input id="q" type="search" placeholder="🔎 キーワードで絞り込み（返金 / 休学 / 1on1 / テンプレ …）" oninput="doSearch(this.value)">
+<select id="jump" onchange="jumpTo(this.value)"><option value="">― 章にジャンプ ―</option></select>
+<button class="allbtn" onclick="toggleAll()">すべて開く / 閉じる</button>
+<span class="cnt" id="cnt"></span>
+</div>
+
+<details class="sec" open><summary><span class="n defnum">定義</span>役割・用語の定義</summary><div class="body">
+<div class="sub">本マニュアルで使う「運営 / CS / MG」の定義と担当者。まずここを共有してから本題へ。</div>
+<h3>運営（事業判断・金額の意思決定）</h3>
+<p style="font-size:12.5px">事業判断とお金に関わる意思決定を行うメンバー。<b>金額に関係する最終判断は森本・杉山</b>が行う。</p>
+<div class="tw"><table><thead><tr><th>メンバー</th><th>役割</th></tr></thead><tbody>
+<tr><td><span class="who">森本（かずひら）</span></td><td>事業責任者。全体の最終決裁／顧客満足の意思決定／全体スケジュール管理／<b>金額判断</b></td></tr>
+<tr><td><span class="who">杉山</span></td><td>PM・マーケ実行責任者（事業責任者と同レイヤー）／カリキュラム統括／<b>金額判断（返金等）</b></td></tr>
+<tr><td><span class="who">松崎</span></td><td>実行補佐・オーガニック（満足度アンケート回収→改善／イベント実行／仕組み化）</td></tr>
+<tr><td><span class="who">鳥居</span></td><td>カリキュラム・講師（講義／ワーク添削）</td></tr>
+<tr><td><span class="who">山崎</span></td><td>入学前案内・オンボーディング導線（営業兼務）</td></tr>
+</tbody></table></div>
+<h3>CS（カスタマーサクセス）</h3>
+<p style="font-size:12.5px">受講生の入会手続き〜受講中の対応を担う。<b>入学前と入学後で責任者が異なる</b>。</p>
+<div class="tw"><table><thead><tr><th>区分</th><th>責任者</th><th>対応範囲</th></tr></thead><tbody>
+<tr><td>入学前（入会対応）</td><td><span class="who">小林</span>／サポート：田中</td><td>入会者対応の全て（エルメ＋Discord）／クラス分け・タグ付け／入学ガイダンス</td></tr>
+<tr><td>入学後（受講生CS）</td><td><span class="who">合澤</span></td><td>受講生LINE（エルメ）対応／返金・解約・休学の窓口／全体意見の統括</td></tr>
+</tbody></table></div>
+<p style="font-size:12px">CSサポート（シフト対応・合澤配下）：岡本・松本・高見・豊島・佐藤（全額返金の回収／中途解約／休学／契約周り）</p>
+<h3>MG（マネージャー）</h3>
+<p style="font-size:12.5px">担当クラスの受講生に伴走。1on1・質問対応・進捗フォロー・クラス会の活性化。金銭・契約の判断は行わず運営へ取次ぐ。</p>
+<div class="tw"><table><thead><tr><th>区分</th><th>担当</th><th>役割</th></tr></thead><tbody>
+<tr><td>統括</td><td><span class="who">阿部</span></td><td>MG統括／カリキュラム知見で技術的な壁打ち・FB</td></tr>
+<tr><td>クラス担当MG</td><td>松井・堂庭・清水・上枝・川﨑</td><td>1on1（初回1週以内・2〜3週目・1ヶ月後の計3回）・質問対応(10・15・20時)／アンケート回収／クラス会活性化</td></tr>
+</tbody></table></div>
+</div></details>
+
+<details class="sec" open><summary><span class="n">0</span>全体像・共通ルール</summary><div class="body">
+<h3>組織図</h3><div class="org">
+<div class="o top"><div class="role">事業責任者</div><div class="nm">森本（かずひら）</div><div class="rp">CREATOR'ZZ全体の最終決裁／顧客満足の意思決定／全体スケジュール管理</div></div>
+<div class="o top"><div class="role">PM・マーケ実行責任者</div><div class="nm">杉山</div><div class="rp">マーケ周りの実行責任者／PM／カリキュラム統括／金額判断（返金等）</div></div>
+<div class="o"><div class="role">カリキュラム・講師</div><div class="nm">鳥居</div><div class="rp">講義・ワーク添削／講師統括</div></div>
+<div class="o"><div class="role">実行補佐・オーガニック</div><div class="nm">松崎</div><div class="rp">アンケート回収→改善／仕組み化</div></div>
+<div class="o"><div class="role">入会者対応統括</div><div class="nm">小林</div><div class="rp">エルメ＋Discord／クラス分け／ガイダンス</div></div>
+<div class="o"><div class="role">入会者対応 サポート</div><div class="nm">田中</div><div class="rp">小林さん配下</div></div>
+<div class="o"><div class="role">入学前案内</div><div class="nm">山崎</div><div class="rp">入学前案内・オンボ導線（営業兼務）</div></div>
+<div class="o"><div class="role">ウェビナー・交流会</div><div class="nm">吉末</div><div class="rp">運営／アーカイブLMS格納</div></div>
+<div class="o"><div class="role">MG統括</div><div class="nm">阿部</div><div class="rp">MG統括／技術的な壁打ち・FB</div></div>
+<div class="o"><div class="role">クラス担当MG</div><div class="nm">松井・堂庭・清水・上枝・川﨑</div><div class="rp">1on1・質問対応・クラス会</div></div>
+<div class="o"><div class="role">CS統括</div><div class="nm">合澤</div><div class="rp">受講生LINE対応／統括</div></div>
+<div class="o"><div class="role">CSサポート</div><div class="nm">岡本・松本・高見・豊島・佐藤</div><div class="rp">返金回収／解約／休学／契約</div></div>
+<div class="o"><div class="role">イベント責任者</div><div class="nm">青嶋・Ninon</div><div class="rp">イベント・コンペ／Discord改善</div></div>
+<div class="o"><div class="role">イベント実行補佐</div><div class="nm">網島</div><div class="rp">青嶋管轄の実働</div></div></div>
+<h3>🗺 受講生ジャーニー（マインドマップ）</h3>
+<div class="mindmap">
+<div class="mm-root">CREATOR'ZZ<br>受講生ジャーニー<small>契約〜卒業／90日</small></div>
+<div class="mm-link"></div>
+<div class="mm-branches">
+<div class="mm-node"><b>① 契約フェーズ</b><span>契約後面談・信販承認・公式LINE案内</span></div>
+<div class="mm-node"><b>② 入学手続き</b><span>MG/クラス決定・LMS発行・開講案内</span></div>
+<div class="mm-node"><b>③ 入学ガイダンス</b><span>日曜21:00・Discord/WB確認・録画共有</span></div>
+<div class="mm-node"><b>④ 初回1on1（計3回）</b><span>1週/2〜3週/1ヶ月・サークルバック</span></div>
+<div class="mm-node"><b>⑤ 定期フォロー（月次）</b><span>クラス会・各種アンケート</span></div>
+<div class="mm-node"><b>⑥ 継続タスク（90日）</b><span>カリキュラム・リファレンス・毎日メッセージ</span></div>
+<div class="mm-node"><b>⑦ 特別対応</b><span>返金・解約・休学（判断は運営）</span></div>
+<div class="mm-node"><b>⑧ 卒業</b><span>修了判定・卒業生Discord・2年目プラン</span></div>
+</div>
+</div>
+<h3>契約後フロー全体図（No.1〜22・担当/備考）</h3><div class="tw"><table>
+<thead><tr><th>No</th><th>フェーズ</th><th>ステップ</th><th>担当</th><th>備考</th></tr></thead><tbody>
+<tr><td>1</td><td>契約</td><td>契約後面談</td><td><span class="who">営業・山崎</span></td><td>クーオフ対策</td></tr>
+<tr><td>2</td><td>契約</td><td>信販承認 判断</td><td><span class="who">営業CS</span></td><td>否決/可決に分岐</td></tr>
+<tr><td>2a</td><td>契約</td><td>↳否決</td><td><span class="who">営業CS</span></td><td>クーオフ対応→営業へエスカレ</td></tr>
+<tr><td>2b</td><td>契約</td><td>↳承認/入金済</td><td><span class="who">営業CS・小林</span></td><td>公式LINE案内。登録漏れ毎週水曜確認</td></tr>
+<tr><td>3</td><td>入学手続き</td><td>フルネーム送付</td><td><span class="who">営業CS</span></td><td>生徒管理シート連動</td></tr>
+<tr><td>4-5</td><td>入学手続き</td><td>初回アンケート・動画5本</td><td>自動配信</td><td>—</td></tr>
+<tr><td>6</td><td>入学手続き</td><td>Discord登録</td><td><span class="who">営業CS→MG</span></td><td>ガイダンス当日一括も可</td></tr>
+<tr><td>7</td><td>入学手続き</td><td>MG・クラス決定</td><td><span class="who">小林</span></td><td>ロール分け一元管理</td></tr>
+<tr><td>8</td><td>日程調整</td><td>初回面談 日程調整</td><td><span class="who">担当MG</span></td><td>TimeREX／サークルバック・info招待必須</td></tr>
+<tr><td>9</td><td>ガイダンス</td><td>入学ガイダンス</td><td><span class="who">担当MG持回</span></td><td>Discord/WB確認・Zoom録画ON・もう1名待機</td></tr>
+<tr><td>10-11</td><td>ガイダンス</td><td>欠席者/参加者対応</td><td><span class="who">担当MG</span></td><td>欠席=自己紹介依頼／参加=アーカイブ共有</td></tr>
+<tr><td>12</td><td>1週間以内</td><td>初回1on1（必須）</td><td><span class="who">担当MG</span></td><td>登録確認/目標/クラス会日程/サークルバック同席</td></tr>
+<tr><td>13</td><td>1週間以内</td><td>1週間後アンケート</td><td>自動</td><td>—</td></tr>
+<tr><td>14</td><td>月次</td><td>2週間目クラス会</td><td><span class="who">担当MG</span></td><td>本音は1on1で／アーカイブ共有</td></tr>
+<tr><td>15-16</td><td>月次</td><td>1ヶ月後アンケート/クラス会</td><td><span class="who">担当MG</span></td><td>2ヶ月目以降の1on1は任意</td></tr>
+<tr><td>17-18</td><td>月次</td><td>2ヶ月後アンケート/クラス会</td><td><span class="who">担当MG</span></td><td>—</td></tr>
+<tr><td>19-20</td><td>卒業</td><td>卒業前クラス会/卒業後アンケート</td><td><span class="who">担当MG</span></td><td>—</td></tr>
+<tr><td>21</td><td>卒業</td><td>Discord卒業生招待</td><td><span class="who">担当MG</span></td><td>案件情報で帰属意識維持</td></tr>
+<tr><td>22</td><td>卒業</td><td>2年目プラン案内</td><td><span class="who">担当MG</span></td><td>アーカイブ視聴可/質問不可→3ヶ月でやり切る</td></tr>
+</tbody></table></div>
+<div class="call warn"><span class="t">入学スケジュール</span>水曜までの入学→その週の日曜開始。具体日を約束せず「決済完了の翌週」と案内。</div>
+<h3>LINE表示名ルール</h3><div class="tw"><table><thead><tr><th>区分</th><th>フォーマット</th></tr></thead><tbody>
+<tr><td>個人</td><td>氏名（卒業日）例:山田太郎（9/6）</td></tr><tr><td>法人代表</td><td>法人代表・氏名（卒業日）</td></tr>
+<tr><td>法人同時受講</td><td>法人・氏名</td></tr><tr><td>クーオフ中</td><td>[黄] クーリングオフ／氏名</td></tr>
+<tr><td>全額返金中</td><td>[黄] 全額返金／氏名</td></tr><tr><td>休学中</td><td>[緑] 休学／氏名</td></tr>
+<tr><td>卒業後</td><td>既存タグ全削除→「卒業」</td></tr></tbody></table></div>
+</div></details>
+
+<details class="sec"><summary><span class="n" style="background:var(--red)">⚠</span>運用ルール（禁止事項・注意事項）</summary><div class="body">
+<div class="sec-sub">全メンバー共通。特に金銭・契約・個人情報まわりは厳守。</div>
+<h3>🚫 禁止事項（やってはいけない）</h3>
+<div class="tw"><table><thead><tr><th>項目</th><th>内容</th></tr></thead><tbody>
+<tr><td>金額・可否の自己判断</td><td>返金額・返金可否・解約金額をMG/CSが自分で言わない。判断は運営（森本・杉山）。</td></tr>
+<tr><td>クーリングオフの引き止め</td><td>8日以内の申し出は受講生の強い権利。引き止め・交渉は厳禁。</td></tr>
+<tr><td>Discordの独断措置</td><td>独断で警告・退会・削除をしない。不適切投稿はスクショ→運営報告→指示に従う。</td></tr>
+<tr><td>クレームの独自対応</td><td>クレームは即運営へ。独自で交渉・解決しない。</td></tr>
+<tr><td>受講開始日の先約束</td><td>具体日を先に約束しない（「決済完了の翌週」で案内）。ガイダンス以降は変更不可。</td></tr>
+<tr><td>記録の放置・無記録</td><td>対応は全件記録（選別しない）。放置・無記録は禁止。</td></tr>
+<tr><td>権限の拡大・情報持ち出し</td><td>GMOサイン等のログイン権限を現状以上に広げない。アカウント/パスワードの共有・持ち出し禁止。</td></tr>
+<tr><td>ガイダンス前の受講開始</td><td>入学ガイダンス実施前はカリキュラム講義を進めさせない。</td></tr>
+</tbody></table></div>
+<h3>📌 注意事項</h3>
+<ul>
+<li>迷ったら抱え込まず、必ず該当窓口へ引き継ぐ（第10章 エスカレーション先）。</li>
+<li>受講生目線を保ち、運営の裏事情をルールの理由として持ち出さない。</li>
+<li>個人情報・成果物の取り扱いに注意。契約書は権限を絞ったフォルダで管理。</li>
+<li>期限を守れない見込みは、破る前に運営へ理由と見込みを報告。</li>
+<li>卒業後は質問・ウェビナー・動画視聴不可 → 在学中に伝える。</li>
+</ul>
+<div class="call danger"><span class="t">罰則</span>本ルール違反がクレーム等の重大事象に至った場合、業務委託契約に基づき減給その他の措置。事前報告・適切な状況連絡は考慮される。</div>
+</div></details>
+
+<details class="sec"><summary><span class="n">1</span>契約フェーズ（CS）</summary><div class="body">
+<div class="sub">決済完了時 ／ CS・山﨑・松井・金野</div>
+<h3>契約後の即時対応</h3>
+<p style="font-size:12px;color:var(--sub)">各行（①〜⑤）をタップすると詳細フローが下に開きます。タイミング・担当・目的・使用資料（リンク）・送信文章まで一言一句。生徒へ送る文章は <b>.tmpl（コピー可）</b>。</p>
+<div class="taskacc">
+<div class="taskhead"><span class="tc1">#</span><span class="tc2">タスク</span><span class="tc3">詳細 ／ タップで展開</span></div>
+<details class="taskrow"><summary><span class="tc1">①</span><span class="tc2">公式LINE案内</span><span class="tc3">決済完了後すぐ</span></summary><div class="subbody">
+<div class="sflow">
+<div class="sfrow"><span class="lb">タイミング</span><span class="ct">決済完了（またはCBSでの信販承認確認）後すぐ</span></div>
+<div class="sfrow"><span class="lb">担当</span><span class="ct">CS（入学前対応：小林・田中／営業CS）</span></div>
+<div class="sfrow"><span class="lb">目的</span><span class="ct">受講生を公式LINE（運営事務局）＝「CREATOR'ZZ入会案内」チャットへ誘導し、ステップ配信を起動。まず<b>フルネーム送付</b>を完了させる（送付前は運営がメッセージを確認できない）。</span></div>
+<div class="sfrow"><span class="lb">使用資料</span><span class="ct">💬 <a href="https://lin.ee/W4UyJDf">公式LINE（運営事務局）友だち追加</a>／👤 <a href="https://www.notion.so/CREATOR-ZZ-335c52dbc00e80a6af74f2dccf12b3ef">生徒管理シート（Notion）</a></span></div>
+</div>
+<h4>登場人物・記号</h4>
+<div class="sfrow"><span class="lb">凡例</span><span class="ct"><b>CS</b>＝運営事務局（小林・田中／営業CS）が手動で送る　｜　<b>🤖自動</b>＝公式LINEのステップ配信が自動送信（人は触らない）　｜　<b>👤生徒</b>＝生徒がやること。<b>緑=送信メッセージ（コピー可）／橙=生徒の反応・関門</b>。上から順に流れます。</span></div>
+
+<details class="stepacc" open><summary>STEP0：決済完了 → 公式LINEへ案内（CSが手動）</summary><div class="stepbody">
+<div class="sfrow"><span class="lb">CS：やること</span><span class="ct">決済完了（またはCBSで信販承認）を確認したら、受講生へ<b>①公式LINE（運営事務局）の友だち追加</b>と<b>②オープンチャット参加</b>の2つを送る（どちらも必須）。→ ① <a href="https://lin.ee/W4UyJDf">https://lin.ee/W4UyJDf</a>／② <a href="https://line.me/ti/g2/Dc76yuAgd4h6SjNJ95G-pe_g_NmxbRTurTD_yg">オープンチャット</a></span></div>
+<div class="sfrow msg"><span class="lb">CS→生徒</span><span class="ct">送信メッセージ ↓</span></div>
+<div class="tmpl">○○さん、ご契約ありがとうございます！CREATOR'ZZ運営です😊
+今日からの3ヶ月、目標達成まで全力で伴走します。まずはスタートの入口を2つご案内しますね。
+
+▼①「CREATOR'ZZ入会案内」LINEを追加
+https://lin.ee/W4UyJDf
+
+▼②「CREATOR'ZZ」オープンチャットに参加
+https://line.me/ti/g2/Dc76yuAgd4h6SjNJ95G-pe_g_NmxbRTurTD_yg
+※お名前は匿名でOKです。イベント告知や大切な情報もこちらで配信します。
+
+👆 ①②どちらも“必ず”ご登録をお願いします。①を追加いただくと、事前準備を1つずつ自動でご案内します。ここが受講スタートの“起点”です✨</div>
+<div class="sfrow re"><span class="lb">👤 生徒</span><span class="ct">「CREATOR'ZZ入会案内」LINEを<b>友だち追加</b>する。→ 追加した瞬間、下の🤖自動配信がスタート。</span></div>
+
+</div></details>
+<details class="stepacc"><summary>STEP1：1通目（フルネーム依頼）🤖自動</summary><div class="stepbody">
+<div class="sfrow msg"><span class="lb">🤖 自動→生徒</span><span class="ct">送信元：運営事務局LINE｜内容：ようこそ＋フルネーム依頼 ↓</span></div>
+<div class="tmpl">【⚠️必ず最後までお読みください】
+
+{Nickname}さん
+CREATOR'ZZへようこそ！🎉
+ここから3ヶ月、一緒に頑張っていきましょう！
+
+さっそくですが、
+最初に【フルネーム（ふりがな）】の送信をお願いします🌸
+
+💡 ご本人確認のための、最初の手続きです。
+※法人でお申込みの場合は、ご契約者様のお名前と法人名をお送りください。
+
+⚠️ 大切なお願い：お名前を送っていただくまで、運営側では以降のメッセージを確認できません。まずは“お名前だけ”先に送ってください😊</div>
+<div class="sfrow re"><span class="lb">👤 生徒＝関門</span><span class="ct"><b>フルネーム（ふりがな）を送信</b>する。<b>これを送るまで運営は生徒のメッセージを一切確認できない</b>。未送付なら契約後面談やCSから催促。</span></div>
+<div class="sfrow"><span class="lb">CS：やること</span><span class="ct">フルネーム受領を確認したら<b>②LINE表示名変更</b>を実施（②の行を参照）。以降チャット対応が可能に。</span></div>
+
+</div></details>
+<details class="stepacc"><summary>STEP2：2通目（3ヶ月後ビジョン＋3つの準備の予告）🤖自動</summary><div class="stepbody">
+<div class="sfrow msg"><span class="lb">🤖 自動→生徒</span><span class="ct">送信メッセージ ↓</span></div>
+<div class="tmpl">お名前ありがとうございます😊
+ここから本格スタートです！
+
+━━━━━━━━━━
+3ヶ月後、AIを使って“自分の手で”映像作品を作れる自分へ。
+━━━━━━━━━━
+
+その第一歩として、受講スタートまでに【3つの準備】をお願いしています👇
+
+① 初回アンケート（約3分）
+② 作りたい映像を5つ集める
+③ Discordアカウント作成
+
+①→②→③の順に、これから1つずつご案内します。一緒に進めましょう💪</div>
+
+</div></details>
+<details class="stepacc"><summary>STEP3：準備① 初回アンケート 🤖自動</summary><div class="stepbody">
+<div class="sfrow msg"><span class="lb">🤖 自動→生徒</span><span class="ct">送信メッセージ（フォームURL入り）↓</span></div>
+<div class="tmpl">① 初回アンケートに回答する（約3分）
+
+{Nickname}さんの現状や
+目標を教えていただくことで、
+{Nickname}さんにとって
+最適なマネージャー・サポートをご用意できます！
+
+👇 回答フォーム
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSd-r0VWdW0KHZHL3I48bPoP8LqidLYLgzIogXrCEIKw8mLjQw/viewform?usp=sharing&ouid=103818844779205978006">https://docs.google.com/forms/d/e/1FAIpQLSd-r0VWdW0KHZHL3I48bPoP8LqidLYLgzIogXrCEIKw8mLjQw/viewform?usp=sharing&ouid=103818844779205978006</a>
+
+※ 下記は全額返金制度の対象条件に含まれる満足度アンケートになります。
+必ず期限内にご回答ください。
+
+━━━━━━━━━━━
+✅回答が終わったら
+このトークに「1」と送ってください😊
+次のステップ②をご案内します！</div>
+<div class="sfrow re"><span class="lb">👤 生徒</span><span class="ct">アンケートに回答 → トークに<b>「1」と返信</b>すると次（準備②）が届く。<b>⚠️この回答日で入学日（＝翌週日曜スタート）が決定</b>するため、早めの回答を促す。</span></div>
+
+</div></details>
+<details class="stepacc"><summary>STEP4：準備② 作りたい映像を5つ集める 🤖自動</summary><div class="stepbody">
+<div class="sfrow msg"><span class="lb">🤖 自動→生徒</span><span class="ct">送信メッセージ ↓</span></div>
+<div class="tmpl">② 作れるようになりたい映像を5つ集める
+
+CREATOR'ZZでは、
+どんな映像を作りたいのかを
+明確にする事から始まります。
+
+純粋に、
+「好き」「かっこいい」
+「作ってみたい」と
+感じる動画を5つ見つけて、
+このLINEに送ってください。
+
+※動画のリンクと動画ファイル
+どちらでもOKです！
+
+💡 動画選びのヒント
+
+難しく考えなくてOKです！
+「なんかいいな」と思った動画を
+送ってくれるだけで大丈夫です😊
+
+例えばこんなものでも👇
+・YouTube の映画っぽいかっこいい映像
+・Instagram のおしゃれなリール動画
+・TikTok のAIっぽい不思議な映像
+・X（Twitter）で流れてきた気になる動画
+・好きなCM・MV・Vlog
+
+今の自分に作れるかは
+気にしなくてOKです👍
+
+わからないことは
+気軽にこのLINEへどうぞ！
+━━━━━━━━━━━
+✅ 5つ送れたら
+このトークに「2」と忘れずに送ってください😊
+次のステップ③をご案内します！</div>
+<div class="sfrow re"><span class="lb">👤 生徒</span><span class="ct">映像を5つLINEに送付 → トークに<b>「2」と返信</b>で次（準備③）へ。集めた5本は初回MG面談で方向性決めに使う。</span></div>
+
+</div></details>
+<details class="stepacc"><summary>STEP5：準備③ Discordアカウント作成 🤖自動</summary><div class="stepbody">
+<div class="sfrow msg"><span class="lb">🤖 自動→生徒</span><span class="ct">送信メッセージ（作成URL入り）↓</span></div>
+<div class="tmpl">③ Discordアカウントを作成する
+
+今後のご案内やウェビナー講義の告知、案件などの情報は、全て入学ガイダンスの後、以下のDiscordコミュニティで共有していきます✨️
+▼こちらからアカウント作成を必ずお願いします。
+<a href="https://discord.com/login">https://discord.com/login</a>
+
+━━━━━━━━━━━
+✅  Discordアカウントを作成できたら
+このトークに「3」と送ってください😊
+最後のご案内をお送りします！</div>
+<div class="sfrow re"><span class="lb">👤 生徒</span><span class="ct">Discordアカウントを作成 → トークに<b>「3」と返信</b>で最終案内へ。</span></div>
+
+</div></details>
+<details class="stepacc"><summary>STEP6：受講開始のご案内（最終）🤖自動</summary><div class="stepbody">
+<div class="sfrow msg"><span class="lb">🤖 自動→生徒</span><span class="ct">3つの準備完了で自動送信 ↓</span></div>
+<div class="tmpl">🎉 受講開始のご案内
+
+お疲れ様でした！
+すべての事前準備が完了しました！
+いよいよ受講スタートです✨
+
+━━━━━━━━━━━
+
+📅 入学ガイダンスの日程は、
+後日あらためてご案内いたします。
+楽しみにお待ちいただけたらと思います😊
+
+━━ ご確認ください ━━
+
+🗓 入学ガイダンス日＝入学日。
+この日から3ヶ月がスタートします。
+
+⚠️ 注意事項
+・ガイダンス以降、受講開始日の変更はできません。ご都合が悪い場合は必ず“ガイダンス前まで”にご相談ください（ご連絡がなければガイダンス日を入学日として進行いたします）。
+
+・ガイダンス実施前は、カリキュラムサイトの講義はまだ進めないでください。
+準備万端です。当日お会いできるのを楽しみにしています😊
+
+ご不明な点がございましたら、
+いつでもお気軽にご連絡ください😊
+
+それでは、受講開始を楽しみにお待ちしております！
+よろしくお願いいたします✨</div>
+
+</div></details>
+<details class="stepacc"><summary>STEP6.5：最初の1ヶ月「やり切り計画」＋満足保証 🤖自動</summary><div class="stepbody">
+<div class="sfrow msg"><span class="lb">🤖 自動→生徒</span><span class="ct">受講開始案内の直後に自動送信。全額返金を“満足保証”として前向きに提示し、1ヶ月の行動計画（＝返金条件）を先出しする ↓</span></div>
+<div class="tmpl">🎯 最初の1ヶ月で"やり切る"計画
+
+CREATOR'ZZは、本気で取り組んでいただいた方に成果で応えるスクールです。だからこそ、規定の条件を満たして取り組んでいただいたうえでご満足いただけなかった場合の「全額返金保証」となっております。
+
+まずはこの1ヶ月、下記をやり切るのが成果への最短ルートです👇
+
+✅ カリキュラムを1ヶ月で全履修＋課題提出率90%以上
+✅ SNS（X / Instagram / TikTok）に「#CREATORZZ」を付けて15本以上投稿（講師添削を反映）
+✅ 解説ウェビナー 月4回以上に参加＋
+参加回アンケートを毎回期限内に提出
+✅ リファレンス収集 週5回以上
+✅ アンケート（初回・入学時・1週間後・1ヶ月後）をすべて期限内に提出
+
+全額返金保証の詳しい条件につきましては契約書を必ずご確認ください。</div>
+<div class="sfrow re"><span class="lb">⚠️運用注意</span><span class="ct">「満足いただけなければ返金」は<b>規定条件（第7章・契約書 第3条6項・全7項目）の達成が前提</b>。無条件返金と誤認されないよう、詳細は契約書で確認いただく導線に。<b>SNS投稿15本はこの案内で初めて周知される重要項目</b>（従来のステップ配信に無かった抜け）。</span></div>
+<div class="sfrow"><span class="lb">LINE設定</span><span class="ct">生徒のキーワード送信が無いため単独の応答にできない。<b>「受講開始のご案内」応答に“吹き出し”を追加</b>して2通目として同時送信する（応答メッセージ＞受講開始の項を編集＞＋追加＞テキスト）。時間差にしたい場合はステップ配信機能を使用。</span></div>
+
+</div></details>
+<details class="stepacc"><summary>STEP7：入学ガイダンス案内（小林・田中が手動）</summary><div class="stepbody">
+<div class="sfrow"><span class="lb">担当</span><span class="ct">別途、<b>小林・田中</b>（運営名義）から日曜21:00のガイダンス案内を送付。当日の司会運営は担当MG持ち回り。</span></div>
+<div class="sfrow msg"><span class="lb">CS→生徒</span><span class="ct">送信メッセージ（ZoomURL入り）↓</span></div>
+<div class="tmpl">○○様
+お世話になっております。CREATOR'ZZ運営の○○です。
+いよいよ入学ガイダンスのご案内です🎉
+
+📅 日時：○月○日（○）21:00〜22:00（1時間）
+📍 参加URL（Zoom）：
+https://us06web.zoom.us/j/85305521094?pwd=MhmVicHEacRa6R3D4rj8MdAbMKhdQc.1
+
+このガイダンスは、カリキュラムやDiscordの初期設定を一緒に進め、学習を正しくスタートするための“必須”の回です。ここから3ヶ月が始まります。
+・疑問や不安はその場で質問OK
+・同期の仲間と出会える場でもあります
+お時間になりましたら上記URLからご参加ください。当日お待ちしています😊</div>
+
+<details class="sub"><summary>▼ 分岐：ガイダンス欠席のとき（担当MGがフォロー）</summary><div class="subbody">
+<div class="sfrow"><span class="lb">担当MG：やること</span><span class="ct">ガイダンス当日に参加が確認できなかった生徒へDiscord/LINEで個別連絡し、再調整。</span></div>
+<div class="sfrow msg"><span class="lb">MG→生徒</span><span class="ct">送信メッセージ ↓</span></div>
+<div class="tmpl">○○様
+はじめまして😊
+○○さんの担当マネージャーの○○と申します！
+本日の入学ガイダンス、ご参加が確認できなかったためご連絡しました！
+
+サービスは入学日よりスタートしておりますが、ガイダンスは学習スタートの起点になる大切な回なので、改めて個別に開かせてください！お手すきのときに、参加できそうな日時を2〜3つ教えていただけますか？いただいた候補で面談を準備します✨
+
+なお、本日の入学ガイダンスの録画は、担当より別途お送りします。先にご覧いただけますと当日の流れがつかめて安心です😊
+
+これからの3ヶ月、しっかり伴走しますのでよろしくお願いします！</div>
+<div class="sfrow"><span class="lb">CS：やること</span><span class="ct">MGの再調整とは別に、CSが<b>当日の入学ガイダンス録画を別途送付</b>する（CS名義）。↓</span></div>
+<div class="tmpl">○○様
+お世話になっております。CREATOR'ZZ運営（CS）です😊
+先日の入学ガイダンスにご参加いただけなかったため、当日の録画をお送りします。
+
+▼ 入学ガイダンス録画
+（録画URL）
+
+学習をスタートするうえで大切な内容です。お手すきの際に必ずご視聴ください。
+なお、担当マネージャーより個別ガイダンス（再開催）のご案内も届きますので、あわせてご確認ください✨
+引き続きよろしくお願いいたします！</div>
+</div></details>
+</div></details>
+
+<div class="sfrow re"><span class="lb">✅ ①のゴール</span><span class="ct">フルネーム送付＋3つの準備（アンケート・映像5つ・Discord）完了＋ガイダンス参加。→ 第2章「入学手続き」（MG・クラス決定／LMS発行）へ。</span></div>
+</div></details>
+
+<details class="taskrow"><summary><span class="tc1">②</span><span class="tc2">LINE表示名変更</span><span class="tc3">フルネーム送付後→チャット可</span></summary><div class="subbody">
+<div class="sflow">
+<div class="sfrow"><span class="lb">タイミング</span><span class="ct">生徒がフルネームを送付した直後（送付後はチャット対応が可能に）</span></div>
+<div class="sfrow"><span class="lb">担当</span><span class="ct">CS（小林＝ロール分け・タグ付けを一元管理）</span></div>
+<div class="sfrow"><span class="lb">目的</span><span class="ct">受講生LINEの表示名を規定フォーマットに統一し、状態（クーオフ/返金/休学等）を一目で判別できるようにする。</span></div>
+</div>
+<h4>表示名フォーマット（状態別）</h4>
+<div class="tw"><table><thead><tr><th>区分</th><th>フォーマット</th></tr></thead><tbody>
+<tr><td>個人</td><td>氏名（卒業日）　例:山田太郎（9/6）</td></tr>
+<tr><td>法人代表</td><td>法人代表・氏名（卒業日）</td></tr>
+<tr><td>法人同時受講</td><td>法人・氏名</td></tr>
+<tr><td>クーオフ中</td><td>[黄] クーリングオフ／氏名</td></tr>
+<tr><td>全額返金中</td><td>[黄] 全額返金／氏名</td></tr>
+<tr><td>休学中</td><td>[緑] 休学／氏名</td></tr>
+<tr><td>卒業後</td><td>既存タグ全削除→「卒業」</td></tr>
+</tbody></table></div>
+<div class="sfrow"><span class="lb">タグ設定</span><span class="ct">MGアサイン後は LINE設定4項目も更新：マネ＝担当MG名／講師＝担当講師（確定後）／状態＝アクティブ受講生／入学月＝20○○年/○月。</span></div>
+<div class="sfrow re"><span class="lb">補足</span><span class="ct">表示名・タグ設定は<b>運営側の作業（生徒へ送るメッセージはなし）</b>。フルネーム送付前は運営側で受講生用LINEを確認できないため、必ずフルネーム受領後に実施。</span></div>
+</div></details>
+
+<details class="taskrow"><summary><span class="tc1">③</span><span class="tc2">信販承認確認</span><span class="tc3">否決→クーオフ→営業へ</span></summary><div class="subbody">
+<div class="sflow">
+<div class="sfrow"><span class="lb">タイミング</span><span class="ct">契約後、信販審査の結果が判明したタイミング（本人確認電話の前後）</span></div>
+<div class="sfrow"><span class="lb">担当</span><span class="ct">営業CS（否決・クーリングオフは営業へエスカレ）</span></div>
+<div class="sfrow"><span class="lb">目的</span><span class="ct">信販承認状況を確認し分岐処理。承認前は本人確認電話で「個人利用」と回答するよう案内し、否決・再審査を防ぐ。</span></div>
+</div>
+<details class="sub"><summary>▼ 承認済み・入金済みの場合</summary><div class="subbody">
+<div class="sfrow"><span class="lb">対応</span><span class="ct">①公式LINE案内へ進む。フルネーム送付が完了しているか本人に確認し、②表示名変更を実施。</span></div>
+</div></details>
+<details class="sub"><summary>▼ 承認前の場合（本人確認電話の注意＋CBSコピペ）</summary><div class="subbody">
+<div class="sfrow re"><span class="lb">口頭で案内</span><span class="ct">①このローンは「個人利用（個人のスキルアップ）」目的。電話口で「事業の集客のため」と答えると<b>法人契約とみなされ再審査・否決の可能性</b>。「個人のスキルアップ目的」と回答を。②書類到着後に本人確認電話が来る。</span></div>
+<div class="sfrow"><span class="lb">CBSへコピペ</span><span class="ct">↓（CBS導入以降に使用・第1章④契約後面談と同一文面）</span></div>
+<div class="tmpl">お世話になっております！ 審査通過し、あとは本人確認のみとなりました✨
+まもなく信販会社からお電話が入りますので、ご対応をお願いします（出られなければ折り返しでOKです）。
+⚠️ 電話でのお願い：「個人でSNSを伸ばすスキルを身につけるための“個人利用”」とお答えください。
+　「事業の集客目的」等と伝わると法人契約（事業目的）とみなされ、分割払いが使えず一括または2回払いのご案内になる場合があります。
+本人確認が終わりましたら、担当マネージャーとやり取りする“生徒用チャット”のリンクをお送りします。引き続きよろしくお願いいたします！</div>
+</div></details>
+<details class="sub"><summary>▼ 未入金・承認前の場合</summary><div class="subbody">
+<div class="sfrow"><span class="lb">対応</span><span class="ct">入金確認または信販承認が完了するまで、生徒専用LINEへの招待は保留。完了後に①へ。</span></div>
+</div></details>
+<details class="sub"><summary>▼ 否決・クーリングオフの場合</summary><div class="subbody">
+<div class="sfrow re"><span class="lb">⚠️厳守</span><span class="ct">8日以内の申し出は受講生の強い権利。<b>引き止め・交渉は厳禁</b>。速やかに<b>営業へエスカレ</b>（第7章）。表示名を「[黄] クーリングオフ／氏名」へ。</span></div>
+</div></details>
+</div></details>
+
+<details class="taskrow"><summary><span class="tc1">④</span><span class="tc2">契約後面談</span><span class="tc3"><span class="who">山﨑・松井・金野</span> 3名ローテ・全文スクリプト</span></summary><div class="subbody">
+<div class="sflow">
+<div class="sfrow"><span class="lb">タイミング</span><span class="ct">前回面談後・決済/信販の状況確認後（受講開始前）／所要 約30分</span></div>
+<div class="sfrow"><span class="lb">担当</span><span class="ct">山﨑・松井・金野（3名ローテーション）※冒頭で録画を取得</span></div>
+<div class="sfrow"><span class="lb">目的</span><span class="ct">①クーリングオフ阻止 ②マインドセット（期待値調整）③入学後のスムーズな自走</span></div>
+<div class="sfrow"><span class="lb">使用資料</span><span class="ct">📄 <a href="https://docs.google.com/document/d/1MoN3dbTK2V--e1-_nFWUAYEljSaoXeqofrN7IzU63fM/edit" target="_blank">トークスクリプト</a>／🖥 <a href="https://docs.google.com/presentation/d/143ogbTk-e_wCQgONtoNzDEBuB6tyDlNf9G6dH6Gtet4/edit" target="_blank">面談資料スライド</a>／💬 <a href="https://lin.ee/W4UyJDf" target="_blank">公式LINE（運営事務局）</a></span></div>
+</div>
+<h4>① 自己紹介・支払い確認・事務連絡（約5分）</h4>
+<div class="tmpl">改めまして、本日の面談を担当します、CREATOR'ZZ運営の〇〇です。よろしくお願いします！
+（品質向上のため録画をさせていただきますね）［スライド1］
+本日は30分ほどで、① これからの流れ ② スタートダッシュ用の「宿題」 ③ 目標達成のための事前共有 をお伝えします。［スライド2］
+前回の面談から少し時間が空きましたが……ぶっちゃけ今、「ワクワク」と「不安」だと、どちらが大きいですか？😊</div>
+<div class="sfrow re"><span class="lb">「不安」の場合</span><span class="ct">傾聴 →「決して安い投資ではないですし、新しいことを始める前は誰でも不安になります。今一番ネックに感じている点はどのあたりですか？」→ 事実ベースで払拭（よく出る不安と切り返し）</span></div>
+<h4>支払い状況の確認（分岐）</h4>
+<details class="sub"><summary>▼ 入金済み・信販承認済みの場合</summary><div class="subbody">
+<div class="tmpl">〇〇さん、お支払い（信販承認）が完了していますね。ありがとうございます！
+では「入会案内チャット」のご追加はお済みですか？
+　▶ 追加済みの方 → ありがとうございます！お名前は“フルネーム”で送信いただけていますか？（まだの方はこの場で送信まで）
+　▶ まだの方 → いま一緒に「入会案内チャット」を追加しましょう（この場で追加まで完了）</div>
+<div class="sfrow re"><span class="lb">確認必須</span><span class="ct">受講生用LINE案内時に<b>フルネーム送付が完了しているか本人に確認</b>＋LINE表示を確認。※フルネーム送付前は運営側で受講生用LINEを確認できない。</span></div>
+</div></details>
+<details class="sub"><summary>▼ 信販承認前の場合（本人確認電話の注意＋CBSコピペ）</summary><div class="subbody">
+<div class="tmpl">審査状況を確認しますね。→ 無事、審査通過となっていますのでご安心ください😊
+このあと、信販会社からご本人確認のお電話が入ります。1点だけ、大切なお願いです。
+📞 電話では「個人のスキルアップのための“個人利用”」とお答えください。
+　「事業の集客のため」と伝えると“法人契約”とみなされ、再審査や否決になる可能性があります。
+書類が届いたあとに本人確認のお電話が来ます。先にお電話が来た場合は、折り返しできる番号をお送りしますね。</div>
+<div class="sfrow"><span class="lb">CBSへコピペ</span><span class="ct">↓（CBS導入以降に使用）</span></div>
+<div class="tmpl">お世話になっております！ 審査通過し、あとは本人確認のみとなりました✨
+まもなく信販会社からお電話が入りますので、ご対応をお願いします（出られなければ折り返しでOKです）。
+⚠️ 電話でのお願い：「個人でSNSを伸ばすスキルを身につけるための“個人利用”」とお答えください。
+　「事業の集客目的」等と伝わると法人契約（事業目的）とみなされ、分割払いが使えず一括または2回払いのご案内になる場合があります。
+本人確認が終わりましたら、担当マネージャーとやり取りする“生徒用チャット”のリンクをお送りします。引き続きよろしくお願いいたします！</div>
+</div></details>
+<h4>② 受講開始までの流れ・事前準備（入金ステータスで分岐）</h4>
+<details class="sub"><summary>▼ 未入金・信販承認前の場合</summary><div class="subbody">
+<div class="tmpl">入金確認（または信販承認）が完了しましたら、すぐに生徒専用LINEへご招待します。
+事前準備はそのLINEから順番にご案内するので、今日は「こんな準備があるんだ」とイメージだけ持っていただければOKです😊
+準備は主に3つ👇
+① 初回アンケートの回答
+② 作りたい映像を5つ集める
+③ Discordアカウントの作成
+どれも難しくありません。初回マネージャー面談を充実させるための準備です。招待後、一緒に進めましょう！</div>
+</div></details>
+<details class="sub"><summary>▼ 入金済み・信販承認済みの場合（3つの事前準備を案内）</summary><div class="subbody">
+<div class="tmpl">すでに「CREATOR'ZZ入会案内」LINEにメッセージをお送りしています！手順もリンクも、すべてそこにまとまっています😊 準備は主に3つです。</div>
+<div class="sfrow msg"><span class="lb">a. 初回アンケート</span><span class="ct">現状・目標を確認し<b>最適なマネージャーを選定</b>するためのアンケート（約3分）。「入会案内」LINE内フォームから回答を。<br><b>⚠️面談内で必ず案内し、その場で回答完了まで</b>（回答日で入学日が決定するため）。</span></div>
+<div class="sfrow msg"><span class="lb">b. 映像5つ収集</span><span class="ct">「作れるようになりたい映像」を5つ集め、「入会案内」LINEへ送付。初回MG面談でこれを基に方向性を決める。</span></div>
+<div class="sfrow msg"><span class="lb">c. Discord作成</span><span class="ct">イベント案内・限定情報・受講生交流はDiscordで。作成方法・招待リンクは「入会案内」LINEに記載。</span></div>
+<div class="tmpl">URLや手順はすべて「CREATOR'ZZ入会案内」LINEにまとめています。案内に沿って順番に進めていただければ大丈夫です😊 この事前準備で初回面談の質とその後の成長スピードが大きく変わります。一緒にスタートの準備を進めましょう！
+（ここまでで分からない点・気になる点はありますか？）</div>
+</div></details>
+<h4>③ モチベ低下への釘刺し（期待値調整）</h4>
+<div class="tmpl">最後に一つ、受講前に大切なお話をさせてください。
+受講を進める中で「本当に自分にできるかな」「思ったより難しい」「うまく作れない」と感じるタイミングは、必ず来ます。これは〇〇さんだけでなく、今活躍しているクリエイターも、案件を取っている受講生も、全員が通った道です。
+特にAI動画は、ツールの使い方だけでなく“映像の考え方・表現”も学ぶので、最初はうまくいかなくて当たり前。諦めず相談しながら進めた人ほど、成果につながっています。
+ちなみに〇〇さんは、何を実現するためにCREATOR'ZZに入ろうと決めましたか？
+今後「手が止まりそう」「不安になってきた」「この方向で合ってる？」と思ったら、絶対に一人で抱え込まず、必ずマネージャーに相談してください。
+CREATOR'ZZは、動画を渡して終わりではありません。個別面談やLINEで最後まで伴走します。ここからは“一人で頑張る”のではなく、“私たちと一緒に進める”イメージを持ってくださいね。
+3ヶ月間、そしてその先も全力でサポートします。一緒に頑張りましょう！本日は貴重なお時間をありがとうございました😊</div>
+<div class="sfrow re"><span class="lb">面談後→次</span><span class="ct">入金/承認済 → 入会案内LINEで事前準備（アンケート回答で入学日確定）→ 入学手続き（第2章）。承認前 → 承認完了後に生徒専用LINE招待。不安・キャンセル希望 → 運営へ取次（第7章）。</span></div>
+</div></details>
+
+<details class="taskrow"><summary><span class="tc1">⑤</span><span class="tc2">法人はグループLINE作成</span><span class="tc3">代表・同時受講者含む</span></summary><div class="subbody">
+<div class="sflow">
+<div class="sfrow"><span class="lb">タイミング</span><span class="ct">法人契約の決済完了後</span></div>
+<div class="sfrow"><span class="lb">担当</span><span class="ct">CS</span></div>
+<div class="sfrow"><span class="lb">目的</span><span class="ct">代表者・同時受講者を含むグループLINEを作成し、法人単位で一元管理する。</span></div>
+<div class="sfrow"><span class="lb">提出物</span><span class="ct">代表者氏名／同時受講者氏名／メール（全員分）</span></div>
+</div>
+<h4>設定チェックリスト</h4>
+<ul class="chk"><li>グループ名を【会社名＋様】へ変更</li><li>個人LINEのタグを外す</li><li>グループへタグ付与</li><li>表示名：法人代表＝「法人代表・氏名（卒業日）」／同時受講者＝「法人・氏名」</li></ul>
+<div class="tmpl">○○株式会社 ご担当者様・受講者の皆さま
+この度はCREATOR'ZZへお申込みいただきありがとうございます！運営事務局です😊
+こちらのグループで、受講開始までのご案内をまとめてお送りします。
+
+【最初のお願い】受講される皆さま“お一人ずつ”、フルネーム（ふりがな）をこのトークに送信してください🌸
+そのあと、全員に共通で3つの準備をご案内します👇
+① 初回アンケート（約3分）
+② 作りたい映像を5つ
+③ Discordアカウント作成
+ご不明点はこのグループにいつでもどうぞ。3ヶ月間よろしくお願いします！</div>
+<div class="sfrow re"><span class="lb">この後</span><span class="ct">個人と同様に、フルネーム送付 → 3つの事前準備（初回アンケート・映像5つ・Discord作成）を全員に案内。表示名・タグは②のフォーマットに統一。</span></div>
+</div></details>
+</div><!-- /.taskacc -->
+</div></details>
+
+<details class="sec"><summary><span class="n">2</span>入学手続き（CS・小林・MG）</summary><div class="body">
+<div class="sub">決済完了〜受講開始日（日曜）</div>
+<div class="tw"><table><thead><tr><th>タイミング</th><th>タスク</th><th>担当</th></tr></thead><tbody>
+<tr><td>毎週水曜</td><td>MG/クラス決定・CS共有・引き継ぎ</td><td><span class="who">小林</span></td></tr>
+<tr><td>金/土</td><td>LMSアカウント発行</td><td><span class="who">CS</span></td></tr>
+<tr><td>開講案内</td><td>受講開始日・ガイダンスURL送付</td><td><span class="who">CS</span></td></tr>
+<tr><td>自動</td><td>初回アンケート・動画5本</td><td>自動</td></tr>
+<tr><td>当日</td><td>Discord招待・WBログイン確認</td><td>MG+CS</td></tr></tbody></table></div>
+<div class="call dang"><span class="t">契約後面談で1on1日程調整はしない</span>ガイダンスまでにDiscordで（7月〜変更）</div>
+<h3>MGアサイン後 LINE設定4項目</h3><p style="font-size:12px">マネ=自分の名前／講師=担当講師（確定後更新）／状態=アクティブ受講生／入学月=20○○年/○月</p>
+<h4>開講案内テンプレ</h4><div class="tmpl">●●様
+3つの準備（①〜③）ありがとうございました！これで受講スタートの準備が整いました✨
+📅 受講開始（入学ガイダンス）：【○/○（○）21:00〜】
+📍 参加URL：（入学ガイダンスURL）
+【お願い】ガイダンスまでに、Discordで担当マネージャーとの初回1on1の日程調整をお願いします。まだの方はお早めに😊
+当日お会いできるのを楽しみにしています！</div>
+<h4>【追加】ステップ配信：受講開始日変更NG</h4><div class="tmpl">🎉 受講開始のご案内
+⚠️ ご確認ください
+・入学ガイダンス以降は受講開始日の変更はできません。都合が悪い場合は必ずガイダンス前までにご相談ください。
+・入学ガイダンス実施前はカリキュラムサイトの講義を進めないようお願いいたします。</div>
+<h4>LINEステップ配信フロー（生徒がたどるルート）</h4>
+<div class="lineflow">
+<div class="lf"><div class="msg"><b>決済完了（契約）</b> → 公式LINE（運営事務局）へ案内</div></div>
+<div class="lf"><div class="msg"><b>1通目</b>：ようこそ＋<b>フルネーム（ふりがな）</b>送付のお願い（※送信するまで運営はメッセージ確認不可）</div><div class="act">👤 生徒：<b>フルネームを送信</b></div></div>
+<div class="lf"><div class="msg"><b>2通目</b>：3ヶ月後のビジョン＋「3つの準備」案内（①→②→③）</div></div>
+<div class="lf"><div class="msg"><b>STEP①</b>：初回アンケートに回答（約3分）</div><div class="act">👤 生徒：回答後 <b>「1」</b> と返信 → STEP②へ</div></div>
+<div class="lf"><div class="msg"><b>STEP②</b>：作りたい映像を5つ集めてLINEに送る</div><div class="act">👤 生徒：5本送付後 <b>「2」</b> と返信 → STEP③へ</div></div>
+<div class="lf"><div class="msg"><b>STEP③</b>：Discordアカウントを作成</div><div class="act">👤 生徒：作成後 <b>「3」</b> と返信 → 最終案内へ</div></div>
+<div class="lf"><div class="msg"><b>受講開始のご案内</b>：事前準備完了 ⚠️ ガイダンス以降は受講開始日の変更不可／ガイダンス前は講義を進めない</div></div>
+<div class="lf"><div class="msg"><b>🎓 入学ガイダンス</b>（日曜21:00・別途小林さんから案内）→ 受講スタート</div><div class="act">欠席時：担当MGが個別フォロー・再調整</div></div>
+</div>
+<p style="font-size:11.5px;color:var(--sub)">※途中で「入学ガイダンス案内」（小林運営名義）が別途届く。ガイダンス後にDiscord等の本格案内が進む。各文面は下の全文テンプレート参照。</p>
+<details class="sub"><summary>公式LINE ステップ配信 全文テンプレート（運営事務局・氏名は伏せて格納）</summary><div class="subbody">
+<h4>1通目｜フルネーム依頼</h4><div class="tmpl">【⚠️必ず最後までお読みください】
+
+{Nickname}さん
+CREATOR'ZZへようこそ！🎉
+ここから3ヶ月、一緒に頑張っていきましょう！
+
+さっそくですが、
+最初に【フルネーム（ふりがな）】の送信をお願いします🌸
+
+💡 ご本人確認のための、最初の手続きです。
+※法人でお申込みの場合は、ご契約者様のお名前と法人名をお送りください。
+
+⚠️ 大切なお願い：お名前を送っていただくまで、運営側では以降のメッセージを確認できません。まずは“お名前だけ”先に送ってください😊</div>
+<h4>2通目｜ビジョン＋3つの準備案内</h4><div class="tmpl">お名前ありがとうございます😊
+ここから本格スタートです！
+
+━━━━━━━━━━
+3ヶ月後、AIを使って“自分の手で”映像作品を作れる自分へ。
+━━━━━━━━━━
+
+その第一歩として、受講スタートまでに【3つの準備】をお願いしています👇
+
+① 初回アンケート（約3分）
+② 作りたい映像を5つ集める
+③ Discordアカウント作成
+
+①→②→③の順に、これから1つずつご案内します。一緒に進めましょう💪</div>
+<h4>ステップ①｜初回アンケート</h4><div class="tmpl">① 初回アンケートに回答する（約3分）
+
+{Nickname}さんの現状や
+目標を教えていただくことで、
+{Nickname}さんにとって
+最適なマネージャー・サポートをご用意できます！
+
+👇 回答フォーム
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSd-r0VWdW0KHZHL3I48bPoP8LqidLYLgzIogXrCEIKw8mLjQw/viewform?usp=sharing&ouid=103818844779205978006">https://docs.google.com/forms/d/e/1FAIpQLSd-r0VWdW0KHZHL3I48bPoP8LqidLYLgzIogXrCEIKw8mLjQw/viewform?usp=sharing&ouid=103818844779205978006</a>
+
+※ 下記は全額返金制度の対象条件に含まれる満足度アンケートになります。
+必ず期限内にご回答ください。
+
+━━━━━━━━━━━
+✅回答が終わったら
+このトークに「1」と送ってください😊
+次のステップ②をご案内します！</div>
+<h4>ステップ②｜作りたい映像を5つ集める</h4><div class="tmpl">② 作れるようになりたい映像を5つ集める
+
+CREATOR'ZZでは、
+どんな映像を作りたいのかを
+明確にする事から始まります。
+
+純粋に、
+「好き」「かっこいい」
+「作ってみたい」と
+感じる動画を5つ見つけて、
+このLINEに送ってください。
+
+※動画のリンクと動画ファイル
+どちらでもOKです！
+
+💡 動画選びのヒント
+
+難しく考えなくてOKです！
+「なんかいいな」と思った動画を
+送ってくれるだけで大丈夫です😊
+
+例えばこんなものでも👇
+・YouTube の映画っぽいかっこいい映像
+・Instagram のおしゃれなリール動画
+・TikTok のAIっぽい不思議な映像
+・X（Twitter）で流れてきた気になる動画
+・好きなCM・MV・Vlog
+
+今の自分に作れるかは
+気にしなくてOKです👍
+
+わからないことは
+気軽にこのLINEへどうぞ！
+━━━━━━━━━━━
+✅ 5つ送れたら
+このトークに「2」と忘れずに送ってください😊
+次のステップ③をご案内します！</div>
+<h4>ステップ③｜Discordアカウント作成</h4><div class="tmpl">③ Discordアカウントを作成する
+
+今後のご案内やウェビナー講義の告知、案件などの情報は、全て入学ガイダンスの後、以下のDiscordコミュニティで共有していきます✨️
+▼こちらからアカウント作成を必ずお願いします。
+<a href="https://discord.com/login">https://discord.com/login</a>
+
+━━━━━━━━━━━
+✅  Discordアカウントを作成できたら
+このトークに「3」と送ってください😊
+最後のご案内をお送りします！</div>
+<h4>受講開始のご案内（最終）</h4><div class="tmpl">🎉 受講開始のご案内
+
+お疲れ様でした！
+すべての事前準備が完了しました！
+いよいよ受講スタートです✨
+
+━━━━━━━━━━━
+
+📅 入学ガイダンスの日程は、
+後日あらためてご案内いたします。
+楽しみにお待ちいただけたらと思います😊
+
+━━ ご確認ください ━━
+
+🗓 入学ガイダンス日＝入学日。
+この日から3ヶ月がスタートします。
+
+⚠️ 注意事項
+・ガイダンス以降、受講開始日の変更はできません。ご都合が悪い場合は必ず“ガイダンス前まで”にご相談ください（ご連絡がなければガイダンス日を入学日として進行いたします）。
+
+・ガイダンス実施前は、カリキュラムサイトの講義はまだ進めないでください。
+準備万端です。当日お会いできるのを楽しみにしています😊
+
+ご不明な点がございましたら、
+いつでもお気軽にご連絡ください😊
+
+それでは、受講開始を楽しみにお待ちしております！
+よろしくお願いいたします✨</div>
+</div></details>
+<details class="sub"><summary>入学ガイダンス 案内・欠席フォロー テンプレート</summary><div class="subbody">
+<h4>入学ガイダンス案内（小林・田中 名義）</h4><div class="tmpl">○○様
+お世話になっております。CREATOR'ZZ運営の○○です。
+いよいよ入学ガイダンスのご案内です🎉
+
+📅 日時：○月○日（○）21:00〜22:00（1時間）
+📍 参加URL（Zoom）：
+https://us06web.zoom.us/j/85305521094?pwd=MhmVicHEacRa6R3D4rj8MdAbMKhdQc.1
+
+このガイダンスは、カリキュラムやDiscordの初期設定を一緒に進め、学習を正しくスタートするための“必須”の回です。ここから3ヶ月が始まります。
+・疑問や不安はその場で質問OK
+・同期の仲間と出会える場でもあります
+お時間になりましたら上記URLからご参加ください。当日お待ちしています😊</div>
+<h4>ガイダンス欠席者フォロー（MG名義）</h4><div class="tmpl">○○様
+はじめまして😊
+○○さんの担当マネージャーの○○と申します！
+本日の入学ガイダンス、ご参加が確認できなかったためご連絡しました！
+
+サービスは入学日よりスタートしておりますが、ガイダンスは学習スタートの起点になる大切な回なので、改めて個別に開かせてください！お手すきのときに、参加できそうな日時を2〜3つ教えていただけますか？いただいた候補で面談を準備します✨
+
+なお、本日の入学ガイダンスの録画は、担当より別途お送りします。先にご覧いただけますと当日の流れがつかめて安心です😊
+
+これからの3ヶ月、しっかり伴走しますのでよろしくお願いします！</div>
+<h4>入学ガイダンス録画の送付（CS名義）</h4><div class="tmpl">○○様
+お世話になっております。CREATOR'ZZ運営（CS）です😊
+先日の入学ガイダンスにご参加いただけなかったため、当日の録画をお送りします。
+
+▼ 入学ガイダンス録画
+（録画URL）
+
+学習をスタートするうえで大切な内容です。お手すきの際に必ずご視聴ください。
+なお、担当マネージャーより個別ガイダンス（再開催）のご案内も届きますので、あわせてご確認ください✨
+引き続きよろしくお願いいたします！</div>
+</div></details>
+<h3>講師アサイン確定後の対応</h3>
+<ul style="font-size:12.5px">
+<li>講師はサービス提供開始前までに<b>運営</b>が決定 → 顧客管理シートに入力</li>
+<li>確定後、担当クラス受講生の公式LINEタグ「講師」を確定名に更新（担当MG）</li>
+</ul>
+<h3>契約書管理</h3><p style="font-size:12px">GMOサインからDL→命名「入学日_期・組_氏名」→権限絞りフォルダ格納→シートにリンク→毎週月曜追加（合澤）。ログイン権限は広げない。</p>
+</div></details>
+
+<details class="sec"><summary><span class="n">3</span>入学ガイダンス</summary><div class="body">
+<div class="sub">毎週日曜21:00〜／<b>日程案内の送付＝小林・田中</b>（入会者対応）／当日の司会運営＝担当MGが持ち回り（もう1名待機）</div>
+<h3>当日必須タスク</h3><ul><li>【Zoom】自動録画ON（忘れ厳禁）</li><li>【Discord】参加の一括案内</li><li>【WisdomBase】ログイン確認（一括）</li><li>【アーカイブ】終了後に全員へ録画共有</li></ul>
+<div class="call info">共同ホスト付与は当日小林さんが手動。</div>
+<h3>欠席者対応</h3><ul><li>Discordで個別連絡／自己紹介・アーカイブ視聴・WBログインを依頼</li></ul>
+</div></details>
+
+<details class="sec"><summary><span class="n">4</span>初回1on1・サークルバック運用</summary><div class="body">
+<div class="sub">入学ガイダンスから1週間以内（必須）</div>
+<div class="call info"><span class="t">サークルバック運用（必須）</span>①日程調整：TimeREX送付し予約にサークルバック・infoを招待必須／②初回1on1：サークルバック同席設定／③MGのLINE権限：Discord登録漏れを確認・案内できる閲覧権限を付与</div>
+<h3>Timerex（1on1 計3回）</h3><p style="font-size:12px">初回（ガイダンスから1週間以内・必須）／2〜3週目／1ヶ月後 の計3回。以降は任意。</p>
+<h3>実施後 必須対応</h3><ul class="chk"><li>録画</li><li>文字起こし</li><li>Drive保存（<a href="https://drive.google.com/drive/folders/13C9_tTtubSR4wMXUjnYF78HPS0rKeh7j">面談格納ドライブ</a>）</li><li>シートR〜U列更新</li></ul>
+<h3>面談フロー（30〜45分）</h3><div class="tw"><table><thead><tr><th>#</th><th>フェーズ</th><th>時間</th><th>ポイント</th></tr></thead><tbody>
+<tr><td>1</td><td>オープニング</td><td>3分</td><td>ラフな雰囲気</td></tr><tr><td>2</td><td>目的確認</td><td>8-10分</td><td>数字で（月○万/案件○本）</td></tr>
+<tr><td>3</td><td>現状確認</td><td>5-8分</td><td>その場で解決策</td></tr><tr><td>4</td><td>価値説明</td><td>10-12分</td><td>稼げる動画/マーケ/市場性を全部</td></tr>
+<tr><td>5</td><td>不安解消</td><td>5-8分</td><td>具体的に答える</td></tr><tr><td>6</td><td>クロージング</td><td>3-5分</td><td>クラス会日程を必ず確定</td></tr></tbody></table></div>
+</div></details>
+
+<details class="sec"><summary><span class="n">5</span>定期フォロー（月次）</summary><div class="body">
+<div class="tw"><table><thead><tr><th>タイミング</th><th>アクション</th></tr></thead><tbody>
+<tr><td>〜1週間</td><td>初回1on1・クラス会日程確定</td></tr><tr><td>1週間後</td><td>アンケート（自動）</td></tr>
+<tr><td>2週間目</td><td>クラス会①（本音は1on1で／アーカイブ共有）</td></tr><tr><td>1ヶ月後</td><td>アンケート・クラス会②</td></tr>
+<tr><td>2ヶ月後</td><td>アンケート・クラス会③</td></tr><tr><td>3ヶ月後</td><td>卒業前クラス会・修了判定</td></tr>
+<tr><td>卒業後</td><td>アンケート・卒業生チャンネル招待</td></tr></tbody></table></div>
+<h3>1日ルーティン</h3><p style="font-size:12px">1日1回：進捗チェック(WB)・Discord確認／随時：声がけ／終業前：Discord日報（アラート生徒 名前・状態・次アクション、なければ「アラートなし」）／週1：声がけトリガー該当者チェック</p>
+<h3>解説ウェビナー 運用フロー</h3>
+<p style="font-size:12px">責任者：吉末（運営・満足度向上・アーカイブLMS格納）／開催：<b>水・土曜 21:00〜</b>（固定ZOOMリンク）</p>
+<div class="tw"><table><thead><tr><th>タイミング</th><th>タスク</th><th>担当</th></tr></thead><tbody>
+<tr><td>水・土曜</td><td>ウェビナー告知（クラス交流場・オープンチャット）</td><td>各MG</td></tr>
+<tr><td>開催前</td><td>ZOOM（<a href="https://us06web.zoom.us/j/88221423475?pwd=HQFpkFIJ0BSTnNaIBDLJbURS5Cz10E.1">固定リンク</a>）・<a href="https://docs.google.com/document/d/1HWqzSM5FYm67-M7I3Vq2N0b1qSE9uJv0BrugN6llVoU/edit">アジェンダ</a>準備／講師登壇の確認</td><td>吉末</td></tr>
+<tr><td>水・土 21:00〜</td><td>解説ウェビナー開催（講師が解説＋質疑応答・リアルタイム質問可）</td><td>吉末・講師</td></tr>
+<tr><td>終了後</td><td>アーカイブ（録画）を全員へ共有 → LMSへ格納</td><td>吉末</td></tr>
+<tr><td>終了後</td><td>参加後<a href="https://forms.gle/NBv8bMVQUwJ7L2KdA">アンケート</a>の案内・回収</td><td>吉末・各MG</td></tr>
+</tbody></table></div>
+<div class="call info">全額返金条件：解説ウェビナー<b>月4回以上参加</b>＋参加回アンケートの期限内提出（第7章）。卒業後はウェビナー参加不可。</div>
+<h3>交流会 運用</h3>
+<p style="font-size:12px">責任者：吉末。固定ZOOMで開催し、終了後に<a href="https://forms.gle/TqkEwfkd68EffcvVA" target="_blank">交流会後アンケート</a>を回収。受講生同士の交流でモチベ維持・帰属意識を高める。お題チャレンジ等のイベントは青嶋・網島が企画・実行。</p>
+</div></details>
+
+<details class="sec"><summary><span class="n">6</span>継続タスク・MG運用（90日）</summary><div class="body">
+<h3>3ヶ月間 継続タスク</h3><div class="tw"><table><thead><tr><th>#</th><th>タスク</th><th>内容</th><th>担当</th></tr></thead><tbody>
+<tr><td>1</td><td>カリキュラム受講</td><td>Phase0〜4・WB進捗管理・倍速推奨</td><td>受講生/MG</td></tr>
+<tr><td>2</td><td>講師FB</td><td>各Phase課題後FB・卒業後不可のため在学中に完結</td><td>講師</td></tr>
+<tr><td>3</td><td>リファレンス収集</td><td>Discord直接投稿（7/1〜）・MG2〜3回説明</td><td>受講生→MG</td></tr>
+<tr><td>4</td><td>MG毎日メッセージ</td><td>90日間毎日・最終的に自動化</td><td>担当MG</td></tr>
+<tr><td>5</td><td>週次報告</td><td>①Phase進捗②ネック③目標対比④来週取組⑤3ヶ月後ビジョン</td><td>担当MG</td></tr></tbody></table></div>
+<div class="call warn"><span class="t">入会初週の手厚フォロー</span>1週間目の満足度が低い傾向。初週は毎日アプローチし「何をすれば良いか分からない」をゼロに。</div>
+<h3>MG週次報告ルール</h3><p style="font-size:12px">MG定例の前に週1回。項目=生徒数/アクティブ数/懸念生徒(無反応・体調不良)/アンケート回収。アクティブ=受講が少しでも進んでいること。</p>
+<h3>MG 通常タスク（週次サイクル）</h3><div class="tw"><table><thead><tr><th>頻度</th><th>通常タスク</th></tr></thead><tbody>
+<tr><td>毎日</td><td>担当クラスの進捗確認（WisdomBase）・Discord確認／進捗が止まった生徒への声かけ／Discord日報投稿／90日間の毎日メッセージ送信</td></tr>
+<tr><td>水曜</td><td>解説ウェビナーの告知</td></tr>
+<tr><td>木曜</td><td>生徒の進捗確認（期・組ごと：生徒数／休会／アクティブ／ノンアクティブ／アンケート回収状況／懸念生徒の把握）</td></tr>
+<tr><td>金曜</td><td>20:00 マネージャーMTG（週次報告を提出）</td></tr>
+<tr><td>土曜</td><td>解説ウェビナーの告知</td></tr>
+<tr><td>随時</td><td>1on1面談（計3回）／クラス会の運営／質問対応（10・15・20時）</td></tr>
+</tbody></table></div>
+<p style="font-size:12px;color:var(--sub)">※ノンアクティブ＝クラス交流場にコメント/リアクションなし・講義視聴なし・ウェビナー不参加。</p>
+<h3>CS 通常タスク</h3><div class="tw"><table><thead><tr><th>区分</th><th>頻度</th><th>通常タスク</th></tr></thead><tbody>
+<tr><td>入学前（小林）</td><td>毎週水曜</td><td>MG・クラス決定／受講開始予定者をCSへ共有／担当MGへ引き継ぎ／エルメ登録確認</td></tr>
+<tr><td>入学前（小林）</td><td>金〜土</td><td>LMSアカウント発行／開講案内の送付</td></tr>
+<tr><td>入学前（小林・田中）</td><td>随時</td><td>入学ガイダンスの日程<b>案内送付</b>（当日の司会運営は担当MG持ち回り）</td></tr>
+<tr><td>入学後（合澤）</td><td>随時</td><td>受講生LINE（エルメ）対応／返金・解約・休学の一次対応と取次</td></tr>
+<tr><td>入学後（合澤）</td><td>毎週月曜</td><td>契約書の追加・管理</td></tr>
+<tr><td>CS共通</td><td>毎シフト</td><td>シフト引き継ぎフォームの提出（特記なしでも必須）</td></tr>
+</tbody></table></div>
+<h3>⚠️ 懸念事項・方針</h3><div class="tw"><table><thead><tr><th>項目</th><th>内容</th></tr></thead><tbody>
+<tr><td>1on1時間不足</td><td>5人→週2.5h／10人→週5h</td></tr><tr><td>ネガティブキャンペーン</td><td>クラス制での発生リスク</td></tr>
+<tr><td>コミュニティルール</td><td>策定が必要（TODO）</td></tr><tr><td>全額返金方針</td><td>成果未達成のみ対象／こじれたら森本・杉山</td></tr></tbody></table></div>
+</div></details>
+
+<details class="sec"><summary><span class="n">7</span>特別対応（返金・解約・休学）</summary><div class="body">
+<div class="call dang"><span class="t">★最重要</span>金銭判断はすべて運営。MGは受付と取次まで。金額・可否を自己判断しない。</div>
+<h3>入口判定</h3><div class="tw"><table><thead><tr><th>条件</th><th>ルート</th></tr></thead><tbody>
+<tr><td>契約書受領から8日以内</td><td>→クーリングオフ</td></tr><tr><td>入会1ヶ月以内で全額返金条件を狙える</td><td>→全額返金</td></tr>
+<tr><td>それ以外</td><td>→中途解約</td></tr></tbody></table></div>
+<h3>💴 1ヶ月以内 全額返金フロー</h3>
+<div class="call warn"><span class="t">申請期限が短い</span>入会1ヶ月経過の翌日から3日以内。気づいたら即カレンダー化。</div>
+<div class="tw"><table><thead><tr><th>Step</th><th>内容</th><th>担当</th></tr></thead><tbody>
+<tr><td>1</td><td>返金希望の申し出（1ヶ月以内のみ）</td><td>クラスMG/CS</td></tr>
+<tr><td>2</td><td>課題提出状況を確認（成果未達成か）</td><td>クラスMG</td></tr>
+<tr><td>分岐</td><td>✅未達成→返金可 ／ ❌達成→返金不可（丁寧に説明）</td><td>—</td></tr>
+<tr><td>3</td><td>返金フォーム送付（可能な方のみ）</td><td>CS/MG</td></tr>
+<tr><td>4</td><td>フォーム記載・提出</td><td>受講生</td></tr>
+<tr><td>5</td><td>返金手続き実行（こじれたら森本・杉山）</td><td>CS/森本</td></tr></tbody></table></div>
+<h4>全額返金の達成条件（現行・契約書 第3条6項／全7条件）</h4>
+<p style="font-size:12px"><b>前提：</b>入会から1か月の間に下記<b>すべて</b>を満たしたうえで、入会起算日から1か月経過日の翌日から起算し<b>3日以内</b>に当社所定の方法で申請し、当社の承認を得た場合に限り全額返金。</p>
+<div class="tw"><table><thead><tr><th>#</th><th>条件</th><th>詳細</th></tr></thead><tbody>
+<tr><td>(1)</td><td>2か月目以降のサービス利用停止</td><td>返金申請後〜承認後まで、2か月目以降に該当する一切のサービス（講義・質疑応答・イベント参加・コミュニティ参加等）を受けない。1回でも受けたら対象外。</td></tr>
+<tr><td>(2)</td><td>SNS投稿 15本以上</td><td>入会日から1か月、協議で定めたSNS（X／Instagram／TikTok）に要件を満たす動画を15本以上投稿。(a)指示外・再投稿は不算入 (b)削除分は不算入 (c)講師添削を経ない/反映しない動画は不算入 (d)ハッシュタグ「#CREATORZZ」なしは不算入 (e)同一動画の複数媒体投稿は1本として算入。</td></tr>
+<tr><td>(3)</td><td>カリキュラム履修＋課題提出率90%以上</td><td>入会1か月以内に全カリキュラム履修＋提出率90%以上（小数点切り捨て）。(a)講師・MGのFBを受けたら再提出 (b)合格判定のみ提出済に算入 (c)再提出は1課題最大2回 (d)1営業日に集中提出等でFB困難なものは提出済扱いにしない場合あり。</td></tr>
+<tr><td>(4)</td><td>解説ウェビナー 月4回以上参加</td><td>月4回以上参加し、参加回のアンケートをすべて期限内に提出。</td></tr>
+<tr><td>(5)</td><td>リファレンス収集 週5回以上</td><td>指定のリファレンス収集課題（優れた作品・事例を選定理由付きで提出）を、入会起算日から1か月間、週5回以上提出。</td></tr>
+<tr><td>(6)</td><td>満足度アンケート 全提出</td><td>初回・入学時・入学1週間後・入学1か月後アンケートをすべて期限内に提出（解説ウェビナー等 任意参加イベント紐づきは除く）。</td></tr>
+<tr><td>(7)</td><td>案件受注・コンペ参加なし</td><td>入会期間中に当社（CREATOR'ZZ事務局）から案件を受注、または賞金付きコンペに参加した場合は対象外。</td></tr>
+</tbody></table></div>
+<p style="font-size:12px;color:var(--sub)">※可否判断・承認は運営（森本・杉山）。MGは「達成／未達」を自分で断定しない。</p>
+<h3>⏸ 休学フロー</h3><div class="tw"><table><thead><tr><th>Step</th><th>内容</th><th>担当</th></tr></thead><tbody>
+<tr><td>1</td><td>休学希望の申し出（体調・家庭・仕事）</td><td>クラスMG/CS</td></tr>
+<tr><td>2</td><td>休学フォーム送付</td><td>CS/MG</td></tr>
+<tr><td>3</td><td>理由・希望期間を記載提出</td><td>受講生</td></tr>
+<tr><td>4</td><td>ウェビナー・1on1一時停止／復学時に再案内</td><td>CS/MG</td></tr></tbody></table></div>
+<p style="font-size:12px">[緑]休学タグ／<a href="https://forms.gle/xU7kNFpCQpq1jz7R8">休学フォーム</a>（最大1.5ヶ月）</p>
+<h3>中途解約</h3><p style="font-size:12px">返金対象額=¥50,000×契約残月数／手数料=min(5万円, 月額×残月×20%)。計算例(残2ヶ月):返金10万-手数料2万=<b>実返金8万円</b>。金額算出は運営/CS。</p>
+</div></details>
+
+<details class="sec"><summary><span class="n">8</span>卒業フェーズ</summary><div class="body">
+<h3>修了判定・通知</h3><p style="font-size:12px">①最終成果物に講師OK →②担当MGが修了通知発行 →③運営に報告 →④シート「卒業」に更新 →⑤既存タグ全削除→「卒業」タグ</p>
+<h3>卒業後</h3><div class="tw"><table><tbody>
+<tr><td>Discord</td><td>卒業生チャンネルへ招待（案件情報で帰属意識維持）</td></tr>
+<tr><td>カリキュラム動画</td><td>卒業後は閲覧不可（在学中にノート取り推奨）</td></tr>
+<tr><td>ウェビナー・質問</td><td>卒業後は参加・質問不可</td></tr>
+<tr><td>2年目プラン</td><td>アーカイブ視聴あり（ウェビナー不可）</td></tr></tbody></table></div>
+<div class="call info">卒業後は質問不可 → <b>3ヶ月でやり切る意識</b>を在学中に醸成。</div>
+</div></details>
+
+<details class="sec ref"><summary><span class="n">9</span>生徒紹介キャンペーン</summary><div class="body">
+<p style="font-size:14px;color:#cfe0ff;margin:0 0 4px">あなたの周りに、<b style="color:var(--cyan)">AI動画を知らないだけで人生損してる人</b>いませんか？</p>
+<div class="big">双方に 10万円 キャッシュバック!!<small>紹介した方にも・紹介された方にも 10万円</small></div>
+<h3>ご紹介いただきたい方</h3>
+<ul style="font-size:13px">
+<li>AI動画を仕事にしたい</li>
+<li>副業で月5〜30万円を目指したい</li>
+<li>動画編集からAI動画へ移行したい</li>
+<li>AIを武器に市場価値を上げたい</li>
+</ul>
+<div class="call info" style="background:rgba(55,200,255,.1);border-color:rgba(55,200,255,.3);color:#dbeeff"><span class="t" style="color:var(--cyan)">ご紹介のお願い</span>キャッシュバック目的ではなく「<b>この人なら本気で挑戦しそう</b>」という方だけをご紹介ください。</div>
+<h3>紹介後の流れ</h3>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin:12px 0">
+<div style="flex:1 1 88px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:10px 8px;text-align:center"><div style="color:#37c8ff;font-weight:800;font-size:11px">01</div><div style="font-size:11.5px;font-weight:700">紹介フォーム送信</div></div>
+<div style="flex:1 1 88px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:10px 8px;text-align:center"><div style="color:#37c8ff;font-weight:800;font-size:11px">02</div><div style="font-size:11.5px;font-weight:700">無料相談</div></div>
+<div style="flex:1 1 88px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:10px 8px;text-align:center"><div style="color:#37c8ff;font-weight:800;font-size:11px">03</div><div style="font-size:11.5px;font-weight:700">入学</div></div>
+<div style="flex:1 1 88px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:10px 8px;text-align:center"><div style="color:#37c8ff;font-weight:800;font-size:11px">04</div><div style="font-size:11.5px;font-weight:700">3か月継続</div></div>
+<div style="flex:1 1 88px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:10px 8px;text-align:center"><div style="color:#37c8ff;font-weight:800;font-size:11px">05</div><div style="font-size:11.5px;font-weight:700">キャッシュバック受取</div></div>
+</div>
+<h3>キャッシュバック条件（2つを満たした時点で対象）</h3>
+<div class="cond">
+<div class="c"><div class="k">条件 1</div><div class="v">ご入学</div><div class="d">紹介された方がCREATOR'ZZに正式に入学すること</div></div>
+<div class="c"><div class="k">条件 2</div><div class="v">1か月後の時点で既存生徒</div><div class="d">入学から1か月後の時点で継続して在籍していること</div></div>
+</div>
+<p style="font-size:12px;color:#9fb4e6">※不正・虚偽・いたずら等の紹介は対象外。運営が不適切と判断した場合、特典の対象外となることがあります。</p>
+<h3>応募フォーム</h3>
+<p style="font-size:13px">▶ ご紹介 応募フォーム：<a href="https://forms.gle/2jSxcXtdQVbxxQEU6">https://forms.gle/2jSxcXtdQVbxxQEU6</a><br>▶ 振込先登録フォーム：<a href="https://forms.gle/kXGZRbzLQ1BSZ5TL6">forms.gle/kXGZRbzLQ1BSZ5TL6</a></p>
+</div></details>
+
+<details class="sec"><summary><span class="n">10</span>ツール・リンク集</summary><div class="body">
+<div class="call info"><span class="t">📊 業務管理シート（マスター）</span>全フォーム・テンプレ・アカウント・フローの一次情報 → <a href="https://docs.google.com/spreadsheets/d/1wiynv80l1NklBX7o1apcH17UW-h4M98axiAybYzkbvQ/edit">★【CREATOR'ZZ】業務管理シート</a></div>
+<details class="sub" open><summary>フォーム・テンプレ・リンク（業務管理シート準拠）</summary><div class="subbody">
+<div class="tw"><table><thead><tr><th>フェーズ</th><th>名称</th><th>リンク</th></tr></thead><tbody>
+<tr><td>営業・入学前</td><td>解説ウェビナー アジェンダ</td><td><a href="https://docs.google.com/document/d/1HWqzSM5FYm67-M7I3Vq2N0b1qSE9uJv0BrugN6llVoU/edit">開く</a></td></tr>
+<tr><td>営業・入学前</td><td>ウェビナー ZOOM（固定）</td><td><a href="https://us06web.zoom.us/j/88221423475?pwd=HQFpkFIJ0BSTnNaIBDLJbURS5Cz10E.1">開く</a></td></tr>
+<tr><td>営業・入学前</td><td>解説ウェビナー後アンケート</td><td><a href="https://forms.gle/NBv8bMVQUwJ7L2KdA">開く</a></td></tr>
+<tr><td>入学ガイダンス</td><td>ガイダンス台本（Canva）</td><td><a href="https://canva.link/058r9oojsc3vt1x">開く</a></td></tr>
+<tr><td>入学ガイダンス</td><td>ガイダンス使用スライド</td><td><a href="https://docs.google.com/document/d/1CkUkflbnKa8jinTfhv868gg-keEuJUYJA5ZPU8ZzKv0/edit">開く</a></td></tr>
+<tr><td>入学ガイダンス</td><td>ガイダンス ZOOM（固定）</td><td><a href="https://us06web.zoom.us/j/85305521094?pwd=MhmVicHEacRa6R3D4rj8MdAbMKhdQc.1">開く</a></td></tr>
+<tr><td>入学直後</td><td>WisdomBase（学習LMS）</td><td><a href="https://creatorzz.share-wis.com">開く</a></td></tr>
+<tr><td>入学直後</td><td>Discord（受講生サーバー）</td><td><a href="https://discord.gg/4dBcvE5z">開く</a></td></tr>
+<tr><td>入学直後</td><td>入学時アンケート（Discord）</td><td><a href="https://forms.gle/GBwnogkNT5tEFQHL7">開く</a></td></tr>
+<tr><td>入学直後</td><td>初回アンケート（エルメ）</td><td><a href="https://forms.gle/jPcovtddEt5fnmWC8">開く</a></td></tr>
+<tr><td>入学直後</td><td>1週間後アンケート</td><td><a href="https://forms.gle/F8VKUspsgPR83Pz36">開く</a></td></tr>
+<tr><td>学習中</td><td>1ヶ月後アンケート</td><td><a href="https://forms.gle/Kmi4frvihvBVxvNK6">開く</a></td></tr>
+<tr><td>学習中</td><td>2ヶ月後アンケート</td><td><a href="https://forms.gle/DzKPoJMCmyR3Jp7S8">開く</a></td></tr>
+<tr><td>学習中</td><td>交流会後アンケート</td><td><a href="https://forms.gle/TqkEwfkd68EffcvVA">開く</a></td></tr>
+<tr><td>学習中</td><td>お題チャレンジ集計シート</td><td><a href="https://docs.google.com/spreadsheets/d/16Lg5QnPVdS-8m847MILddket2FLDfTAynkuQmluoEno/edit">開く</a></td></tr>
+<tr><td>学習中</td><td>質問対応GPTs（精度未検証）</td><td><a href="https://chatgpt.com/g/g-6a30ba47a9c8819194fe384e31cb4060-creator-zzzhiwenduiying">開く</a></td></tr>
+<tr><td>リファレンス</td><td>リファレンス入力フォーム</td><td><a href="https://docs.google.com/forms/d/e/1FAIpQLSd7rI6rYMdvN1O2jQACgTP_u3mX-XTZHBmfNFuscG5H5l2AxQ/viewform">開く</a></td></tr>
+<tr><td>リファレンス</td><td>リファレンス提出集計</td><td><a href="https://docs.google.com/spreadsheets/d/16yMnMyz1IGcwGMhdssWIgz3N4EPLKiySfM2Ha41Xj6w/edit?gid=318321200#gid=318321200">開く</a></td></tr>
+<tr><td>1on1</td><td>面談格納ドライブ（録画・文字起こし保存先）</td><td><a href="https://drive.google.com/drive/folders/13C9_tTtubSR4wMXUjnYF78HPS0rKeh7j">開く</a></td></tr>
+<tr><td>コミュニティ</td><td>LINEオープンチャット「CREATOR'ZZ」</td><td><a href="https://line.me/ti/g2/Dc76yuAgd4h6SjNJ95G-pe_g_NmxbRTurTD_yg">開く</a></td></tr>
+<tr><td>公式LINE</td><td>公式LINE（運営事務局）</td><td><a href="https://lin.ee/W4UyJDf">開く</a></td></tr>
+<tr><td>卒業</td><td>卒業後アンケート</td><td><a href="https://forms.gle/xW4VyHhrBvUbaW4z6">開く</a></td></tr>
+<tr><td>例外対応</td><td>休学（休会）申請フォーム</td><td><a href="https://docs.google.com/forms/d/1_6-25-doxodLf_dlR57WzGdni01w29DYlp2rOv-29h4/edit">開く</a></td></tr>
+<tr><td>例外対応</td><td>マネージャー変更 申請フォーム</td><td><a href="https://forms.gle/hunNhr8rotRxL1xe8">開く</a></td></tr>
+</tbody></table></div>
+</div></details>
+<h3>主要ツール</h3><div class="tw"><table><tbody>
+<tr><td>生徒管理シート(Notion)</td><td><a href="https://www.notion.so/CREATOR-ZZ-335c52dbc00e80a6af74f2dccf12b3ef">開く</a></td></tr>
+<tr><td>シフト引き継ぎ</td><td><a href="https://docs.google.com/forms/d/e/1FAIpQLScEqwcLwHh2b1mLVU_cgKccmdWdHSkVCT4BtOPbKQ-lBrn1ZA/viewform">開く</a></td></tr>
+<tr><td>タイムシフト</td><td><a href="https://docs.google.com/spreadsheets/d/1nT9xpUU6h7vpof5pSpMK5yT3vNVPRpEjs8g3tBCMkig/edit">開く</a></td></tr>
+<tr><td>稼働報告(提出ないと報酬なし)</td><td><a href="https://docs.google.com/forms/d/e/1FAIpQLScqzNOgZbOz9TVCJq6YhX__XTNSiaKN5sFS1nS75AW-PZCB9Q/viewform">開く</a></td></tr>
+<tr><td>全額返金申請</td><td><a href="https://docs.google.com/forms/d/e/1FAIpQLScv--VV2rj0-PRwSeDCyQMeUHWGq6ZF6wSgPeO5HmdeBN_o4w/viewform">開く</a></td></tr>
+<tr><td>休学申請</td><td><a href="https://forms.gle/xU7kNFpCQpq1jz7R8">開く</a></td></tr>
+<tr><td>MG変更</td><td><a href="https://forms.gle/hunNhr8rotRxL1xe8">開く</a></td></tr>
+<tr><td>アンケート集計</td><td><a href="https://docs.google.com/spreadsheets/d/1i5MF5m8CXDTlagfXzIIps3CGRc9YqO6TsreAHSvSLOY/edit">開く</a></td></tr>
+<tr><td>LMS発行マニュアル(Loom)</td><td><a href="https://www.loom.com/share/01c25ecbc1894f1f8decdd118e5d5f18">開く</a></td></tr></tbody></table></div>
+<h3>エスカレーション先</h3><p style="font-size:12px">金銭・契約・返金・クレーム→運営事務局(統括:上田)／こじれた案件→森本・杉山／専門質問・添削→講師／Discord・システム→青嶋／ロール分け→小林／契約後面談→山﨑・松井・金野／カリキュラム→杉山／MG・CS統括→阿部</p>
+<h3>関連資料</h3><p style="font-size:12.5px">
+<a href="https://docs.google.com/spreadsheets/d/181kU5Q7ZBNWHB9DCeruSJqRgTZ1Nag0K4qeJGLPFN-Y/edit">入会後フロー</a>／
+<a href="https://docs.google.com/spreadsheets/d/1kkj48WQC2SnzspLH5Yc57AwptOqcwrrqvNKrSkIeT3Y/edit">学習進捗マトリクス</a>／
+<a href="https://docs.google.com/spreadsheets/d/1qS3ZRnfHlU8dKtXY-cRlLrXiN5y-pD2-VsW_DWzQ8KQ/edit">CSマニュアル(30タブ)</a>／
+<a href="https://docs.google.com/presentation/d/1ULlSxASYOGIW0ey2JTn-DAz6FuNbIPOh71xgvyrBfHw/edit">オフラインイベント</a>／
+<a href="https://docs.google.com/presentation/d/1qZH0V1bpqiymeY5gXjIozqHjEsR0UeMq4lWrH7h5Lnw/edit">マネタイズチャレンジ</a>／
+<a href="https://docs.google.com/presentation/d/1Gsom0n12CSzzBY9PO9n47d6SsyVQXcQZOHSbJy29oFk/edit">ウェビナー・交流会</a></p>
+</div></details>
+
+<details class="sec" id="s11ai"><summary><span class="n" style="background:#10a37f">🤖</span>AIアシスタント（質問対応）</summary><div class="body">
+<div class="sec-sub">わからないことは、まずここで質問。右下の 💬 ボタンから本マニュアル内蔵のFAQボットにも聞けます。</div>
+<div class="call info"><span class="t">CREATOR'ZZ 質問対応GPT</span>ナレッジを反映したAIに直接質問できます（ChatGPT／別タブで開きます）。<br><a href="https://chatgpt.com/g/g-6a30ba47a9c8819194fe384e31cb4060-creator-zzzhi-wen-dui-ying" style="display:inline-block;margin-top:8px;background:#10a37f;color:#fff;padding:9px 16px;border-radius:9px;font-weight:700">▶ 質問対応GPTを開く</a></div>
+<p style="font-size:12px;color:var(--sub)">※ChatGPTのGPTsはページ内に直接埋め込め（iframe表示でき）ないため、リンクで開く形にしています。オフラインでも使える<b>内蔵FAQボット（💬 右下）</b>を併設しました。</p>
+<p style="font-size:12.5px">💬 右下のチャットボタンから、返金・休学・1on1・ウェビナー・禁止事項・フォーム等をその場で回答します。回答しきれない質問は上記GPTへ誘導します。</p>
+</div></details>
+<details class="sec" id="s11"><summary><span class="n" style="background:#06c755">📝</span>メッセージ・テンプレート集</summary><div class="body">
+<div class="sec-sub">クラス交流場でMGが送る定型文。各項目をタップで開いてコピー。（LINE公式ステップ配信の全文テンプレは第2章に格納）</div>
+<details class="sub"><summary>① クラス初回あいさつ（入学ガイダンス前・交流場に貼付）</summary><div class="subbody"><div class="tmpl">皆さん、こんにちは！そしてはじめまして😊
+クラス全員が揃いました✨ 皆さんの担当マネージャーの○○です！
+これから3ヶ月、目標達成に向けて全力でサポートします。技術を直接お教えする立場ではありませんが、モチベーションを支える“伴走者”として一緒に走らせてください！
+
+さっそく、まずはお互いを知るところから。ぜひ自己紹介をお願いします👇
+【自己紹介】
+・お名前（ニックネームOK！）
+・お住まいの地域
+・好きなもの／ハマっていること
+気軽にどうぞ！お一人ずつ、私も順番に返信していきます✨</div></div></details>
+<details class="sub"><summary>② 1on1面談の案内（2日目）</summary><div class="subbody"><div class="tmpl">【初回1on1のご案内🎥】
+担当マネージャーとの1on1面談を行います！この先3ヶ月をしっかり伴走するための、最初の“作戦会議”のような時間です。困っていること・聞きたいことは何でも話してください😊
+▼下記URLから日程調整をお願いします👇
+（Timerex等の日程調整URL）
+・所要：お一人30分ほど
+・空いている候補をいくつか選ぶだけでOK
+・確定日程は後ほどお知らせします
+調整が終わったら、このメッセージに「👍」を押してください！</div></div></details>
+<details class="sub"><summary>③ 提出物・リファレンスの周知（2日目）</summary><div class="subbody"><div class="tmpl">おはようございます！提出物のやり方をまとめました😊 Discordがまだ不安な方も、まずはこれだけできていればOKです！
+【提出物】
+① 受講サイトの「Googleフォームからワーク」を提出
+② Discord「ワーク課題提出はこちら」からPhase最終ワークを提出 → FBを受けて再提出まで
+③ Discord「リファレンス提出」に1日1本（最低でも週5回以上）
+　※リファレンス週5回以上は全額返金制度の対象条件です。習慣化しておきましょう！
+つまずいたら、いつでも質問チャンネルへ！一緒に進めましょう💪</div></div></details>
+<details class="sub"><summary>④ オープンチャット参加の案内（3日目）</summary><div class="subbody"><div class="tmpl">【全員参加のお願い🙏】
+大事な情報はCREATOR'ZZのLINEオープンチャットで配信します。下記から必ずご参加ください！
+※お名前は匿名でOKです。
+▼ https://line.me/ti/g2/Dc76yuAgd4h6SjNJ95G-pe_g_NmxbRTurTD_yg</div></div></details>
+<details class="sub"><summary>⑤ 解説ウェビナーの案内（4日目）</summary><div class="subbody"><div class="tmpl">【解説ウェビナー、今日からスタート📺】
+毎週 水・土 21:00〜、講師の解説ウェビナーを開催します！
+アーカイブも残りますが、講師に直接質問できるのは“この生放送だけ”。知識を一気に吸収できる貴重な場です。ぜひリアルタイムで参加を✨
+（※全額返金制度をめざす方は、月4回以上の参加が条件です）</div></div></details>
+<details class="sub"><summary>⑥ フルネーム変更＋毎日進捗報告の依頼（5日目）</summary><div class="subbody"><div class="tmpl">【2点、お願いです😊】
+① お名前をまだフルネームに変更していない方は、変更をお願いします！
+② 明日から【毎日の進捗報告】をこの交流場でスタートします！
+　お互いの進捗が見えると刺激になりますし、私（MG）も手が止まっている方にすぐ声をかけられます。
+　▶ 担当マネージャーにメンションを付けて、毎日23時までに報告（夜間作業の方は作業後でOK）
+　▶ 毎日が難しい方も、週1回は必ず報告を！
+　🔥 目標は「2週間で1Phase」！
+【報告フォーマット】
+・今日の進捗：例）Phase2-1
+・うまくいったこと／つまづいたこと
+・リファレンスだけの報告も大歓迎！</div></div></details>
+<details class="sub"><summary>⑦ 1週間後アンケート・クラス会の案内（7日目）</summary><div class="subbody"><div class="tmpl">入学から1週間、おつかれさまです🎉 ここまでの状況を教えてください👇
+▼ 1週間後アンケート（URL）
+（※全額返金制度の対象アンケートです。期限内のご回答を！）
+
+そして…クラス会を開催します🎉
+📅【○/○（○）○○:○○〜】
+同期のみんなと話せる場です。ぜひ気軽にご参加ください！</div></div></details>
+<details class="sub"><summary>⑧ 週報フォーマット（生徒が毎週提出）</summary><div class="subbody"><div class="tmpl">【今週のふりかえり（コピーしてご記入ください）】
+① 今週の学習：Phase〇 学習中／ワーク〇個 完了！
+② うまく進まなかったときは、ネックを教えてください（時間・内容・モチベなど）
+③ 入学時の目標と比べて、今どのあたり？
+④ 来週できそうなことは？
+⑤ 3ヶ月後にどうなっていたい？（今の気持ちでOK）
+無理なく、思ったままで大丈夫です😊</div></div></details>
+</div></details>
+<footer>CREATOR'ZZ 業務運用マニュアル ｜ v5.1（2026年7月）｜ 金銭・契約の最終判断は運営／MG・CSは受付と取次まで</footer>
+</div>
+<script>
+function toggleAll(){var o=!window._a;window._a=o;document.querySelectorAll('details.sec').forEach(function(d){d.open=o});}
+function jumpTo(id){if(!id)return;var el=document.getElementById(id);if(el){el.open=true;el.scrollIntoView({behavior:'smooth',block:'start'});}}
+function doSearch(q){q=(q||'').trim();var n=0;window._secs.forEach(function(d){if(!q){d.classList.remove('nomatch');return;}var hit=d.textContent.toLowerCase().indexOf(q.toLowerCase())>=0;if(hit){d.classList.remove('nomatch');d.open=true;n++;}else{d.classList.add('nomatch');}});window._cnt.textContent=q?(n+'章 ヒット'):'';}
+function _fb(txt,ok){var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy');ok();}catch(e){}document.body.removeChild(ta);}
+function _copy(txt,btn){var ok=function(){btn.textContent='✓ コピー';btn.classList.add('done');setTimeout(function(){btn.textContent='コピー';btn.classList.remove('done');},1500);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok).catch(function(){_fb(txt,ok);});}else{_fb(txt,ok);}}
+(function(){
+var secs=[].slice.call(document.querySelectorAll('details.sec'));
+var jump=document.getElementById('jump');
+secs.forEach(function(d,i){
+if(!d.id)d.id='sec'+i;
+var t=((d.querySelector('summary')||{}).textContent||'').replace(/[▾＋－]/g,'').trim();
+var cat='';
+if(/契約|入学手続き/.test(t))cat='contract';
+else if(/返金|解約|休学|特別対応/.test(t))cat='money';
+else if(/卒業/.test(t))cat='grad';
+else if(/テンプレ/.test(t))cat='tmpl';
+else if(/ガイダンス|1on1|フォロー|継続|ツール/.test(t))cat='ops';
+if(cat)d.setAttribute('data-cat',cat);
+var o=document.createElement('option');o.value=d.id;o.textContent=t;jump.appendChild(o);
+});
+[].slice.call(document.querySelectorAll('.tmpl')).forEach(function(t){
+var original=t.innerText;
+var b=document.createElement('button');b.className='copybtn';b.textContent='コピー';
+b.onclick=function(e){e.preventDefault();_copy(original,b);};
+t.appendChild(b);
+});
+var bt=document.createElement('button');bt.className='backtop';bt.textContent='↑';bt.title='トップへ';
+bt.onclick=function(){window.scrollTo({top:0,behavior:'smooth'});};
+document.body.appendChild(bt);
+window.addEventListener('scroll',function(){if(window.scrollY>400)bt.classList.add('show');else bt.classList.remove('show');});
+window._secs=secs;window._cnt=document.getElementById('cnt');
+})();
+</script>
+<script>
+(function(){
+var GPT='https://chatgpt.com/g/g-6a30ba47a9c8819194fe384e31cb4060-creator-zzzhi-wen-dui-ying';
+var KB=[
+{k:['返金','解約','やめ','退会','クーリング','クーオフ'],a:'金銭・契約・返金・解約の<b>最終判断は運営（森本・杉山）</b>。MG/CSは受付と取次まで。入口判定：①契約書受領8日以内→クーリングオフ ②入会1か月以内で条件を狙える→全額返金 ③それ以外→中途解約。受付したら即運営へ引き継ぎ、受講生には受付の旨だけ返信。（第7章）'},
+{k:['休学','休会'],a:'休学は体調・家庭・仕事など事情がある場合に対応。[緑]休学タグに変更し<a href="https://forms.gle/xU7kNFpCQpq1jz7R8" target="_blank">休学フォーム</a>を送付。期間中はウェビナー・1on1を一時停止（最大1.5ヶ月）、復学時に再案内。（第7章）'},
+{k:['1on1','面談','タイムレックス','timerex','サークルバック'],a:'1on1は<b>計3回</b>（初回=ガイダンスから1週間以内・必須／2〜3週目／1ヶ月後）。Timerexにカレンダー連携、予約に<b>サークルバック・infoを招待必須</b>。実施後は録画・文字起こし・<a href="https://drive.google.com/drive/folders/13C9_tTtubSR4wMXUjnYF78HPS0rKeh7j" target="_blank">面談格納ドライブ</a>保存・シート更新。（第4章）'},
+{k:['ウェビナー','解説'],a:'解説ウェビナーは<b>水・土 21:00〜</b>（責任者：吉末）。MGは水・土に告知、終了後アーカイブをLMS格納＋アンケート回収。全額返金条件は月4回以上参加＋アンケート提出。（第5章）'},
+{k:['禁止','注意','やってはいけない','ダメ','ルール'],a:'主な禁止事項：金額・可否の自己判断／クーリングオフ引き止め／Discordの独断警告・退会／クレームの独自交渉／受講開始日の先約束／記録の放置・無記録／権限拡大・情報持ち出し。詳細は「運用ルール（禁止事項・注意事項）」章。'},
+{k:['リファレンス'],a:'リファレンスは<b>Discordへ直接投稿</b>（2026/7/1〜旧方式）。全額返金条件は入会から1か月・週5回以上。MGが2〜3回説明してから完全移行。'},
+{k:['進捗','週報','報告','mtg'],a:'MGは金曜20:00 MTG前に週次報告（①Phase進捗②ネック③目標対比④来週取組⑤3ヶ月後ビジョン＋生徒数/アクティブ/懸念/回収）。生徒は毎日23時までに進捗報告（最低週1回）。（第6章）'},
+{k:['ガイダンス','入学式'],a:'入学ガイダンスは<b>毎週日曜21:00〜</b>（担当MG持ち回り・もう1名待機）。Zoom自動録画ON、Discord参加・WisdomBaseログイン確認、終了後アーカイブ共有。欠席者はMGが個別フォロー。（第3章）'},
+{k:['表示名','タグ','line','名前'],a:'LINE表示名：個人=氏名（卒業日）、法人代表=法人代表・氏名（卒業日）、休学中=[緑]休学/氏名、卒業後=既存タグ全削除→「卒業」。MGタグ4項目（マネ/講師/状態/入学月）。'},
+{k:['クレーム','不適切','炎上'],a:'クレームは<b>即運営へ引き継ぐ</b>（独自交渉・解決はしない）。Discordの不適切投稿はスクショ→運営報告、独断で警告・退会措置は禁止。'},
+{k:['アクティブ','ノンアクティブ'],a:'アクティブ＝受講が少しでも進んでいること（MG関与の有無は問わない）。ノンアクティブ＝交流場にコメント/リアクションなし・講義視聴なし・ウェビナー不参加。'},
+{k:['全額返金','条件'],a:'全額返金は7条件をすべて満たし、1か月経過翌日から3日以内に申請＋承認：①2か月目以降サービス停止②SNS15本以上③カリキュラム履修＋提出率90%④ウェビナー月4回⑤リファレンス週5回⑥満足度アンケート全提出⑦案件受注・コンペ参加なし。（第7章）'},
+{k:['契約後面談','信販'],a:'契約後面談は山﨑・松井・金野の3名ローテ。信販否決はクーリングオフ対応→営業へエスカレ。※契約後面談で1on1日程調整はしない（ガイダンスまでにDiscordで）。'},
+{k:['フォーム','url','リンク','アンケート','ツール'],a:'各種フォーム・ZOOM・シートは第10章「ツール・リンク集」に集約（業務管理シート準拠）。マスター：<a href="https://docs.google.com/spreadsheets/d/1wiynv80l1NklBX7o1apcH17UW-h4M98axiAybYzkbvQ/edit" target="_blank">業務管理シート</a>。'},
+{k:['テンプレ','文面','メッセージ','あいさつ','コピー'],a:'定型文は第11章「メッセージ・テンプレート集」、LINE公式ステップ配信は第2章。各テンプレはコピーボタンでコピーできます。'},
+{k:['卒業','修了'],a:'修了は最終成果物に講師OK→MGが修了通知→運営報告→シート「卒業」更新→タグ「卒業」。卒業後はカリキュラム動画・質問・ウェビナー不可（在学中に3ヶ月でやり切る意識を醸成）。（第8章）'},
+{k:['紹介','キャンペーン','キャッシュバック'],a:'生徒紹介キャンペーン：紹介者・入学者<b>双方に10万円</b>。条件=①正式入学②入学1か月後に既存生徒。<a href="https://forms.gle/2jSxcXtdQVbxxQEU6" target="_blank">応募フォーム</a>。（第9章）'}
+];
+var btn=document.createElement('button');btn.className='cbtn';btn.innerHTML='💬 質問する';
+var panel=document.createElement('div');panel.className='cpanel';
+panel.innerHTML='<div class="chead">🤖 CREATOR\'ZZ アシスタント<small>内蔵FAQ</small><span class="x">×</span></div><div class="cbody" id="cbody"></div><div class="cfoot"><input id="cin" placeholder="質問を入力（例：返金の対応は？）"><button id="csend">送信</button></div>';
+document.body.appendChild(btn);document.body.appendChild(panel);
+var body=panel.querySelector('#cbody');var input=panel.querySelector('#cin');
+function add(html,cls){var m=document.createElement('div');m.className='cmsg '+cls;m.innerHTML=html;body.appendChild(m);body.scrollTop=body.scrollHeight;}
+function chips(){var c=document.createElement('div');c.className='cchips';['返金対応','休学','1on1','ウェビナー','禁止事項','フォーム'].forEach(function(q){var s=document.createElement('span');s.className='cchip';s.textContent=q;s.onclick=function(){ask(q);};c.appendChild(s);});body.appendChild(c);}
+function answer(q){var lq=(q||'').toLowerCase();var best=null,bs=0;KB.forEach(function(e){var s=0;e.k.forEach(function(k){if(lq.indexOf(k.toLowerCase())>=0)s++;});if(s>bs){bs=s;best=e;}});if(best&&bs>0)return best.a;return 'ぴったりの回答が見つかりませんでした。より詳しくは AI「CREATOR\'ZZ質問対応」へ → <a href="'+GPT+'" target="_blank">開く</a>。または上部の🔎検索もお試しください。';}
+function ask(q){q=(q||'').trim();if(!q)return;add(q.replace(/</g,"&lt;"),'me');setTimeout(function(){add(answer(q),'bot');},160);}
+btn.onclick=function(){panel.classList.add('open');btn.style.display='none';if(!body.dataset.init){body.dataset.init='1';add('こんにちは！CREATOR\'ZZの運用について質問にお答えします（内蔵FAQ）。下のボタンを押すか、質問を入力してください。','bot');chips();}};
+panel.querySelector('.x').onclick=function(){panel.classList.remove('open');btn.style.display='';};
+panel.querySelector('#csend').onclick=function(){ask(input.value);input.value='';};
+input.addEventListener('keydown',function(e){if(e.key==='Enter'){ask(input.value);input.value='';}});
+})();
+</script>
+</body></html>

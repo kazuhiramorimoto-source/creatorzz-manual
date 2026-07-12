@@ -807,7 +807,7 @@ https://us06web.zoom.us/j/85305521094?pwd=MhmVicHEacRa6R3D4rj8MdAbMKhdQc.1
 </div></details>
 
 <details class="sec" id="dashSec"><summary><span class="n" style="background:#1f8a54">📊</span>満足度・アンケート回収ダッシュボード（定例用）</summary><div class="body">
-<div class="call info"><span class="t">データ元＝<a href="https://docs.google.com/spreadsheets/d/1PqHyNOwCHStvwBG2vtQZkTGU6DKBv_UitPu24vtRBgs/edit?usp=sharing" target="_blank">生徒管理シート</a></span>下記は <b>2026/07/12 時点のスナップショット（手入力）</b>。最新化したいときは、シートの数値を伝えてください（すぐ差し替えます）。※シート非公開のため自動連携は未接続。</div>
+<div class="call info"><span class="t">自動連携（ウェブ公開シート）</span>データ元＝<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vT81sevp8edBz8n_zPlxznkCbgWU2MoeA83QfkWRojUM6eqVhoRNScxU-bVpqU7T5lrNh7g6HqV1SvH/pubhtml" target="_blank">回収率・満足度（クラス×フェーズ）</a>／<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQE6noKW0RfF24rUb82edVcc7Dcn3pUi-REg7x-jlkpkX24efWj63eUGkV4uWnithruWjd5msarOO1U/pubhtml" target="_blank">MG別 項目別満足度</a>。<b>シートを更新すれば自動反映</b>されます。</div>
 <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0">
 <input id="mgSearch" type="search" placeholder="🔎 マネージャー名で個人表示（例：合澤／空欄で全員）" oninput="dashFilter(this.value)" style="flex:1 1 240px;border:1px solid #d6e2fb;border-radius:9px;padding:8px 12px;font-size:13px">
 <span id="mgHint" style="font-size:11.5px;color:var(--sub)"></span>
@@ -817,58 +817,74 @@ https://us06web.zoom.us/j/85305521094?pwd=MhmVicHEacRa6R3D4rj8MdAbMKhdQc.1
 <div style="overflow-x:auto"><div style="min-width:660px;height:330px"><canvas id="chartKaishu"></canvas></div></div>
 <h3>😊 満足度 平均スコア（マネージャー×フェーズ）</h3>
 <div style="overflow-x:auto"><div style="min-width:660px;height:330px"><canvas id="chartManzoku"></canvas></div></div>
+<h3>🧩 MG別 項目別満足度</h3>
+<div id="mgItemTable" style="overflow-x:auto;font-size:12.5px;color:var(--sub)">開くと表示します。</div>
 <h3>🚨 要フォロー（自動抽出）</h3>
 <div id="followupList" style="font-size:12.5px;color:var(--sub)">開くと自動表示します（回収率50%未満／満足度2.5未満を抽出）。</div>
-<p style="font-size:11.5px;color:var(--sub)">※回収率＝「回収数/対象数」の％。満足度＝平均スコア（3点満点想定）。空欄は対象なし/未実施。グラフ表示にはネット接続が必要です。</p>
+<details class="sub"><summary>クラス別 詳細（回収率・満足度）</summary><div class="subbody"><div id="mgClassDetail" style="overflow-x:auto;font-size:12px">開くと表示します。</div></div></details>
+<p style="font-size:11.5px;color:var(--sub)">※回収率＝回収数/対象数の％（MG単位で合算）。満足度＝各クラス平均のさらに平均。データはウェブ公開シートから自動取得（ネット接続が必要）。</p>
 </div></details>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <script>
-var DASH={ready:false};
+var DASH={ready:false,loaded:false};
 (function(){
  var sec=document.getElementById('dashSec'); if(!sec)return;
- DASH.mgs=['上枝','合澤','堂庭','川﨑','松井','清水','阿部'];
- DASH.phK=['初回','入学時','1週間後','1ヶ月後','2ヶ月後'];
- DASH.kaishu={'上枝':[100,100,100,91,0],'合澤':[88,56,50,56,67],'堂庭':[50,0,0,null,null],'川﨑':[100,50,0,null,null],'松井':[93,86,64,0,null],'清水':[83,0,0,0,0],'阿部':[94,61,39,72,null]};
+ var URLB='https://docs.google.com/spreadsheets/d/e/2PACX-1vT81sevp8edBz8n_zPlxznkCbgWU2MoeA83QfkWRojUM6eqVhoRNScxU-bVpqU7T5lrNh7g6HqV1SvH/pub?output=csv';
+ var URLA='https://docs.google.com/spreadsheets/d/e/2PACX-1vQE6noKW0RfF24rUb82edVcc7Dcn3pUi-REg7x-jlkpkX24efWj63eUGkV4uWnithruWjd5msarOO1U/pub?output=csv';
+ var colors=['#1b6ef3','#37c8ff','#f5c542'];
  DASH.phM=['1週間後','1ヶ月後','2ヶ月後'];
- DASH.manzoku={'上枝':[2.82,2.71,null],'合澤':[2.94,2.99,2.5],'堂庭':[3.26,null,null],'川﨑':[2.33,null,null],'松井':[3.1,null,null],'清水':[2.75,2.94,2.68],'阿部':[2.87,2.97,null]};
- var colors=['#1b6ef3','#37c8ff','#f5c542','#1f8a54','#c0392b'];
- DASH.ds=function(list,phs,data){return phs.map(function(p,i){return {label:p,backgroundColor:colors[i%colors.length],data:list.map(function(m){return data[m][i];})};});};
- function render(){
-  if(DASH.ready||typeof Chart==='undefined')return; DASH.ready=true;
-  DASH.ch1=new Chart(document.getElementById('chartKaishu'),{type:'bar',data:{labels:DASH.mgs,datasets:DASH.ds(DASH.mgs,DASH.phK,DASH.kaishu)},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true,max:100,title:{display:true,text:'回収率(%)'}}},plugins:{legend:{position:'top'}}}});
-  DASH.ch2=new Chart(document.getElementById('chartManzoku'),{type:'bar',data:{labels:DASH.mgs,datasets:DASH.ds(DASH.mgs,DASH.phM,DASH.manzoku)},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true,max:3,title:{display:true,text:'満足度(平均)'}}},plugins:{legend:{position:'top'}}}});
-  renderFollowup();
- }
- function renderFollowup(){
-  var items=[];
-  function tag(m,p,txt){return '<span style="display:inline-block;background:var(--redb);border:1px solid #f3c2bb;color:#7a241a;border-radius:7px;padding:4px 10px;margin:3px;font-size:12px"><b>'+m+'</b>／'+p+'　'+txt+'</span>';}
-  DASH.mgs.forEach(function(m){
-   DASH.phK.forEach(function(p,i){var v=DASH.kaishu[m][i];if(v!=null&&v<50)items.push(tag(m,p,'回収率 '+v+'%'));});
-   DASH.phM.forEach(function(p,i){var v=DASH.manzoku[m][i];if(v!=null&&v<2.5)items.push(tag(m,p,'満足度 '+v));});
-  });
-  var el=document.getElementById('followupList');if(!el)return;
-  el.innerHTML=items.length?items.join(''):'<span style="color:var(--grn)">✅ 要フォローの該当なし（基準：回収率50%未満／満足度2.5未満）</span>';
- }
- DASH.render=render;
- sec.addEventListener('toggle',function(){if(sec.open)render();});
- if(sec.open)render();
+ function parseCSV(t){var rows=[],row=[],cur='',q=false;for(var i=0;i<t.length;i++){var c=t[i];if(q){if(c==='"'){if(t[i+1]==='"'){cur+='"';i++;}else q=false;}else cur+=c;}else{if(c==='"')q=true;else if(c===','){row.push(cur);cur='';}else if(c==='\n'){row.push(cur);rows.push(row);row=[];cur='';}else if(c!=='\r')cur+=c;}}if(cur!==''||row.length){row.push(cur);rows.push(row);}return rows;}
+ function num(s){if(s==null)return null;s=(''+s).replace(/[%名\s]/g,'');if(s==='')return null;var v=parseFloat(s);return isNaN(v)?null:v;}
+ function load(){if(DASH.loaded)return;DASH.loaded=true;document.getElementById('mgHint').textContent='読み込み中…';
+  Promise.all([fetch(URLB).then(function(r){return r.text();}),fetch(URLA).then(function(r){return r.text();})])
+   .then(function(res){build(parseCSV(res[0]),parseCSV(res[1]));})
+   .catch(function(e){document.getElementById('mgHint').textContent='読込失敗：'+e;DASH.loaded=false;});}
+ function build(B,A){
+  var pc=[{stu:2,ans:3,sat:5},{stu:6,ans:7,sat:9},{stu:10,ans:11,sat:13}];
+  var agg={},classes=[];
+  for(var i=1;i<B.length;i++){var r=B[i];if(!r[0]||!r[1]||!r[1].trim())continue;var mg=r[1].trim();classes.push(r);
+   agg[mg]=agg[mg]||{ans:[0,0,0],stu:[0,0,0],ss:[0,0,0],sn:[0,0,0]};
+   pc.forEach(function(p,pi){var a=num(r[p.ans]),s=num(r[p.stu]),sa=num(r[p.sat]);if(s!=null)agg[mg].stu[pi]+=s;if(a!=null)agg[mg].ans[pi]+=a;if(sa!=null){agg[mg].ss[pi]+=sa;agg[mg].sn[pi]++;}});}
+  var mgs=Object.keys(agg);DASH.mgs=mgs;DASH.classes=classes;DASH.kaishu={};DASH.manzoku={};
+  mgs.forEach(function(m){DASH.kaishu[m]=agg[m].stu.map(function(s,i){return s>0?Math.round(agg[m].ans[i]/s*1000)/10:null;});
+   DASH.manzoku[m]=agg[m].sn.map(function(n,i){return n>0?Math.round(agg[m].ss[i]/n*100)/100:null;});});
+  DASH.itemHead=A[0]?A[0].slice(2):[];DASH.item={};
+  for(var j=1;j<A.length;j++){var ar=A[j];if(!ar[0]||!ar[0].trim())continue;DASH.item[ar[0].trim()]=ar.slice(2).map(num);}
+  DASH.ready=true;renderAll(DASH.mgs);document.getElementById('mgHint').textContent='最新データを表示中';}
+ DASH.ds=function(list,data){return DASH.phM.map(function(p,i){return {label:p,backgroundColor:colors[i],data:list.map(function(m){return data[m]?data[m][i]:null;})};});};
+ function renderAll(list){if(typeof Chart==='undefined')return;
+  if(DASH.ch1)DASH.ch1.destroy();if(DASH.ch2)DASH.ch2.destroy();
+  DASH.ch1=new Chart(document.getElementById('chartKaishu'),{type:'bar',data:{labels:list,datasets:DASH.ds(list,DASH.kaishu)},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true,max:100,title:{display:true,text:'回収率(%)'}}},plugins:{legend:{position:'top'}}}});
+  DASH.ch2=new Chart(document.getElementById('chartManzoku'),{type:'bar',data:{labels:list,datasets:DASH.ds(list,DASH.manzoku)},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true,max:4,title:{display:true,text:'満足度(平均)'}}},plugins:{legend:{position:'top'}}}});
+  renderItems(list);renderFollowup();renderClass(list);}
+ function renderItems(list){var el=document.getElementById('mgItemTable');if(!el)return;
+  var h='<div class="tw"><table><thead><tr><th>MG</th>'+DASH.itemHead.map(function(x){return '<th>'+x+'</th>';}).join('')+'</tr></thead><tbody>';
+  list.forEach(function(m){var it=DASH.item[m];if(!it)return;h+='<tr><td><b>'+m+'</b></td>'+it.map(function(v){var st=v==null?'':(v<2.5?'background:#fdecea;color:#c0392b;font-weight:700':(v>=3.3?'background:#e9f7ef;color:#1f8a54':''));return '<td style="'+st+'">'+(v==null?'—':v)+'</td>';}).join('')+'</tr>';});
+  el.innerHTML=h+'</tbody></table></div>';}
+ function renderFollowup(){var items=[];function tag(m,p,t){return '<span style="display:inline-block;background:var(--redb);border:1px solid #f3c2bb;color:#7a241a;border-radius:7px;padding:4px 10px;margin:3px;font-size:12px"><b>'+m+'</b>／'+p+'　'+t+'</span>';}
+  DASH.mgs.forEach(function(m){DASH.phM.forEach(function(p,i){var k=DASH.kaishu[m][i],s=DASH.manzoku[m][i];if(k!=null&&k<50)items.push(tag(m,p,'回収率 '+k+'%'));if(s!=null&&s<2.5)items.push(tag(m,p,'満足度 '+s));});});
+  var el=document.getElementById('followupList');if(el)el.innerHTML=items.length?items.join(''):'<span style="color:var(--grn)">✅ 要フォローの該当なし（回収率50%未満／満足度2.5未満）</span>';}
+ function renderClass(list){var el=document.getElementById('mgClassDetail');if(!el)return;
+  var h='<div class="tw"><table><thead><tr><th>クラス</th><th>MG</th><th>1週 回収</th><th>1週 満足</th><th>1ヶ月 回収</th><th>1ヶ月 満足</th><th>2ヶ月 回収</th><th>2ヶ月 満足</th></tr></thead><tbody>';
+  DASH.classes.filter(function(r){return list.indexOf(r[1].trim())>=0;}).forEach(function(r){h+='<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+(r[4]||'—')+'</td><td>'+(r[5]||'—')+'</td><td>'+(r[8]||'—')+'</td><td>'+(r[9]||'—')+'</td><td>'+(r[12]||'—')+'</td><td>'+(r[13]||'—')+'</td></tr>';});
+  el.innerHTML=h+'</tbody></table></div>';}
+ DASH.renderAll=renderAll;
+ sec.addEventListener('toggle',function(){if(sec.open)load();});
+ if(sec.open)load();
 })();
 function dashFilter(q){
- if(!DASH.ready||!DASH.ch1)return;
- q=(q||'').trim();
+ if(!DASH.ready)return;q=(q||'').trim();
  var hit=q?DASH.mgs.filter(function(m){return m.indexOf(q)>=0;}):[];
  var list=q?(hit.length?hit:DASH.mgs):DASH.mgs;
- DASH.ch1.data.labels=list; DASH.ch1.data.datasets=DASH.ds(list,DASH.phK,DASH.kaishu); DASH.ch1.update();
- DASH.ch2.data.labels=list; DASH.ch2.data.datasets=DASH.ds(list,DASH.phM,DASH.manzoku); DASH.ch2.update();
- var sum=document.getElementById('mgSummary'), hint=document.getElementById('mgHint');
- if(q && hit.length){
-  hint.textContent=hit.length+'名ヒット（グラフも絞り込み中）';
-  sum.innerHTML=hit.map(function(name){
-   var kr=DASH.phK.map(function(p,i){var v=DASH.kaishu[name][i];return p+'：'+(v==null?'—':v+'%');}).join('　／　');
-   var mz=DASH.phM.map(function(p,i){var v=DASH.manzoku[name][i];return p+'：'+(v==null?'—':v);}).join('　／　');
-   return '<div style="border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:9px;padding:10px 13px;background:#f7f9ff;margin:6px 0"><b style="color:var(--navy);font-size:14px">'+name+'</b><div style="font-size:12px;margin-top:5px">📥 回収率　'+kr+'</div><div style="font-size:12px;margin-top:3px">😊 満足度　'+mz+'</div></div>';
+ DASH.renderAll(list);
+ var sum=document.getElementById('mgSummary'),hint=document.getElementById('mgHint');
+ if(q&&hit.length){hint.textContent=hit.length+'名ヒット（絞り込み中）';
+  sum.innerHTML=hit.map(function(m){
+   var kr=DASH.phM.map(function(p,i){var v=DASH.kaishu[m][i];return p+'：'+(v==null?'—':v+'%');}).join('　／　');
+   var mz=DASH.phM.map(function(p,i){var v=DASH.manzoku[m][i];return p+'：'+(v==null?'—':v);}).join('　／　');
+   return '<div style="border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:9px;padding:10px 13px;background:#f7f9ff;margin:6px 0"><b style="color:var(--navy);font-size:14px">'+m+'</b><div style="font-size:12px;margin-top:5px">📥 回収率　'+kr+'</div><div style="font-size:12px;margin-top:3px">😊 満足度　'+mz+'</div></div>';
   }).join('');
- } else { hint.textContent=q?'該当なし（全員表示）':''; sum.innerHTML=''; }
+ }else{hint.textContent=q?'該当なし（全員表示）':'最新データを表示中';sum.innerHTML='';}
 }
 </script>
 

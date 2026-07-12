@@ -144,6 +144,22 @@ a{color:var(--blue)}
 .stepacc[open]>summary:hover{background:linear-gradient(135deg,#1a66e6,#0a52cc)}
 .stepacc>.stepbody{padding:9px 12px 12px}
 .stepacc[open]>.stepbody{background:#f7faff}
+.rolehide{display:none!important}
+#roleBar{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:0 0 12px;font-size:12px}
+#roleBar .lbl{color:var(--sub);font-weight:700}
+.rolebtn{background:#eef3ff;border:1px solid #d6e2fb;color:var(--blue);border-radius:999px;padding:6px 14px;cursor:pointer;font-size:12px;font-weight:700}
+.rolebtn.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.alertbox{background:var(--redb);border:1px solid #f3c2bb;border-left:5px solid var(--red);border-radius:10px;padding:11px 14px;margin:10px 0;font-size:13px;color:#7a241a}
+.alertbox.ok{background:var(--grnb);border-color:#cfe9d8;border-left-color:var(--grn);color:#1c5c3a}
+.term{border-bottom:1px dotted var(--blue);cursor:help}
+.mm-node{cursor:pointer}.mm-node:hover{background:#e6eeff}
+@media print{
+ .toolbar,#roleBar,.cbtn,.cpanel,.backtop,.copybtn,.allbtn{display:none!important}
+ body{background:#fff}.wrap{max-width:100%;padding:0}
+ .hero{box-shadow:none}
+ details.sec{break-inside:avoid;box-shadow:none;border-color:#ccc}
+ .rolehide{display:block!important}
+}
 </style></head><body><div class="wrap">
 <div class="hero"><div class="logomark">CREATOR'ZZ</div><div class="eb">OPERATION MANUAL ／ Visual Creative Unit</div><h1>業務運用マニュアル</h1><div class="lead">契約が決まってから卒業までの完全運用ガイド ／ マネージャー・CS・運営向け</div>
 </div>
@@ -156,6 +172,16 @@ a{color:var(--blue)}
 <select id="jump" onchange="jumpTo(this.value)"><option value="">― 章にジャンプ ―</option></select>
 <button class="allbtn" onclick="toggleAll()">すべて開く / 閉じる</button>
 <span class="cnt" id="cnt"></span>
+</div>
+<div id="roleBar">
+<span class="lbl">役割で表示：</span>
+<button class="rolebtn on" data-r="all" onclick="filterRole('all',this)">全員</button>
+<button class="rolebtn" data-r="CS" onclick="filterRole('CS',this)">CS</button>
+<button class="rolebtn" data-r="MG" onclick="filterRole('MG',this)">MG</button>
+<button class="rolebtn" data-r="運営" onclick="filterRole('運営',this)">運営</button>
+<span style="flex:1"></span>
+<button class="rolebtn" onclick="showPlaceholders()">🔎 未確定の穴埋め箇所</button>
+<button class="rolebtn" onclick="window.print()">🖨 印刷/PDF</button>
 </div>
 
 <details class="sec" open><summary><span class="n defnum">定義</span>役割・用語の定義</summary><div class="body">
@@ -182,6 +208,21 @@ a{color:var(--blue)}
 <tr><td>統括</td><td><span class="who">阿部</span></td><td>MG統括／カリキュラム知見で技術的な壁打ち・FB</td></tr>
 <tr><td>クラス担当MG</td><td>松井・堂庭・清水・上枝・川﨑</td><td>1on1（初回1週以内・2〜3週目・1ヶ月後の計3回）・質問対応(10・15・20時)／アンケート回収／クラス会活性化</td></tr>
 </tbody></table></div>
+<h3>📖 用語・略語集</h3><div class="tw"><table><thead><tr><th>用語</th><th>意味</th></tr></thead><tbody>
+<tr><td>WB / WisdomBase</td><td>学習LMS（カリキュラム視聴・進捗管理）。ログイン確認はガイダンスで一括。</td></tr>
+<tr><td>LMS</td><td>Learning Management System＝学習サイト（＝WisdomBase）。</td></tr>
+<tr><td>エルメ（L Message）</td><td>公式LINEのステップ配信・タグ管理ツール。CSが受講生LINEを運用。</td></tr>
+<tr><td>サークルバック</td><td>1on1の予約・議事録を残す仕組み。TimeRex予約にsales@…とinfoを招待して記録。</td></tr>
+<tr><td>TimeRex</td><td>1on1の日程調整ツール（正式名称）。</td></tr>
+<tr><td>クーオフ／クーリングオフ</td><td>契約書受領から8日以内の無条件解約。引き止め厳禁・営業へエスカレ。</td></tr>
+<tr><td>Phase0〜4</td><td>カリキュラムの段階。2週間で1Phaseが目安。</td></tr>
+<tr><td>アクティブ／ノンアクティブ</td><td>アクティブ＝受講が少しでも進んでいる。ノンアクティブ＝交流場コメント/講義視聴/ウェビナー参加すべて無し。</td></tr>
+</tbody></table></div>
+</div></details>
+
+<details class="sec" id="phSec"><summary><span class="n" style="background:var(--amb)">🕳</span>未確定の穴埋め箇所（要記入）</summary><div class="body">
+<p style="font-size:12px;color:var(--sub)">テンプレ内の「（URL）」「○月○日」「20○○年」等、運用時に埋める箇所を自動抽出します。</p>
+<div id="phList"><button class="rolebtn" onclick="showPlaceholders()">🔎 今すぐ一覧化する</button></div>
 </div></details>
 
 <details class="sec" open><summary><span class="n">0</span>全体像・共通ルール</summary><div class="body">
@@ -781,6 +822,8 @@ https://us06web.zoom.us/j/85305521094?pwd=MhmVicHEacRa6R3D4rj8MdAbMKhdQc.1
 <div style="overflow-x:auto"><div style="min-width:660px;height:330px"><canvas id="chartKaishu"></canvas></div></div>
 <h3>😊 満足度 平均スコア（マネージャー×フェーズ）</h3>
 <div style="overflow-x:auto"><div style="min-width:660px;height:330px"><canvas id="chartManzoku"></canvas></div></div>
+<h3>🚨 要フォロー（自動抽出）</h3>
+<div id="followupList" style="font-size:12.5px;color:var(--sub)">開くと自動表示します（回収率50%未満／満足度2.5未満を抽出）。</div>
 <p style="font-size:11.5px;color:var(--sub)">※回収率＝「回収数/対象数」の％。満足度＝平均スコア（3点満点想定）。空欄は対象なし/未実施。グラフ表示にはネット接続が必要です。</p>
 </div></details>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
@@ -799,6 +842,17 @@ var DASH={ready:false};
   if(DASH.ready||typeof Chart==='undefined')return; DASH.ready=true;
   DASH.ch1=new Chart(document.getElementById('chartKaishu'),{type:'bar',data:{labels:DASH.mgs,datasets:DASH.ds(DASH.mgs,DASH.phK,DASH.kaishu)},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true,max:100,title:{display:true,text:'回収率(%)'}}},plugins:{legend:{position:'top'}}}});
   DASH.ch2=new Chart(document.getElementById('chartManzoku'),{type:'bar',data:{labels:DASH.mgs,datasets:DASH.ds(DASH.mgs,DASH.phM,DASH.manzoku)},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true,max:3,title:{display:true,text:'満足度(平均)'}}},plugins:{legend:{position:'top'}}}});
+  renderFollowup();
+ }
+ function renderFollowup(){
+  var items=[];
+  function tag(m,p,txt){return '<span style="display:inline-block;background:var(--redb);border:1px solid #f3c2bb;color:#7a241a;border-radius:7px;padding:4px 10px;margin:3px;font-size:12px"><b>'+m+'</b>／'+p+'　'+txt+'</span>';}
+  DASH.mgs.forEach(function(m){
+   DASH.phK.forEach(function(p,i){var v=DASH.kaishu[m][i];if(v!=null&&v<50)items.push(tag(m,p,'回収率 '+v+'%'));});
+   DASH.phM.forEach(function(p,i){var v=DASH.manzoku[m][i];if(v!=null&&v<2.5)items.push(tag(m,p,'満足度 '+v));});
+  });
+  var el=document.getElementById('followupList');if(!el)return;
+  el.innerHTML=items.length?items.join(''):'<span style="color:var(--grn)">✅ 要フォローの該当なし（基準：回収率50%未満／満足度2.5未満）</span>';
  }
  DASH.render=render;
  sec.addEventListener('toggle',function(){if(sec.open)render();});
@@ -825,6 +879,7 @@ function dashFilter(q){
 
 <details class="sec" id="refundSec"><summary><span class="n" style="background:var(--red)">💴</span>全額返金 進捗ダッシュボード（自動集計）</summary><div class="body">
 <div class="call info"><span class="t">自動連携（読取専用・個人情報なし）</span>データ元＝<a href="https://docs.google.com/spreadsheets/d/1cBuI4ImfLs9BlnPyL0uYCZkyT4i7XQ3dMR5_yeZBWLw/edit" target="_blank">全額返金 進捗管理シート</a>。<b>取得するのは「担当MG・カリ・申請状況」の3列のみ</b>（生徒名・Discord ID・備考＝体調等は取得も表示もしません）。シートを更新すれば自動反映。</div>
+<div id="refundAlert"></div>
 <div id="refundStats" style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;color:var(--sub);font-size:12px">開くと読み込みます…</div>
 <h3>申請状況の内訳（＝結果・解約理由の区分）</h3>
 <div style="overflow-x:auto"><div style="min-width:520px;height:280px"><canvas id="chartRefund"></canvas></div></div>
@@ -838,14 +893,24 @@ function dashFilter(q){
  window.gvizRefund=function(resp){
   try{
    var rows=(resp&&resp.table&&resp.table.rows)||[];
-   var stt={},mg={},ka={},tot=0;
+   var stt={},mg={},ka={},tot=0,over=0,almost=0;
+   var term=['返金完了','返金対象外','受講継続','中途解約'];
+   var today=new Date(); today.setHours(0,0,0,0);
    rows.forEach(function(r){
-    var c=r.c||[]; var D=c[0]&&c[0].v, G=c[1]&&c[1].v, J=c[2]&&c[2].v;
+    var c=r.c||[]; var D=c[0]&&c[0].v, F=c[1]&&c[1].v, G=c[2]&&c[2].v, J=c[3]&&c[3].v;
     if(!J||typeof J!=='string')return;
     tot++; stt[J]=(stt[J]||0)+1;
     if(D&&typeof D==='string'&&D.indexOf('入学')<0&&D.indexOf('名')<0){mg[D]=(mg[D]||0)+1;}
     if(G&&typeof G==='string'){var k=G.indexOf('新')>=0?'新':(G.indexOf('旧')>=0?'旧':G);ka[k]=(ka[k]||0)+1;}
+    if(F&&typeof F==='string'&&/^Date\(/.test(F)&&term.indexOf(J)<0){
+     var mm=F.match(/Date\((\d+),(\d+),(\d+)/);
+     if(mm){var dl=new Date(+mm[1],+mm[2],+mm[3]); var days=Math.floor((dl-today)/86400000);
+      if(days<0)over++; else if(days<=3)almost++;}
+    }
    });
+   var al=document.getElementById('refundAlert');
+   if(over||almost){al.className='alertbox';al.innerHTML='⏰ <b>申請期限アラート</b>：期限<b>超過（未完了）'+over+'件</b> ／ <b>3日以内 '+almost+'件</b>。全額返金は締切がシビア（入会1ヶ月＋3日以内）— 該当は至急対応を。';}
+   else{al.className='alertbox ok';al.innerHTML='⏰ 申請期限アラート：期限間近（3日以内）・超過の未完了案件は<b>ありません</b>。';}
    renderRefund(stt,mg,ka,tot);
   }catch(e){document.getElementById('refundStats').textContent='読込エラー：'+e;}
  };
@@ -864,7 +929,7 @@ function dashFilter(q){
  }
  function load(){ if(loaded)return; loaded=true;
   var s=document.createElement('script');
-  s.src='https://docs.google.com/spreadsheets/d/1cBuI4ImfLs9BlnPyL0uYCZkyT4i7XQ3dMR5_yeZBWLw/gviz/tq?tqx=out:json;responseHandler:gvizRefund&tq='+encodeURIComponent('SELECT D,G,J');
+  s.src='https://docs.google.com/spreadsheets/d/1cBuI4ImfLs9BlnPyL0uYCZkyT4i7XQ3dMR5_yeZBWLw/gviz/tq?tqx=out:json;responseHandler:gvizRefund&tq='+encodeURIComponent('SELECT D,F,G,J');
   s.onerror=function(){document.getElementById('refundStats').textContent='読込失敗（シートの共有設定/ネットを確認）';};
   document.body.appendChild(s);
  }
@@ -1288,5 +1353,41 @@ panel.querySelector('.x').onclick=function(){panel.classList.remove('open');btn.
 panel.querySelector('#csend').onclick=function(){ask(input.value);input.value='';};
 input.addEventListener('keydown',function(e){if(e.key==='Enter'){ask(input.value);input.value='';}});
 })();
+</script>
+<script>
+var ROLEMAP=[{kw:'契約フェーズ',r:['CS']},{kw:'入学手続き',r:['CS','MG']},{kw:'入学ガイダンス',r:['MG','CS']},{kw:'初回1on1',r:['MG']},{kw:'定期フォロー',r:['MG']},{kw:'満足度・アンケート回収',r:['運営','MG']},{kw:'全額返金 進捗',r:['CS','運営']},{kw:'継続タスク',r:['MG']},{kw:'特別対応',r:['CS']},{kw:'卒業フェーズ',r:['MG','CS']},{kw:'メッセージ・テンプレート',r:['MG']}];
+function roleOf(t){for(var i=0;i<ROLEMAP.length;i++){if(t.indexOf(ROLEMAP[i].kw)>=0)return ROLEMAP[i].r;}return null;}
+function filterRole(role,btn){
+ var bs=document.querySelectorAll('#roleBar .rolebtn[data-r]');
+ for(var i=0;i<bs.length;i++)bs[i].classList.toggle('on',bs[i]===btn);
+ (window._secs||[]).forEach(function(d){var s=d.querySelector('summary');var t=s?s.textContent:'';var r=roleOf(t);
+  if(role==='all'||!r||r.indexOf(role)>=0)d.classList.remove('rolehide');else d.classList.add('rolehide');});
+}
+function showPlaceholders(){
+ var pats=[/（録画URL）/g,/（入学ガイダンスURL）/g,/（URL）/g,/○月○日/g,/〇月〇日/g,/20○○年?\/?○?月?/g,/○\/○/g,/○○:○○/g];
+ var found={};
+ (window._secs||[]).forEach(function(d){
+  var s=d.querySelector('summary');var sum=s?s.textContent.replace(/\s+/g,' ').trim().slice(0,44):'';
+  d.querySelectorAll('.tmpl,td,.sfrow .ct,p,h4').forEach(function(el){var tx=el.textContent||'';
+   pats.forEach(function(p){var m=tx.match(p);if(m){found[sum]=found[sum]||{};m.forEach(function(x){found[sum][x]=(found[sum][x]||0)+1;});}});});
+ });
+ var keys=Object.keys(found),html;
+ if(!keys.length){html='<span style="color:var(--grn)">✅ 未確定の穴埋め箇所は見つかりませんでした。</span>';}
+ else{html='<p style="font-size:12px;color:var(--sub)">下記の章に穴埋め箇所があります。運用時に埋めてください。</p>'+keys.map(function(k){var it=found[k];var chips=Object.keys(it).map(function(x){return '<span style="background:var(--ambb);border:1px solid #f0dcae;border-radius:6px;padding:2px 8px;margin:2px;font-size:11.5px;display:inline-block">'+x+' ×'+it[x]+'</span>';}).join('');return '<div style="border:1px solid var(--line);border-radius:9px;padding:9px 12px;margin:6px 0;background:#fff"><b style="font-size:12.5px">'+k+'</b><div style="margin-top:4px">'+chips+'</div></div>';}).join('');}
+ var el=document.getElementById('phList');if(el)el.innerHTML=html;
+ var sec=document.getElementById('phSec');if(sec){sec.classList.remove('rolehide');sec.open=true;sec.scrollIntoView({behavior:'smooth',block:'start'});}
+}
+(function(){
+ var nodes=document.querySelectorAll('.mm-node');
+ for(var i=0;i<nodes.length;i++){(function(node){
+  var m=node.textContent.match(/[①②③④⑤⑥⑦⑧]/);if(!m)return;
+  var num='①②③④⑤⑥⑦⑧'.indexOf(m[0])+1;
+  node.addEventListener('click',function(){var target=null;
+   (window._secs||[]).forEach(function(d){var n=d.querySelector('summary .n');if(n&&n.textContent.trim()==String(num))target=d;});
+   if(target){target.classList.remove('rolehide');target.open=true;target.scrollIntoView({behavior:'smooth',block:'start'});}});
+ })(nodes[i]);}
+})();
+window.addEventListener('beforeprint',function(){var ds=document.querySelectorAll('details');for(var i=0;i<ds.length;i++){ds[i].dataset._po=ds[i].open?'1':'0';ds[i].open=true;}});
+window.addEventListener('afterprint',function(){var ds=document.querySelectorAll('details');for(var i=0;i<ds.length;i++){ds[i].open=ds[i].dataset._po==='1';}});
 </script>
 </body></html>

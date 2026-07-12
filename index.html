@@ -770,6 +770,36 @@ https://us06web.zoom.us/j/85305521094?pwd=MhmVicHEacRa6R3D4rj8MdAbMKhdQc.1
 </tbody></table></div>
 </div></details>
 
+<details class="sec" id="dashSec"><summary><span class="n" style="background:#1f8a54">📊</span>満足度・アンケート回収ダッシュボード（定例用）</summary><div class="body">
+<div class="call info"><span class="t">データ元＝<a href="https://docs.google.com/spreadsheets/d/1PqHyNOwCHStvwBG2vtQZkTGU6DKBv_UitPu24vtRBgs/edit?usp=sharing" target="_blank">生徒管理シート</a></span>下記は <b>2026/07/12 時点のスナップショット（手入力）</b>。最新化したいときは、シートの数値を伝えてください（すぐ差し替えます）。※シート非公開のため自動連携は未接続。</div>
+<h3>📥 アンケート回収率（マネージャー×フェーズ）</h3>
+<div style="overflow-x:auto"><div style="min-width:660px;height:330px"><canvas id="chartKaishu"></canvas></div></div>
+<h3>😊 満足度 平均スコア（マネージャー×フェーズ）</h3>
+<div style="overflow-x:auto"><div style="min-width:660px;height:330px"><canvas id="chartManzoku"></canvas></div></div>
+<p style="font-size:11.5px;color:var(--sub)">※回収率＝「回収数/対象数」の％。満足度＝平均スコア（3点満点想定）。空欄は対象なし/未実施。グラフ表示にはネット接続が必要です。</p>
+</div></details>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script>
+(function(){
+ var sec=document.getElementById('dashSec'); if(!sec)return;
+ var done=false;
+ function render(){
+  if(done||typeof Chart==='undefined')return; done=true;
+  var mgs=['上枝','合澤','堂庭','川﨑','松井','清水','阿部'];
+  var phK=['初回','入学時','1週間後','1ヶ月後','2ヶ月後'];
+  var kaishu={'上枝':[100,100,100,91,0],'合澤':[88,56,50,56,67],'堂庭':[50,0,0,null,null],'川﨑':[100,50,0,null,null],'松井':[93,86,64,0,null],'清水':[83,0,0,0,0],'阿部':[94,61,39,72,null]};
+  var phM=['1週間後','1ヶ月後','2ヶ月後'];
+  var manzoku={'上枝':[2.82,2.71,null],'合澤':[2.94,2.99,2.5],'堂庭':[3.26,null,null],'川﨑':[2.33,null,null],'松井':[3.1,null,null],'清水':[2.75,2.94,2.68],'阿部':[2.87,2.97,null]};
+  var colors=['#1b6ef3','#37c8ff','#f5c542','#1f8a54','#c0392b'];
+  function ds(phs,data){return phs.map(function(p,i){return {label:p,backgroundColor:colors[i%colors.length],data:mgs.map(function(m){return data[m][i];})};});}
+  new Chart(document.getElementById('chartKaishu'),{type:'bar',data:{labels:mgs,datasets:ds(phK,kaishu)},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true,max:100,title:{display:true,text:'回収率(%)'}}},plugins:{legend:{position:'top'},title:{display:false}}}});
+  new Chart(document.getElementById('chartManzoku'),{type:'bar',data:{labels:mgs,datasets:ds(phM,manzoku)},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true,max:3,title:{display:true,text:'満足度(平均)'}}},plugins:{legend:{position:'top'}}}});
+ }
+ sec.addEventListener('toggle',function(){if(sec.open)render();});
+ if(sec.open)render();
+})();
+</script>
+
 <details class="sec"><summary><span class="n">7</span>特別対応（返金・解約・休学）</summary><div class="body">
 <div class="call dang"><span class="t">★最重要</span>金銭判断はすべて運営。MGは受付と取次まで。金額・可否を自己判断しない。</div>
 <h3>入口判定</h3><div class="tw"><table><thead><tr><th>条件</th><th>ルート</th></tr></thead><tbody>

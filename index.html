@@ -772,6 +772,11 @@ https://us06web.zoom.us/j/85305521094?pwd=MhmVicHEacRa6R3D4rj8MdAbMKhdQc.1
 
 <details class="sec" id="dashSec"><summary><span class="n" style="background:#1f8a54">📊</span>満足度・アンケート回収ダッシュボード（定例用）</summary><div class="body">
 <div class="call info"><span class="t">データ元＝<a href="https://docs.google.com/spreadsheets/d/1PqHyNOwCHStvwBG2vtQZkTGU6DKBv_UitPu24vtRBgs/edit?usp=sharing" target="_blank">生徒管理シート</a></span>下記は <b>2026/07/12 時点のスナップショット（手入力）</b>。最新化したいときは、シートの数値を伝えてください（すぐ差し替えます）。※シート非公開のため自動連携は未接続。</div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0">
+<input id="mgSearch" type="search" placeholder="🔎 マネージャー名で個人表示（例：合澤／空欄で全員）" oninput="dashFilter(this.value)" style="flex:1 1 240px;border:1px solid #d6e2fb;border-radius:9px;padding:8px 12px;font-size:13px">
+<span id="mgHint" style="font-size:11.5px;color:var(--sub)"></span>
+</div>
+<div id="mgSummary" style="margin:6px 0"></div>
 <h3>📥 アンケート回収率（マネージャー×フェーズ）</h3>
 <div style="overflow-x:auto"><div style="min-width:660px;height:330px"><canvas id="chartKaishu"></canvas></div></div>
 <h3>😊 満足度 平均スコア（マネージャー×フェーズ）</h3>
@@ -780,24 +785,42 @@ https://us06web.zoom.us/j/85305521094?pwd=MhmVicHEacRa6R3D4rj8MdAbMKhdQc.1
 </div></details>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <script>
+var DASH={ready:false};
 (function(){
  var sec=document.getElementById('dashSec'); if(!sec)return;
- var done=false;
+ DASH.mgs=['上枝','合澤','堂庭','川﨑','松井','清水','阿部'];
+ DASH.phK=['初回','入学時','1週間後','1ヶ月後','2ヶ月後'];
+ DASH.kaishu={'上枝':[100,100,100,91,0],'合澤':[88,56,50,56,67],'堂庭':[50,0,0,null,null],'川﨑':[100,50,0,null,null],'松井':[93,86,64,0,null],'清水':[83,0,0,0,0],'阿部':[94,61,39,72,null]};
+ DASH.phM=['1週間後','1ヶ月後','2ヶ月後'];
+ DASH.manzoku={'上枝':[2.82,2.71,null],'合澤':[2.94,2.99,2.5],'堂庭':[3.26,null,null],'川﨑':[2.33,null,null],'松井':[3.1,null,null],'清水':[2.75,2.94,2.68],'阿部':[2.87,2.97,null]};
+ var colors=['#1b6ef3','#37c8ff','#f5c542','#1f8a54','#c0392b'];
+ DASH.ds=function(list,phs,data){return phs.map(function(p,i){return {label:p,backgroundColor:colors[i%colors.length],data:list.map(function(m){return data[m][i];})};});};
  function render(){
-  if(done||typeof Chart==='undefined')return; done=true;
-  var mgs=['上枝','合澤','堂庭','川﨑','松井','清水','阿部'];
-  var phK=['初回','入学時','1週間後','1ヶ月後','2ヶ月後'];
-  var kaishu={'上枝':[100,100,100,91,0],'合澤':[88,56,50,56,67],'堂庭':[50,0,0,null,null],'川﨑':[100,50,0,null,null],'松井':[93,86,64,0,null],'清水':[83,0,0,0,0],'阿部':[94,61,39,72,null]};
-  var phM=['1週間後','1ヶ月後','2ヶ月後'];
-  var manzoku={'上枝':[2.82,2.71,null],'合澤':[2.94,2.99,2.5],'堂庭':[3.26,null,null],'川﨑':[2.33,null,null],'松井':[3.1,null,null],'清水':[2.75,2.94,2.68],'阿部':[2.87,2.97,null]};
-  var colors=['#1b6ef3','#37c8ff','#f5c542','#1f8a54','#c0392b'];
-  function ds(phs,data){return phs.map(function(p,i){return {label:p,backgroundColor:colors[i%colors.length],data:mgs.map(function(m){return data[m][i];})};});}
-  new Chart(document.getElementById('chartKaishu'),{type:'bar',data:{labels:mgs,datasets:ds(phK,kaishu)},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true,max:100,title:{display:true,text:'回収率(%)'}}},plugins:{legend:{position:'top'},title:{display:false}}}});
-  new Chart(document.getElementById('chartManzoku'),{type:'bar',data:{labels:mgs,datasets:ds(phM,manzoku)},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true,max:3,title:{display:true,text:'満足度(平均)'}}},plugins:{legend:{position:'top'}}}});
+  if(DASH.ready||typeof Chart==='undefined')return; DASH.ready=true;
+  DASH.ch1=new Chart(document.getElementById('chartKaishu'),{type:'bar',data:{labels:DASH.mgs,datasets:DASH.ds(DASH.mgs,DASH.phK,DASH.kaishu)},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true,max:100,title:{display:true,text:'回収率(%)'}}},plugins:{legend:{position:'top'}}}});
+  DASH.ch2=new Chart(document.getElementById('chartManzoku'),{type:'bar',data:{labels:DASH.mgs,datasets:DASH.ds(DASH.mgs,DASH.phM,DASH.manzoku)},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true,max:3,title:{display:true,text:'満足度(平均)'}}},plugins:{legend:{position:'top'}}}});
  }
+ DASH.render=render;
  sec.addEventListener('toggle',function(){if(sec.open)render();});
  if(sec.open)render();
 })();
+function dashFilter(q){
+ if(!DASH.ready||!DASH.ch1)return;
+ q=(q||'').trim();
+ var hit=q?DASH.mgs.filter(function(m){return m.indexOf(q)>=0;}):[];
+ var list=q?(hit.length?hit:DASH.mgs):DASH.mgs;
+ DASH.ch1.data.labels=list; DASH.ch1.data.datasets=DASH.ds(list,DASH.phK,DASH.kaishu); DASH.ch1.update();
+ DASH.ch2.data.labels=list; DASH.ch2.data.datasets=DASH.ds(list,DASH.phM,DASH.manzoku); DASH.ch2.update();
+ var sum=document.getElementById('mgSummary'), hint=document.getElementById('mgHint');
+ if(q && hit.length){
+  hint.textContent=hit.length+'名ヒット（グラフも絞り込み中）';
+  sum.innerHTML=hit.map(function(name){
+   var kr=DASH.phK.map(function(p,i){var v=DASH.kaishu[name][i];return p+'：'+(v==null?'—':v+'%');}).join('　／　');
+   var mz=DASH.phM.map(function(p,i){var v=DASH.manzoku[name][i];return p+'：'+(v==null?'—':v);}).join('　／　');
+   return '<div style="border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:9px;padding:10px 13px;background:#f7f9ff;margin:6px 0"><b style="color:var(--navy);font-size:14px">'+name+'</b><div style="font-size:12px;margin-top:5px">📥 回収率　'+kr+'</div><div style="font-size:12px;margin-top:3px">😊 満足度　'+mz+'</div></div>';
+  }).join('');
+ } else { hint.textContent=q?'該当なし（全員表示）':''; sum.innerHTML=''; }
+}
 </script>
 
 <details class="sec"><summary><span class="n">7</span>特別対応（返金・解約・休学）</summary><div class="body">

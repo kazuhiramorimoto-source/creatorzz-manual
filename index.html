@@ -951,7 +951,7 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
  }
  function load(){ if(loaded)return; loaded=true;
   var s=document.createElement('script');
-  s.src='https://docs.google.com/spreadsheets/d/1cBuI4ImfLs9BlnPyL0uYCZkyT4i7XQ3dMR5_yeZBWLw/gviz/tq?tqx=out:json;responseHandler:gvizRefund&tq='+encodeURIComponent('SELECT D,F,G,J');
+  s.src='https://docs.google.com/spreadsheets/d/1cBuI4ImfLs9BlnPyL0uYCZkyT4i7XQ3dMR5_yeZBWLw/gviz/tq?gid=0&tqx=out:json;responseHandler:gvizRefund&tq='+encodeURIComponent('SELECT D,F,G,J');
   s.onerror=function(){document.getElementById('refundStats').textContent='読込失敗（シートの共有設定/ネットを確認）';};
   document.body.appendChild(s);
  }

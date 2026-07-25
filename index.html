@@ -164,6 +164,26 @@ a{color:var(--blue)}
  details.sec{break-inside:avoid;box-shadow:none;border-color:#ccc}
  .rolehide{display:block!important}
 }
+/* ===== 左リッチメニュー（章目次ドロワー） ===== */
+.menubtn{position:fixed;left:18px;bottom:18px;z-index:64;background:linear-gradient(135deg,var(--navy),#16205a);color:#fff;border:none;border-radius:26px;padding:11px 15px;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 8px 22px rgba(10,18,48,.4);display:flex;align-items:center;gap:7px}
+.menubtn:hover{filter:brightness(1.13)}.menubtn .ic{font-size:15px}
+.navback{position:fixed;inset:0;z-index:70;background:rgba(10,18,48,.42);opacity:0;pointer-events:none;transition:opacity .25s}
+.navback.on{opacity:1;pointer-events:auto}
+.sidenav{position:fixed;top:0;left:0;z-index:71;width:min(300px,86vw);height:100%;background:#fff;box-shadow:6px 0 30px rgba(10,18,48,.22);transform:translateX(-104%);transition:transform .28s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+.sidenav.on{transform:translateX(0)}
+.sidenav .nvhead{background:linear-gradient(135deg,var(--navy),#16205a);color:#fff;padding:15px 15px 13px;display:flex;align-items:flex-start;gap:9px}
+.sidenav .nvhead .tt{font-weight:800;font-size:15px}.sidenav .nvhead .sb{font-size:10.5px;color:#b9c6ee;margin-top:3px}
+.sidenav .nvhead .x{margin-left:auto;cursor:pointer;font-size:22px;line-height:1;opacity:.85}.sidenav .nvhead .x:hover{opacity:1}
+.sidenav .nvlist{flex:1;overflow-y:auto;padding:8px;-webkit-overflow-scrolling:touch}
+.nvitem{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:none;border:none;border-radius:10px;padding:8px 10px;cursor:pointer;color:var(--ink);font-size:13px;font-family:inherit;line-height:1.4;margin-bottom:2px}
+.nvitem:hover{background:#f0f4fc}
+.nvitem.act{background:var(--infob);box-shadow:inset 3px 0 0 var(--blue)}
+.nvitem .ic{flex:none;width:30px;height:30px;border-radius:9px;background:#eef2fb;display:flex;align-items:center;justify-content:center;font-size:15px}
+.nvitem.act .ic{background:#fff}
+.nvitem .lb{flex:1;font-weight:600}
+.nvitem .bd{flex:none;font-size:10px;font-weight:800;color:var(--sub);background:#eef2fb;border-radius:6px;padding:1px 6px;min-width:20px;text-align:center}
+.nvitem.act .bd{color:var(--blue);background:#fff}
+@media print{.menubtn,.navback,.sidenav{display:none!important}}
 </style></head><body><div class="wrap">
 <div class="hero"><div class="logomark">CREATOR'ZZ</div><div class="eb">OPERATION MANUAL ／ Visual Creative Unit</div><h1>業務運用マニュアル</h1><div class="lead">契約が決まってから卒業までの完全運用ガイド ／ マネージャー・CS・運営向け</div>
 </div>
@@ -1469,5 +1489,48 @@ function filterRole(role,btn){
 })();
 window.addEventListener('beforeprint',function(){var ds=document.querySelectorAll('details');for(var i=0;i<ds.length;i++){ds[i].dataset._po=ds[i].open?'1':'0';ds[i].open=true;}});
 window.addEventListener('afterprint',function(){var ds=document.querySelectorAll('details');for(var i=0;i<ds.length;i++){ds[i].open=ds[i].dataset._po==='1';}});
+</script>
+<script>
+/* 左リッチメニュー（章目次ドロワー）— details.sec から動的生成・現在地ハイライト */
+(function(){
+ var secs=window._secs||[].slice.call(document.querySelectorAll('details.sec'));
+ if(!secs.length)return;
+ var ICONS=[['定義|用語','📖'],['全体像|共通ルール','🗺️'],['運用ルール|禁止|注意事項','🚦'],['契約','🤝'],['入学手続き','📝'],['ガイダンス','🎓'],['1on1|サークルバック','💬'],['定期フォロー|月次','📅'],['満足度|回収ダッシュ','📊'],['全額返金 進捗|自動集計','💴'],['継続タスク|90日','🔁'],['特別対応','🛟'],['卒業','🏆'],['生徒紹介|キャンペーン','📣'],['ツール|リンク集','🧰'],['AIアシスタント|質問対応','🤖'],['テンプレート|メッセージ','🗂️']];
+ function iconFor(t){for(var i=0;i<ICONS.length;i++){if(new RegExp(ICONS[i][0]).test(t))return ICONS[i][1];}return '📄';}
+ function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+ var btn=document.createElement('button');btn.className='menubtn';btn.setAttribute('aria-label','目次を開く');btn.innerHTML='<span class="ic">☰</span>目次';
+ var back=document.createElement('div');back.className='navback';
+ var nav=document.createElement('nav');nav.className='sidenav';nav.setAttribute('aria-label','章目次');
+ var head=document.createElement('div');head.className='nvhead';head.innerHTML='<div><div class="tt">📚 目次 / MENU</div><div class="sb">タップで各章へジャンプ</div></div><span class="x" role="button" aria-label="閉じる">×</span>';
+ var list=document.createElement('div');list.className='nvlist';
+ nav.appendChild(head);nav.appendChild(list);
+ document.body.appendChild(btn);document.body.appendChild(back);document.body.appendChild(nav);
+ var items=[];
+ secs.forEach(function(d){
+  if(!d.id)return;
+  var sm=d.querySelector('summary'),nEl=sm?sm.querySelector('.n'):null;
+  var badge=nEl?nEl.textContent.trim():'';
+  var title=(sm?sm.textContent:'').replace(/[▾＋－]/g,'').trim();
+  if(badge&&title.indexOf(badge)===0)title=title.slice(badge.length).trim();
+  var it=document.createElement('button');it.type='button';it.className='nvitem';
+  it.innerHTML='<span class="ic">'+iconFor(title)+'</span><span class="lb">'+esc(title)+'</span>'+(/^[0-9]+$/.test(badge)?('<span class="bd">'+badge+'</span>'):'');
+  it.addEventListener('click',function(){if(typeof jumpTo==='function')jumpTo(d.id);else{d.open=true;d.scrollIntoView({behavior:'smooth',block:'start'});}closeNav();});
+  list.appendChild(it);items.push({el:it,sec:d});
+ });
+ function openNav(){nav.classList.add('on');back.classList.add('on');}
+ function closeNav(){nav.classList.remove('on');back.classList.remove('on');}
+ btn.addEventListener('click',openNav);back.addEventListener('click',closeNav);
+ head.querySelector('.x').addEventListener('click',closeNav);
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.keyCode===27)closeNav();});
+ var raf=0;
+ function spy(){raf=0;var cur=null,i;
+  for(i=0;i<items.length;i++){var el=items[i].sec;if(el.offsetParent===null)continue;if(el.getBoundingClientRect().top<=140)cur=items[i];else break;}
+  if(!cur){for(i=0;i<items.length;i++){if(items[i].sec.offsetParent!==null){cur=items[i];break;}}}
+  for(i=0;i<items.length;i++)items[i].el.classList.toggle('act',items[i]===cur);
+ }
+ window.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(spy);},{passive:true});
+ window.addEventListener('resize',function(){if(!raf)raf=requestAnimationFrame(spy);},{passive:true});
+ spy();
+})();
 </script>
 </body></html>

@@ -184,6 +184,15 @@ a{color:var(--blue)}
 .nvitem .bd{flex:none;font-size:10px;font-weight:800;color:var(--sub);background:#eef2fb;border-radius:6px;padding:1px 6px;min-width:20px;text-align:center}
 .nvitem.act .bd{color:var(--blue);background:#fff}
 @media print{.menubtn,.navback,.sidenav{display:none!important}}
+/* ダッシュボード集計テーブル */
+.dtbl{width:100%;border-collapse:collapse;font-size:12.5px;font-variant-numeric:tabular-nums;min-width:360px}
+.dtbl th{background:#0b1533;color:#fff;font-weight:700;padding:8px 12px;text-align:right;white-space:nowrap}
+.dtbl th:first-child{text-align:left}
+.dtbl td{padding:7px 12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+.dtbl td:first-child{text-align:left;font-weight:600}
+.dtbl tbody tr:nth-child(even){background:#f7f9ff}
+.dtbl tr.tot td{border-top:2px solid #c9d6f0;background:#eef3ff;font-weight:800}
+.dtbl .rate-hi{color:#1f8a54;font-weight:800}.dtbl .rate-mid{color:#b7791f;font-weight:800}.dtbl .rate-lo{color:#c0392b;font-weight:800}
 </style></head><body><div class="wrap">
 <div class="hero"><div class="logomark">CREATOR'ZZ</div><div class="eb">OPERATION MANUAL ／ Visual Creative Unit</div><h1>業務運用マニュアル</h1><div class="lead">契約が決まってから卒業までの完全運用ガイド ／ マネージャー・CS・運営向け</div>
 </div>
@@ -884,29 +893,13 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
 <div style="overflow-x:auto"><div style="min-width:520px;height:280px"><canvas id="chartRefund"></canvas></div></div>
 <div id="refundBreak" style="margin-top:12px"></div>
 <p style="font-size:11.5px;color:var(--sub)">※ヘッダー/集計行は自動除外。表示にはネット接続が必要。詳しい解約理由は備考欄（個人情報を含むため非表示）。シートに「解約理由」列（体調/家庭/仕事/経済/成果未達 等）を設ければ、理由の内訳も安全に自動集計できます。</p>
-<h3>📈 申請・適用の集計（進捗管理シートより／2026-07-05時点・直近16件）</h3>
-<div class="call info"><span class="t">集計の定義</span>「入学月」＝受講開始日でグルーピング（<b>契約月は本シートに無いため入学月で集計</b>）。「申請」＝申請日が記録されたレコード、「適用」＝返金完了。<b>契約数（分母）が本シートに無いため「申請率（対契約）」は未算出</b>。以下は手動スナップショット（上の自動集計と異なりリアルタイム反映ではありません）。</div>
+<h3>📈 申請・適用の集計（自動集計・シート連動）</h3>
+<div class="call info"><span class="t">集計の定義</span>「入学月」＝受講開始日でグルーピング（<b>契約月は本シートに無いため入学月で集計</b>）。「申請」＝申請日が記録されたレコード、「適用」＝返金完了。<b>契約数（分母）が本シートに無いため「申請率（対契約）」は未算出</b>。<b>数値は上のダッシュボードと同じシートから自動計算</b>（シートを更新すれば自動反映）。</div>
 <h4>申請の月次推移（入学月 × 申請月）</h4>
-<div class="tw"><table><thead><tr><th>入学月</th><th>申請計</th><th>5月申請</th><th>6月申請</th><th>7月申請</th></tr></thead><tbody>
-<tr><td>5/1</td><td>7</td><td>2</td><td>5</td><td>0</td></tr>
-<tr><td>5/15</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-<tr><td>6/1</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
-<tr><td>6/15</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-<tr><td>6/28</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><td>7/5</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><td><b>合計</b></td><td><b>10</b></td><td><b>2</b></td><td><b>6</b></td><td><b>2</b></td></tr>
-</tbody></table></div>
+<div style="overflow-x:auto;margin:10px 0" id="refundPivot"><p style="color:var(--sub);font-size:12px">開くと読み込みます…</p></div>
 <h4>申請 → 適用（返金完了）率</h4>
-<div class="tw"><table><thead><tr><th>入学月</th><th>申請数</th><th>適用（返金完了）</th><th>適用率（適用/申請）</th></tr></thead><tbody>
-<tr><td>5/1</td><td>7</td><td>6</td><td>85.7%</td></tr>
-<tr><td>5/15</td><td>1</td><td>1</td><td>100%</td></tr>
-<tr><td>6/1</td><td>1</td><td>1</td><td>100%</td></tr>
-<tr><td>6/15</td><td>1</td><td>0</td><td>0%</td></tr>
-<tr><td>6/28</td><td>0</td><td>—</td><td>—</td></tr>
-<tr><td>7/5</td><td>0</td><td>—</td><td>—</td></tr>
-<tr><td><b>合計</b></td><td><b>10</b></td><td><b>8</b></td><td><b>80%</b></td></tr>
-</tbody></table></div>
-<p style="font-size:11.5px;color:var(--sub)">※「申請」＝申請日が記録されたレコード（全16件中10件）。申請10件の状況内訳＝返金完了8／返金対応中1（6/15入学・適用率に未反映）／中途解約1（5/1入学・適用外）。申請なし6件＝受講継続1（5/1）・返金対象外1（6/1）・集計中/未確定4（6/1×2・6/28・7/5）。契約数を紐づければ「申請率（対契約）」も算出可能です。</p>
+<div style="overflow-x:auto;margin:10px 0" id="refundRate"><p style="color:var(--sub);font-size:12px">開くと読み込みます…</p></div>
+<p style="font-size:11.5px;color:var(--sub)">※「申請」＝申請日（H列）が記録されたレコード。申請なし（受講継続・返金対象外・集計中など）は申請数に含めません。「適用」＝申請状況が「返金完了」のもの。契約数を紐づければ「申請率（対契約）」も自動算出できます。</p>
 </div></details>
 <script>
 (function(){
@@ -916,10 +909,16 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
   try{
    var rows=(resp&&resp.table&&resp.table.rows)||[];
    var stt={},mg={},ka={},tot=0,over=0,almost=0;
+   var intake={},appMonths={};
    var term=['返金完了','返金対象外','受講継続','中途解約'];
    var today=new Date(); today.setHours(0,0,0,0);
+   function _lbl(x){return x?(x.f!=null?x.f:(x.v!=null?x.v:'')):'';}
+   function _mon(x){if(!x)return '';var f=x.f;if(f){var m=String(f).match(/^(\d+)\//);if(m)return m[1]+'月';}var v=x.v;if(typeof v==='string'){var d=v.match(/^Date\(\d+,(\d+),/);if(d)return (+d[1]+1)+'月';var s=v.match(/^(\d+)\//);if(s)return s[1]+'月';}return '';}
    rows.forEach(function(r){
-    var c=r.c||[]; var D=c[0]&&c[0].v, F=c[1]&&c[1].v, G=c[2]&&c[2].v, J=c[3]&&c[3].v;
+    var c=r.c||[]; var D=c[0]&&c[0].v, E=c[1], F=c[2]&&c[2].v, G=c[3]&&c[3].v, H=c[4], J=c[5]&&c[5].v;
+    var im=_lbl(E);
+    if(im){ if(!intake[im])intake[im]={apps:0,adopt:0,months:{}};
+     if(H&&H.v!=null&&H.v!==''){ intake[im].apps++; var am=_mon(H); if(am){intake[im].months[am]=(intake[im].months[am]||0)+1;appMonths[am]=1;} if(J==='返金完了')intake[im].adopt++; } }
     if(!J||typeof J!=='string')return;
     tot++; stt[J]=(stt[J]||0)+1;
     if(D&&typeof D==='string'&&D.indexOf('入学')<0&&D.indexOf('名')<0){mg[D]=(mg[D]||0)+1;}
@@ -934,6 +933,7 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
    if(over||almost){al.className='alertbox';al.innerHTML='⏰ <b>申請期限アラート</b>：期限<b>超過（未完了）'+over+'件</b> ／ <b>3日以内 '+almost+'件</b>。全額返金は締切がシビア（入会1ヶ月＋3日以内）— 該当は至急対応を。';}
    else{al.className='alertbox ok';al.innerHTML='⏰ 申請期限アラート：期限間近（3日以内）・超過の未完了案件は<b>ありません</b>。';}
    renderRefund(stt,mg,ka,tot);
+   renderPivot(intake,appMonths);
   }catch(e){document.getElementById('refundStats').textContent='読込エラー：'+e;}
  };
  function chip(l,v,c){return '<div style="background:'+c+';color:#fff;border-radius:10px;padding:7px 13px;font-weight:700;min-width:74px;text-align:center"><div style="font-size:11px;font-weight:600;opacity:.9">'+l+'</div><div style="font-size:19px">'+v+'</div></div>';}
@@ -949,9 +949,25 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
   }
   document.getElementById('refundBreak').innerHTML=tbl('担当MG別 件数',mg)+tbl('カリキュラム別 件数',ka);
  }
+ function _ord(a){var m=String(a).match(/(\d+)\/(\d+)/);return m?(+m[1])*100+(+m[2]):99999;}
+ function _rate(a,b){if(!b)return '<span style="color:var(--sub)">–</span>';var p=a/b*100,s=Math.round(p*10)/10;s=(s%1===0?s.toFixed(0):s.toFixed(1))+'%';var cls=p>=80?'rate-hi':(p>=50?'rate-mid':'rate-lo');return '<span class="'+cls+'">'+s+'</span>';}
+ function renderPivot(intake,appMonths){
+  var keys=Object.keys(intake).sort(function(a,b){return _ord(a)-_ord(b);});
+  var months=Object.keys(appMonths).sort(function(a,b){return parseInt(a,10)-parseInt(b,10);});
+  var h1='<table class="dtbl"><thead><tr><th>入学月</th><th>申請計</th>'+months.map(function(m){return '<th>'+m+'申請</th>';}).join('')+'</tr></thead><tbody>';
+  var tA=0,tM={};
+  keys.forEach(function(k){var o=intake[k];tA+=o.apps;h1+='<tr><td>'+k+'</td><td>'+o.apps+'</td>'+months.map(function(m){var v=o.months[m]||0;tM[m]=(tM[m]||0)+v;return '<td>'+(v||'–')+'</td>';}).join('')+'</tr>';});
+  h1+='<tr class="tot"><td>合計</td><td>'+tA+'</td>'+months.map(function(m){return '<td>'+(tM[m]||0)+'</td>';}).join('')+'</tr></tbody></table>';
+  var e1=document.getElementById('refundPivot');if(e1)e1.innerHTML=keys.length?h1:'<p style="color:var(--sub);font-size:12px">対象データがありません</p>';
+  var h2='<table class="dtbl"><thead><tr><th>入学月</th><th>申請数</th><th>適用（返金完了）</th><th>適用率</th></tr></thead><tbody>';
+  var sA=0,sD=0;
+  keys.forEach(function(k){var o=intake[k];sA+=o.apps;sD+=o.adopt;h2+='<tr><td>'+k+'</td><td>'+o.apps+'</td><td>'+(o.apps?o.adopt:'–')+'</td><td>'+_rate(o.adopt,o.apps)+'</td></tr>';});
+  h2+='<tr class="tot"><td>合計</td><td>'+sA+'</td><td>'+sD+'</td><td>'+_rate(sD,sA)+'</td></tr></tbody></table>';
+  var e2=document.getElementById('refundRate');if(e2)e2.innerHTML=keys.length?h2:'<p style="color:var(--sub);font-size:12px">対象データがありません</p>';
+ }
  function load(){ if(loaded)return; loaded=true;
   var s=document.createElement('script');
-  s.src='https://docs.google.com/spreadsheets/d/1cBuI4ImfLs9BlnPyL0uYCZkyT4i7XQ3dMR5_yeZBWLw/gviz/tq?gid=0&tqx=out:json;responseHandler:gvizRefund&tq='+encodeURIComponent('SELECT D,F,G,J');
+  s.src='https://docs.google.com/spreadsheets/d/1cBuI4ImfLs9BlnPyL0uYCZkyT4i7XQ3dMR5_yeZBWLw/gviz/tq?gid=0&tqx=out:json;responseHandler:gvizRefund&tq='+encodeURIComponent('SELECT D,E,F,G,H,J');
   s.onerror=function(){document.getElementById('refundStats').textContent='読込失敗（シートの共有設定/ネットを確認）';};
   document.body.appendChild(s);
  }

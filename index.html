@@ -11,17 +11,17 @@
 .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(120,190,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(120,190,255,.06) 1px,transparent 1px);background-size:34px 34px;-webkit-mask:linear-gradient(120deg,#000,transparent 60%);mask:linear-gradient(120deg,#000,transparent 60%);pointer-events:none}
 .hero>*{position:relative;z-index:1}
 .logomark{font-family:"Arial Black","Helvetica Neue",Impact,sans-serif;font-style:italic;font-weight:900;font-size:clamp(38px,8.5vw,68px);line-height:.9;letter-spacing:-3px;color:transparent;-webkit-text-stroke:1.6px #8fd0ff;transform:skewX(-7deg);margin:0 0 10px;text-shadow:0 0 26px rgba(55,200,255,.35);user-select:none}
-.hero .eb{font-size:12px;letter-spacing:.3em;color:var(--cyan);font-weight:700}
+.hero .eb{font-size:13px;letter-spacing:.3em;color:var(--cyan);font-weight:700}
 .hero h1{margin:8px 0 6px;font-size:28px}.hero .lead{color:#c7d2ee;font-size:14px;margin:0 0 14px}
-.chip{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:999px;font-size:12px;color:#eaf1ff;margin:3px}
-.crit{background:var(--redb);border:1px solid #f3c2bb;border-left:5px solid var(--red);border-radius:12px;padding:13px 16px;margin-bottom:14px;color:#7a241a;font-size:13.5px}.crit b{color:var(--red)}
-.allbtn{background:#eef3ff;border:1px solid #d6e2fb;color:var(--blue);border-radius:8px;padding:7px 14px;cursor:pointer;font-size:13px;font-weight:700}
+.chip{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:4px 12px;border-radius:999px;font-size:13px;color:#eaf1ff;margin:3px}
+.crit{background:var(--redb);border:1px solid #f3c2bb;border-left:5px solid var(--red);border-radius:12px;padding:13px 16px;margin-bottom:14px;color:#7a241a;font-size:14px}.crit b{color:var(--red)}
+.allbtn{background:#eef3ff;border:1px solid #d6e2fb;color:var(--blue);border-radius:8px;padding:7px 14px;cursor:pointer;font-size:13.5px;font-weight:700}
 .toolbar{position:sticky;top:0;z-index:50;background:rgba(244,246,251,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:9px 4px;margin-bottom:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.toolbar input{flex:1 1 200px;min-width:150px;border:1px solid #d6e2fb;border-radius:9px;padding:8px 12px;font-size:13px;background:#fff}
-.toolbar select{border:1px solid #d6e2fb;border-radius:9px;padding:8px 10px;font-size:13px;background:#fff;max-width:230px}
-.toolbar .cnt{font-size:11px;color:var(--sub);margin-left:auto}
+.toolbar input{flex:1 1 200px;min-width:150px;border:1px solid #d6e2fb;border-radius:9px;padding:8px 12px;font-size:13.5px;background:#fff}
+.toolbar select{border:1px solid #d6e2fb;border-radius:9px;padding:8px 10px;font-size:13.5px;background:#fff;max-width:230px}
+.toolbar .cnt{font-size:12.5px;color:var(--sub);margin-left:auto}
 details.sec{scroll-margin-top:62px}
-.copybtn{background:#eef3ff;border:1px solid #d6e2fb;color:var(--blue);border-radius:7px;padding:2px 10px;font-size:11px;font-weight:700;cursor:pointer;position:absolute;top:8px;right:8px}
+.copybtn{background:#eef3ff;border:1px solid #d6e2fb;color:var(--blue);border-radius:7px;padding:2px 10px;font-size:12.5px;font-weight:700;cursor:pointer;position:absolute;top:8px;right:8px}
 .copybtn:hover{background:var(--blue);color:#fff}
 .copybtn.done{background:var(--grn);color:#fff;border-color:var(--grn)}
 .tmpl{position:relative;padding-right:66px}
@@ -34,21 +34,21 @@ details.sec[data-cat="grad"]>summary{border-left-color:#9b7ce0}
 details.sec[data-cat="tmpl"]>summary{border-left-color:var(--grn)}
 details.sec[data-cat="ops"]>summary{border-left-color:var(--amb)}
 details.sec.nomatch{display:none}
-.cbtn{position:fixed;right:18px;bottom:70px;z-index:62;background:linear-gradient(135deg,var(--blue),#0a58d6);color:#fff;border:none;border-radius:26px;padding:11px 16px;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 8px 22px rgba(27,110,243,.4)}
+.cbtn{position:fixed;right:18px;bottom:70px;z-index:62;background:linear-gradient(135deg,var(--blue),#0a58d6);color:#fff;border:none;border-radius:26px;padding:11px 16px;font-size:13.5px;font-weight:800;cursor:pointer;box-shadow:0 8px 22px rgba(27,110,243,.4)}
 .cpanel{position:fixed;right:18px;bottom:18px;z-index:63;width:min(370px,92vw);height:min(540px,74vh);background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 50px rgba(10,18,48,.3);display:none;flex-direction:column;overflow:hidden}
 .cpanel.open{display:flex}
 .chead{background:linear-gradient(135deg,var(--navy),#1a3aa0);color:#fff;padding:12px 14px;font-weight:800;font-size:14px;display:flex;align-items:center;gap:8px}
-.chead small{font-weight:500;color:#9fc4ff;font-size:11px}
+.chead small{font-weight:500;color:#9fc4ff;font-size:12.5px}
 .chead .x{margin-left:auto;cursor:pointer;font-size:20px;opacity:.85;line-height:1}
 .cbody{flex:1;overflow-y:auto;padding:12px;background:#f4f6fb}
-.cmsg{max-width:88%;margin:6px 0;padding:9px 12px;border-radius:12px;font-size:12.5px;line-height:1.65}
+.cmsg{max-width:88%;margin:6px 0;padding:9px 12px;border-radius:12px;font-size:13.5px;line-height:1.65}
 .cmsg.bot{background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px}
 .cmsg.me{background:var(--blue);color:#fff;margin-left:auto;border-bottom-right-radius:4px}
 .cmsg.bot a{color:var(--blue)}
 .cchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.cchip{background:#eef3ff;border:1px solid #d6e2fb;color:var(--blue);border-radius:14px;padding:4px 11px;font-size:11px;cursor:pointer}
+.cchip{background:#eef3ff;border:1px solid #d6e2fb;color:var(--blue);border-radius:14px;padding:4px 11px;font-size:12.5px;cursor:pointer}
 .cfoot{display:flex;gap:6px;padding:10px;border-top:1px solid var(--line);background:#fff}
-.cfoot input{flex:1;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-size:13px}
+.cfoot input{flex:1;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-size:13.5px}
 .cfoot button{background:var(--blue);color:#fff;border:none;border-radius:10px;padding:0 15px;font-weight:700;cursor:pointer}
 details.sec{background:#fff;border:1px solid var(--line);border-radius:13px;margin-bottom:12px;box-shadow:0 2px 12px rgba(16,30,70,.06);overflow:hidden}
 details.sec>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:11px;padding:16px 22px;font-size:18px;font-weight:800;color:var(--navy)}
@@ -56,64 +56,64 @@ details.sec>summary::-webkit-details-marker{display:none}
 details.sec>summary::after{content:"▾";margin-left:auto;color:var(--blue);transition:.2s}
 details.sec[open]>summary::after{transform:rotate(180deg)}
 details.sec>summary:hover{background:#f7f9ff}details.sec[open]>summary{border-bottom:1px solid var(--line)}
-.n{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;background:var(--blue);color:#fff;border-radius:8px;font-size:13px;font-weight:800;padding:0 6px}
-.body{padding:8px 22px 20px}.sub{color:var(--sub);font-size:12.5px;margin:6px 0 12px}
+.n{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;background:var(--blue);color:#fff;border-radius:8px;font-size:13.5px;font-weight:800;padding:0 6px}
+.body{padding:8px 22px 20px}.sub{color:var(--sub);font-size:13.5px;margin:6px 0 12px}
 h3{font-size:15px;color:var(--navy);margin:18px 0 8px;padding-left:11px;border-left:4px solid var(--blue)}
-h4{font-size:13.5px;margin:14px 0 6px}
+h4{font-size:14px;margin:14px 0 6px}
 .tw{overflow-x:auto;margin:10px 0;border-radius:9px;border:1px solid var(--line)}
-table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:500px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:500px}
 th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top}
-th{background:#f0f4fc;color:var(--navy);font-weight:700;font-size:11.5px}
+th{background:#f0f4fc;color:var(--navy);font-weight:700;font-size:12.5px}
 tr:last-child td{border-bottom:none}tbody tr:hover{background:#f8faff}
-.who{display:inline-block;background:#eef3ff;color:var(--blue);border-radius:6px;padding:1px 7px;font-size:11px;font-weight:600}
-.st{display:inline-block;border-radius:6px;padding:1px 8px;font-size:11px;font-weight:700}
+.who{display:inline-block;background:#eef3ff;color:var(--blue);border-radius:6px;padding:1px 7px;font-size:12.5px;font-weight:600}
+.st{display:inline-block;border-radius:6px;padding:1px 8px;font-size:12.5px;font-weight:700}
 .st.d{background:var(--grnb);color:var(--grn)}.st.w{background:#fff3d6;color:var(--amb)}.st.t{background:var(--redb);color:var(--red)}.st.k{background:#eef3ff;color:var(--blue)}
-.call{border-radius:10px;padding:11px 14px;margin:12px 0;font-size:12.5px;border:1px solid}
+.call{border-radius:10px;padding:11px 14px;margin:12px 0;font-size:13.5px;border:1px solid}
 .call .t{font-weight:700;display:block}
 .warn{background:var(--ambb);border-color:#f0dcae;color:#6d4c12}.warn .t{color:var(--amb)}
 .dang{background:var(--redb);border-color:#f3c2bb;color:#7a241a}.dang .t{color:var(--red)}
 .info{background:var(--infob);border-color:#c9dcff;color:#1c3a72}.info .t{color:var(--blue)}
-.tmpl{background:#f6f8fd;border:1px dashed #c3d2f0;border-radius:9px;padding:12px 14px;font-size:12px;color:#33405e;white-space:pre-wrap;margin:8px 0}
+.tmpl{background:#f6f8fd;border:1px dashed #c3d2f0;border-radius:9px;padding:12px 14px;font-size:13px;color:#33405e;white-space:pre-wrap;margin:8px 0}
 .chk{list-style:none;padding-left:0}.chk li{padding-left:24px;position:relative}.chk li::before{content:"";position:absolute;left:0;top:5px;width:14px;height:14px;border:2px solid var(--blue);border-radius:4px}
 .org{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:12px 0}
 .org .o{background:#f7f9ff;border:1px solid var(--line);border-radius:10px;padding:11px 13px}
-.org .role{font-size:10.5px;color:var(--blue);font-weight:700}.org .nm{font-size:14px;font-weight:800;color:var(--navy);margin:2px 0}.org .rp{font-size:11px;color:var(--sub)}
+.org .role{font-size:12px;color:var(--blue);font-weight:700}.org .nm{font-size:14px;font-weight:800;color:var(--navy);margin:2px 0}.org .rp{font-size:12.5px;color:var(--sub)}
 .org .top{grid-column:1/-1;background:var(--navy);color:#fff;border:none}.org .top .role{color:var(--cyan)}.org .top .nm{color:#fff}.org .top .rp{color:#b7c6ea}
 .ref .body{background:linear-gradient(135deg,#050a1f,#122a6b);color:#eaf1ff;border-radius:0 0 13px 13px}
-.big{font-size:30px;font-weight:900;color:var(--gold);text-align:center;margin:6px 0}.big small{display:block;font-size:13px;color:#cfe0ff}
+.big{font-size:30px;font-weight:900;color:var(--gold);text-align:center;margin:6px 0}.big small{display:block;font-size:13.5px;color:#cfe0ff}
 .cond{display:flex;flex-wrap:wrap;gap:10px}.cond .c{flex:1 1 210px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:11px;padding:12px 14px}
-.cond .k{font-size:11px;color:var(--cyan);font-weight:700}.cond .v{font-weight:700;margin-top:3px}.cond .d{font-size:12px;color:#b8c8ec;margin-top:3px}
+.cond .k{font-size:12.5px;color:var(--cyan);font-weight:700}.cond .v{font-weight:700;margin-top:3px}.cond .d{font-size:13px;color:#b8c8ec;margin-top:3px}
 .ref a{color:var(--cyan)}.ref h3{color:#eaf1ff;border-left-color:var(--cyan)}
-footer{color:var(--sub);font-size:12px;text-align:center;padding:18px}
+footer{color:var(--sub);font-size:13px;text-align:center;padding:18px}
 a{color:var(--blue)}
 .board{background:linear-gradient(135deg,#fffaf0,#fff3d6);border:1px solid #f0dcae;border-left:5px solid var(--gold);border-radius:13px;padding:15px 20px;margin-bottom:14px;box-shadow:0 2px 12px rgba(180,140,20,.08)}
 .board h2{margin:0 0 3px;font-size:16px;color:#7a5a12;display:flex;align-items:center;gap:8px}
-.board .cap{font-size:11.5px;color:#9a7b30;margin-bottom:10px}
-.board .item{background:#fff;border:1px solid #f0e2bf;border-radius:9px;padding:10px 13px;font-size:13px;margin:7px 0;display:flex;gap:11px;align-items:flex-start}
-.board .date{background:var(--gold);color:#5a4410;border-radius:6px;padding:2px 9px;font-size:11px;font-weight:800;white-space:nowrap}
+.board .cap{font-size:12.5px;color:#9a7b30;margin-bottom:10px}
+.board .item{background:#fff;border:1px solid #f0e2bf;border-radius:9px;padding:10px 13px;font-size:13.5px;margin:7px 0;display:flex;gap:11px;align-items:flex-start}
+.board .date{background:var(--gold);color:#5a4410;border-radius:6px;padding:2px 9px;font-size:12.5px;font-weight:800;white-space:nowrap}
 .board .txt b{color:#a0590f}
 .defnum{background:#6a4bd1!important}
 .mindmap{display:flex;align-items:center;overflow-x:auto;margin:14px 0;padding:6px 2px}
-.mm-root{flex:0 0 auto;background:linear-gradient(135deg,var(--navy),#1a3aa0);color:#fff;border-radius:14px;padding:14px 16px;font-weight:800;font-size:13.5px;text-align:center;line-height:1.4;box-shadow:0 4px 16px rgba(10,18,48,.2)}
-.mm-root small{display:block;font-weight:600;color:#9fc4ff;font-size:10.5px;margin-top:3px}
+.mm-root{flex:0 0 auto;background:linear-gradient(135deg,var(--navy),#1a3aa0);color:#fff;border-radius:14px;padding:14px 16px;font-weight:800;font-size:14px;text-align:center;line-height:1.4;box-shadow:0 4px 16px rgba(10,18,48,.2)}
+.mm-root small{display:block;font-weight:600;color:#9fc4ff;font-size:12px;margin-top:3px}
 .mm-link{flex:0 0 auto;width:26px;height:2px;background:#c2d4f5}
 .mm-branches{display:flex;flex-direction:column;gap:7px;position:relative;padding-left:26px}
 .mm-branches::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:2px;background:#c2d4f5}
 .mm-node{position:relative;background:#f2f6ff;border:1px solid #d6e2fb;border-left:4px solid var(--blue);border-radius:10px;padding:8px 13px;min-width:240px}
 .mm-node::before{content:"";position:absolute;left:-26px;top:50%;width:26px;height:2px;background:#c2d4f5}
-.mm-node b{display:block;color:var(--navy2);font-size:12.5px}
-.mm-node span{color:var(--sub);font-size:11px}
+.mm-node b{display:block;color:var(--navy2);font-size:13.5px}
+.mm-node span{color:var(--sub);font-size:12.5px}
 .lineflow{margin:12px 0;position:relative;padding-left:24px}
 .lineflow::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:#bfe3c9}
 .lf{position:relative;margin:0 0 11px}
 .lf::before{content:"";position:absolute;left:-23px;top:8px;width:12px;height:12px;border-radius:50%;background:#06c755;border:2px solid #fff;box-shadow:0 0 0 2px #bfe3c9}
-.lf .msg{background:#f4faf5;border:1px solid #d5e9d9;border-radius:10px;padding:9px 13px;font-size:12.5px}
+.lf .msg{background:#f4faf5;border:1px solid #d5e9d9;border-radius:10px;padding:9px 13px;font-size:13.5px}
 .lf .msg b{color:#1f8a54}
-.lf .act{margin-top:5px;background:#eaf2ff;border:1px dashed #b9d0f5;border-radius:8px;padding:6px 12px;font-size:12px;color:#1c3a72}
+.lf .act{margin-top:5px;background:#eaf2ff;border:1px dashed #b9d0f5;border-radius:8px;padding:6px 12px;font-size:13px;color:#1c3a72}
 .lf .act b{color:var(--blue)}
 .sflow{margin:6px 0 2px}
-.sfrow{display:flex;gap:10px;padding:8px 11px;border-radius:9px;background:#f7f9ff;border:1px solid var(--line);margin:6px 0;font-size:12.5px;align-items:flex-start}
-.sfrow .lb{flex:0 0 110px;font-weight:700;font-size:10.5px;color:var(--navy2);background:#eef3ff;border:1px solid #d6e2fb;border-radius:6px;padding:3px 8px;text-align:center}
+.sfrow{display:flex;gap:10px;padding:8px 11px;border-radius:9px;background:#f7f9ff;border:1px solid var(--line);margin:6px 0;font-size:13.5px;align-items:flex-start}
+.sfrow .lb{flex:0 0 110px;font-weight:700;font-size:12px;color:var(--navy2);background:#eef3ff;border:1px solid #d6e2fb;border-radius:6px;padding:3px 8px;text-align:center}
 .sfrow .ct{flex:1;line-height:1.6}
 .sfrow.msg{background:#f4faf5;border-color:#d5e9d9}
 .sfrow.msg .lb{background:#e3f3e8;border-color:#c7e3cf;color:#1f8a54}
@@ -121,25 +121,25 @@ a{color:var(--blue)}
 .sfrow.re .lb{background:#fdeccb;border-color:#f0dcae;color:#8a6516}
 .todo{color:var(--sub);font-style:italic}
 .taskacc{border:1px solid var(--line);border-radius:11px;overflow:hidden;margin:12px 0;box-shadow:0 2px 10px rgba(16,30,70,.05)}
-.taskhead{display:flex;gap:12px;padding:9px 14px;background:#f0f4fc;font-size:11.5px;font-weight:700;color:var(--navy);border-bottom:1px solid var(--line)}
+.taskhead{display:flex;gap:12px;padding:9px 14px;background:#f0f4fc;font-size:12.5px;font-weight:700;color:var(--navy);border-bottom:1px solid var(--line)}
 .taskrow{border-bottom:1px solid var(--line)}
 .taskrow:last-child{border-bottom:none}
-.taskrow>summary{list-style:none;cursor:pointer;display:flex;gap:12px;align-items:center;padding:13px 14px;font-size:13.5px}
+.taskrow>summary{list-style:none;cursor:pointer;display:flex;gap:12px;align-items:center;padding:13px 14px;font-size:14px}
 .taskrow>summary::-webkit-details-marker{display:none}
 .taskrow>summary:hover{background:#f7f9ff}
-.taskrow>summary::after{content:"▾";margin-left:8px;color:var(--blue);transition:.2s;flex:0 0 auto;font-size:12px}
+.taskrow>summary::after{content:"▾";margin-left:8px;color:var(--blue);transition:.2s;flex:0 0 auto;font-size:13px}
 .taskrow[open]>summary::after{transform:rotate(180deg)}
 .taskrow[open]>summary{background:#eef3ff;border-bottom:1px solid var(--line)}
 .taskrow>.subbody{padding:10px 14px 16px;background:#fbfcff}
 .tc1{flex:0 0 30px;font-weight:800;color:var(--blue);text-align:center}
 .tc2{flex:0 0 190px;font-weight:700;color:var(--ink)}
-.tc3{flex:1 1 auto;min-width:0;color:var(--sub);font-size:12px}
+.tc3{flex:1 1 auto;min-width:0;color:var(--sub);font-size:13px}
 .taskhead .tc2,.taskhead .tc3{font-weight:700;color:var(--navy)}
-@media(max-width:560px){.tc2{flex:0 0 110px;font-size:12.5px}.tc3{font-size:11px}}
+@media(max-width:560px){.tc2{flex:0 0 110px;font-size:13.5px}.tc3{font-size:12.5px}}
 .stepacc{border:1px solid var(--line);border-radius:9px;margin:8px 0;background:#fff;overflow:hidden}
-.stepacc>summary{list-style:none;cursor:pointer;padding:10px 12px;font-size:13px;font-weight:800;color:var(--navy);background:#f2f6ff;display:flex;align-items:center;gap:8px}
+.stepacc>summary{list-style:none;cursor:pointer;padding:10px 12px;font-size:13.5px;font-weight:800;color:var(--navy);background:#f2f6ff;display:flex;align-items:center;gap:8px}
 .stepacc>summary::-webkit-details-marker{display:none}
-.stepacc>summary::after{content:"▾";margin-left:auto;color:var(--blue);transition:.2s;font-size:12px}
+.stepacc>summary::after{content:"▾";margin-left:auto;color:var(--blue);transition:.2s;font-size:13px}
 .stepacc>summary:hover{background:#e6eeff}
 .stepacc[open]{border-color:var(--blue);box-shadow:0 3px 14px rgba(27,110,243,.18)}
 .stepacc[open]>summary{background:linear-gradient(135deg,var(--blue),#0a58d6);color:#fff;border-bottom:1px solid #c9dcff}
@@ -148,11 +148,11 @@ a{color:var(--blue)}
 .stepacc>.stepbody{padding:9px 12px 12px}
 .stepacc[open]>.stepbody{background:#f7faff}
 .rolehide{display:none!important}
-#roleBar{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:0 0 12px;font-size:12px}
+#roleBar{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:0 0 12px;font-size:13px}
 #roleBar .lbl{color:var(--sub);font-weight:700}
-.rolebtn{background:#eef3ff;border:1px solid #d6e2fb;color:var(--blue);border-radius:999px;padding:6px 14px;cursor:pointer;font-size:12px;font-weight:700}
+.rolebtn{background:#eef3ff;border:1px solid #d6e2fb;color:var(--blue);border-radius:999px;padding:6px 14px;cursor:pointer;font-size:13px;font-weight:700}
 .rolebtn.on{background:var(--blue);color:#fff;border-color:var(--blue)}
-.alertbox{background:var(--redb);border:1px solid #f3c2bb;border-left:5px solid var(--red);border-radius:10px;padding:11px 14px;margin:10px 0;font-size:13px;color:#7a241a}
+.alertbox{background:var(--redb);border:1px solid #f3c2bb;border-left:5px solid var(--red);border-radius:10px;padding:11px 14px;margin:10px 0;font-size:13.5px;color:#7a241a}
 .alertbox.ok{background:var(--grnb);border-color:#cfe9d8;border-left-color:var(--grn);color:#1c5c3a}
 .term{border-bottom:1px dotted var(--blue);cursor:help}
 .ph{color:#c0392b;font-weight:800;background:#fdecea;border:1px solid #f3c2bb;border-radius:4px;padding:0 4px}
@@ -165,27 +165,27 @@ a{color:var(--blue)}
  .rolehide{display:block!important}
 }
 /* ===== 左リッチメニュー（章目次ドロワー） ===== */
-.menubtn{position:fixed;left:18px;bottom:18px;z-index:64;background:linear-gradient(135deg,var(--navy),#16205a);color:#fff;border:none;border-radius:26px;padding:11px 15px;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 8px 22px rgba(10,18,48,.4);display:flex;align-items:center;gap:7px}
+.menubtn{position:fixed;left:18px;bottom:18px;z-index:64;background:linear-gradient(135deg,var(--navy),#16205a);color:#fff;border:none;border-radius:26px;padding:11px 15px;font-size:13.5px;font-weight:800;cursor:pointer;box-shadow:0 8px 22px rgba(10,18,48,.4);display:flex;align-items:center;gap:7px}
 .menubtn:hover{filter:brightness(1.13)}.menubtn .ic{font-size:15px}
 .navback{position:fixed;inset:0;z-index:70;background:rgba(10,18,48,.42);opacity:0;pointer-events:none;transition:opacity .25s}
 .navback.on{opacity:1;pointer-events:auto}
 .sidenav{position:fixed;top:0;left:0;z-index:71;width:min(300px,86vw);height:100%;background:#fff;box-shadow:6px 0 30px rgba(10,18,48,.22);transform:translateX(-104%);transition:transform .28s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
 .sidenav.on{transform:translateX(0)}
 .sidenav .nvhead{background:linear-gradient(135deg,var(--navy),#16205a);color:#fff;padding:15px 15px 13px;display:flex;align-items:flex-start;gap:9px}
-.sidenav .nvhead .tt{font-weight:800;font-size:15px}.sidenav .nvhead .sb{font-size:10.5px;color:#b9c6ee;margin-top:3px}
+.sidenav .nvhead .tt{font-weight:800;font-size:15px}.sidenav .nvhead .sb{font-size:12px;color:#b9c6ee;margin-top:3px}
 .sidenav .nvhead .x{margin-left:auto;cursor:pointer;font-size:22px;line-height:1;opacity:.85}.sidenav .nvhead .x:hover{opacity:1}
 .sidenav .nvlist{flex:1;overflow-y:auto;padding:8px;-webkit-overflow-scrolling:touch}
-.nvitem{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:none;border:none;border-radius:10px;padding:8px 10px;cursor:pointer;color:var(--ink);font-size:13px;font-family:inherit;line-height:1.4;margin-bottom:2px}
+.nvitem{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:none;border:none;border-radius:10px;padding:8px 10px;cursor:pointer;color:var(--ink);font-size:13.5px;font-family:inherit;line-height:1.4;margin-bottom:2px}
 .nvitem:hover{background:#f0f4fc}
 .nvitem.act{background:var(--infob);box-shadow:inset 3px 0 0 var(--blue)}
 .nvitem .ic{flex:none;width:30px;height:30px;border-radius:9px;background:#eef2fb;display:flex;align-items:center;justify-content:center;font-size:15px}
 .nvitem.act .ic{background:#fff}
 .nvitem .lb{flex:1;font-weight:600}
-.nvitem .bd{flex:none;font-size:10px;font-weight:800;color:var(--sub);background:#eef2fb;border-radius:6px;padding:1px 6px;min-width:20px;text-align:center}
+.nvitem .bd{flex:none;font-size:12px;font-weight:800;color:var(--sub);background:#eef2fb;border-radius:6px;padding:1px 6px;min-width:20px;text-align:center}
 .nvitem.act .bd{color:var(--blue);background:#fff}
 @media print{.menubtn,.navback,.sidenav{display:none!important}}
 /* ダッシュボード集計テーブル */
-.dtbl{width:100%;border-collapse:collapse;font-size:12.5px;font-variant-numeric:tabular-nums;min-width:360px}
+.dtbl{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums;min-width:360px}
 .dtbl th{background:#0b1533;color:#fff;font-weight:700;padding:8px 12px;text-align:right;white-space:nowrap}
 .dtbl th:first-child{text-align:left}
 .dtbl td{padding:7px 12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
@@ -219,7 +219,7 @@ a{color:var(--blue)}
 <details class="sec" open><summary><span class="n defnum">定義</span>役割・用語の定義</summary><div class="body">
 <div class="sub">本マニュアルで使う「運営 / CS / MG」の定義と担当者。まずここを共有してから本題へ。</div>
 <h3>運営（事業判断・金額の意思決定）</h3>
-<p style="font-size:12.5px">事業判断とお金に関わる意思決定を行うメンバー。<b>金額に関係する最終判断は森本・杉山</b>が行う。</p>
+<p style="font-size:13.5px">事業判断とお金に関わる意思決定を行うメンバー。<b>金額に関係する最終判断は森本・杉山</b>が行う。</p>
 <div class="tw"><table><thead><tr><th>メンバー</th><th>役割</th></tr></thead><tbody>
 <tr><td><span class="who">森本（かずひら）</span></td><td>事業責任者。全体の最終決裁／顧客満足の意思決定／全体スケジュール管理／<b>金額判断</b></td></tr>
 <tr><td><span class="who">杉山</span></td><td>PM・マーケ実行責任者（事業責任者と同レイヤー）／カリキュラム統括／<b>金額判断（返金等）</b></td></tr>
@@ -228,14 +228,14 @@ a{color:var(--blue)}
 <tr><td><span class="who">山崎</span></td><td>入学前案内・オンボーディング導線（営業兼務）</td></tr>
 </tbody></table></div>
 <h3>CS（カスタマーサクセス）</h3>
-<p style="font-size:12.5px">受講生の入会手続き〜受講中の対応を担う。<b>入学前と入学後で責任者が異なる</b>。</p>
+<p style="font-size:13.5px">受講生の入会手続き〜受講中の対応を担う。<b>入学前と入学後で責任者が異なる</b>。</p>
 <div class="tw"><table><thead><tr><th>区分</th><th>責任者</th><th>対応範囲</th></tr></thead><tbody>
 <tr><td>入学前（入会対応）</td><td><span class="who">小林</span>／サポート：田中</td><td>入会者対応の全て（エルメ＋Discord）／クラス分け・タグ付け／入学ガイダンス</td></tr>
 <tr><td>入学後（受講生CS）</td><td><span class="who">合澤</span></td><td>受講生LINE（エルメ）対応／返金・解約・休学の窓口／全体意見の統括</td></tr>
 </tbody></table></div>
-<p style="font-size:12px">CSサポート（シフト対応・合澤配下）：岡本・松本・高見・豊島・佐藤（全額返金の回収／中途解約／休学／契約周り）</p>
+<p style="font-size:13px">CSサポート（シフト対応・合澤配下）：岡本・松本・高見・豊島・佐藤（全額返金の回収／中途解約／休学／契約周り）</p>
 <h3>MG（マネージャー）</h3>
-<p style="font-size:12.5px">担当クラスの受講生に伴走。1on1・質問対応・進捗フォロー・クラス会の活性化。金銭・契約の判断は行わず運営へ取次ぐ。</p>
+<p style="font-size:13.5px">担当クラスの受講生に伴走。1on1・質問対応・進捗フォロー・クラス会の活性化。金銭・契約の判断は行わず運営へ取次ぐ。</p>
 <div class="tw"><table><thead><tr><th>区分</th><th>担当</th><th>役割</th></tr></thead><tbody>
 <tr><td>統括</td><td><span class="who">阿部</span></td><td>MG統括／カリキュラム知見で技術的な壁打ち・FB</td></tr>
 <tr><td>クラス担当MG</td><td>松井・堂庭・清水・上枝・川﨑</td><td>1on1（初回1週以内・2〜3週目・1ヶ月後の計3回）・質問対応(10・15・20時)／アンケート回収／クラス会活性化</td></tr>
@@ -269,7 +269,7 @@ a{color:var(--blue)}
 <div class="o"><div class="role">イベント責任者</div><div class="nm">青嶋・Ninon</div><div class="rp">イベント・コンペ／Discord改善</div></div>
 <div class="o"><div class="role">イベント実行補佐</div><div class="nm">網島</div><div class="rp">青嶋管轄の実働</div></div></div>
 <h3>🗺 受講生ジャーニー（90日の流れ）</h3>
-<div style="background:linear-gradient(180deg,#f6f9ff,#eef3fb);border:1px solid #dbe4f5;border-radius:16px;padding:20px 20px 18px;margin:6px 0 4px;"><div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;"><div style="background:linear-gradient(135deg,#12224a,#24478f);color:#fff;border-radius:12px;padding:10px 16px;font-weight:800;font-size:14px;line-height:1.35;">CREATOR'ZZ 受講生ジャーニー<div style="font-size:11px;font-weight:600;color:#aec4e8;margin-top:2px;">契約 〜 卒業 ／ 90日間</div></div><div style="font-size:12px;color:#5a6785;">↓ 上から順に進みます（8ステップ）</div></div><div style="display:flex;gap:15px;"><div style="flex-shrink:0;width:40px;display:flex;flex-direction:column;align-items:center;"><div style="width:38px;height:38px;border-radius:50%;background:#1b6ef3;color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(27,110,243,.25);flex-shrink:0;">①</div><div style="flex:1;width:2px;min-height:14px;background:linear-gradient(#dbe4f5,#dbe4f5);margin:5px 0;"></div></div><div style="flex:1;background:#fff;border:1px solid #e2e8f4;border-left:4px solid #1b6ef3;border-radius:12px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(20,45,90,.05);"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;"><span style="font-size:15px;font-weight:800;color:#12224a;">契約フェーズ</span><span style="font-size:11px;font-weight:700;color:#1b6ef3;background:#1b6ef314;border:1px solid #1b6ef333;border-radius:20px;padding:2px 10px;">契約直後</span></div><div style="font-size:13px;color:#5a6785;margin-top:4px;line-height:1.55;">契約後面談・信販承認・公式LINE案内</div></div></div><div style="display:flex;gap:15px;"><div style="flex-shrink:0;width:40px;display:flex;flex-direction:column;align-items:center;"><div style="width:38px;height:38px;border-radius:50%;background:#1b6ef3;color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(27,110,243,.25);flex-shrink:0;">②</div><div style="flex:1;width:2px;min-height:14px;background:linear-gradient(#dbe4f5,#dbe4f5);margin:5px 0;"></div></div><div style="flex:1;background:#fff;border:1px solid #e2e8f4;border-left:4px solid #1b6ef3;border-radius:12px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(20,45,90,.05);"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;"><span style="font-size:15px;font-weight:800;color:#12224a;">入学手続き</span><span style="font-size:11px;font-weight:700;color:#1b6ef3;background:#1b6ef314;border:1px solid #1b6ef333;border-radius:20px;padding:2px 10px;">入学前</span></div><div style="font-size:13px;color:#5a6785;margin-top:4px;line-height:1.55;">MG/クラス決定・LMS発行・開講案内</div></div></div><div style="display:flex;gap:15px;"><div style="flex-shrink:0;width:40px;display:flex;flex-direction:column;align-items:center;"><div style="width:38px;height:38px;border-radius:50%;background:#2f7bf0;color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(27,110,243,.25);flex-shrink:0;">③</div><div style="flex:1;width:2px;min-height:14px;background:linear-gradient(#dbe4f5,#dbe4f5);margin:5px 0;"></div></div><div style="flex:1;background:#fff;border:1px solid #e2e8f4;border-left:4px solid #2f7bf0;border-radius:12px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(20,45,90,.05);"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;"><span style="font-size:15px;font-weight:800;color:#12224a;">入学ガイダンス</span><span style="font-size:11px;font-weight:700;color:#2f7bf0;background:#2f7bf014;border:1px solid #2f7bf033;border-radius:20px;padding:2px 10px;">入学日</span></div><div style="font-size:13px;color:#5a6785;margin-top:4px;line-height:1.55;">日曜21:00・Discord/WB確認・録画共有</div></div></div><div style="display:flex;gap:15px;"><div style="flex-shrink:0;width:40px;display:flex;flex-direction:column;align-items:center;"><div style="width:38px;height:38px;border-radius:50%;background:#2f7bf0;color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(27,110,243,.25);flex-shrink:0;">④</div><div style="flex:1;width:2px;min-height:14px;background:linear-gradient(#dbe4f5,#dbe4f5);margin:5px 0;"></div></div><div style="flex:1;background:#fff;border:1px solid #e2e8f4;border-left:4px solid #2f7bf0;border-radius:12px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(20,45,90,.05);"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;"><span style="font-size:15px;font-weight:800;color:#12224a;">初回1on1（計3回）</span><span style="font-size:11px;font-weight:700;color:#2f7bf0;background:#2f7bf014;border:1px solid #2f7bf033;border-radius:20px;padding:2px 10px;">1週〜1ヶ月</span></div><div style="font-size:13px;color:#5a6785;margin-top:4px;line-height:1.55;">1週 / 2〜3週 / 1ヶ月・サークルバック</div></div></div><div style="display:flex;gap:15px;"><div style="flex-shrink:0;width:40px;display:flex;flex-direction:column;align-items:center;"><div style="width:38px;height:38px;border-radius:50%;background:#4a86ec;color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(27,110,243,.25);flex-shrink:0;">⑤</div><div style="flex:1;width:2px;min-height:14px;background:linear-gradient(#dbe4f5,#dbe4f5);margin:5px 0;"></div></div><div style="flex:1;background:#fff;border:1px solid #e2e8f4;border-left:4px solid #4a86ec;border-radius:12px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(20,45,90,.05);"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;"><span style="font-size:15px;font-weight:800;color:#12224a;">定期フォロー（月次）</span><span style="font-size:11px;font-weight:700;color:#4a86ec;background:#4a86ec14;border:1px solid #4a86ec33;border-radius:20px;padding:2px 10px;">月次</span></div><div style="font-size:13px;color:#5a6785;margin-top:4px;line-height:1.55;">クラス会・各種アンケート</div></div></div><div style="display:flex;gap:15px;"><div style="flex-shrink:0;width:40px;display:flex;flex-direction:column;align-items:center;"><div style="width:38px;height:38px;border-radius:50%;background:#4a86ec;color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(27,110,243,.25);flex-shrink:0;">⑥</div><div style="flex:1;width:2px;min-height:14px;background:linear-gradient(#dbe4f5,#dbe4f5);margin:5px 0;"></div></div><div style="flex:1;background:#fff;border:1px solid #e2e8f4;border-left:4px solid #4a86ec;border-radius:12px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(20,45,90,.05);"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;"><span style="font-size:15px;font-weight:800;color:#12224a;">継続タスク（90日）</span><span style="font-size:11px;font-weight:700;color:#4a86ec;background:#4a86ec14;border:1px solid #4a86ec33;border-radius:20px;padding:2px 10px;">90日通して</span></div><div style="font-size:13px;color:#5a6785;margin-top:4px;line-height:1.55;">カリキュラム・リファレンス・毎日メッセージ</div></div></div><div style="display:flex;gap:15px;"><div style="flex-shrink:0;width:40px;display:flex;flex-direction:column;align-items:center;"><div style="width:38px;height:38px;border-radius:50%;background:#8a97b0;color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(27,110,243,.25);flex-shrink:0;">⑦</div><div style="flex:1;width:2px;min-height:14px;background:linear-gradient(#dbe4f5,#dbe4f5);margin:5px 0;"></div></div><div style="flex:1;background:#fff;border:1px solid #e2e8f4;border-left:4px solid #8a97b0;border-radius:12px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(20,45,90,.05);"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;"><span style="font-size:15px;font-weight:800;color:#12224a;">特別対応</span><span style="font-size:11px;font-weight:700;color:#8a97b0;background:#8a97b014;border:1px solid #8a97b033;border-radius:20px;padding:2px 10px;">随時</span></div><div style="font-size:13px;color:#5a6785;margin-top:4px;line-height:1.55;">返金・解約・休学（判断は運営）</div></div></div><div style="display:flex;gap:15px;"><div style="flex-shrink:0;width:40px;display:flex;flex-direction:column;align-items:center;"><div style="width:38px;height:38px;border-radius:50%;background:#1f8a54;color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(27,110,243,.25);flex-shrink:0;">⑧</div></div><div style="flex:1;background:#fff;border:1px solid #e2e8f4;border-left:4px solid #1f8a54;border-radius:12px;padding:12px 16px;margin-bottom:0px;box-shadow:0 1px 2px rgba(20,45,90,.05);"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;"><span style="font-size:15px;font-weight:800;color:#12224a;">卒業</span><span style="font-size:11px;font-weight:700;color:#1f8a54;background:#1f8a5414;border:1px solid #1f8a5433;border-radius:20px;padding:2px 10px;">90日後・ゴール</span></div><div style="font-size:13px;color:#5a6785;margin-top:4px;line-height:1.55;">修了判定・卒業生Discord・2年目プラン</div></div></div></div>
+<div style="background:linear-gradient(180deg,#f6f9ff,#eef3fb);border:1px solid #dbe4f5;border-radius:16px;padding:20px 20px 18px;margin:6px 0 4px;"><div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;"><div style="background:linear-gradient(135deg,#12224a,#24478f);color:#fff;border-radius:12px;padding:10px 16px;font-weight:800;font-size:14px;line-height:1.35;">CREATOR'ZZ 受講生ジャーニー<div style="font-size:12.5px;font-weight:600;color:#aec4e8;margin-top:2px;">契約 〜 卒業 ／ 90日間</div></div><div style="font-size:13px;color:#5a6785;">↓ 上から順に進みます（8ステップ）</div></div><div style="display:flex;gap:15px;"><div style="flex-shrink:0;width:40px;display:flex;flex-direction:column;align-items:center;"><div style="width:38px;height:38px;border-radius:50%;background:#1b6ef3;color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(27,110,243,.25);flex-shrink:0;">①</div><div style="flex:1;width:2px;min-height:14px;background:linear-gradient(#dbe4f5,#dbe4f5);margin:5px 0;"></div></div><div style="flex:1;background:#fff;border:1px solid #e2e8f4;border-left:4px solid #1b6ef3;border-radius:12px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(20,45,90,.05);"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;"><span style="font-size:15px;font-weight:800;color:#12224a;">契約フェーズ</span><span style="font-size:12.5px;font-weight:700;color:#1b6ef3;background:#1b6ef314;border:1px solid #1b6ef333;border-radius:20px;padding:2px 10px;">契約直後</span></div><div style="font-size:13.5px;color:#5a6785;margin-top:4px;line-height:1.55;">契約後面談・信販承認・公式LINE案内</div></div></div><div style="display:flex;gap:15px;"><div style="flex-shrink:0;width:40px;display:flex;flex-direction:column;align-items:center;"><div style="width:38px;height:38px;border-radius:50%;background:#1b6ef3;color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(27,110,243,.25);flex-shrink:0;">②</div><div style="flex:1;width:2px;min-height:14px;background:linear-gradient(#dbe4f5,#dbe4f5);margin:5px 0;"></div></div><div style="flex:1;background:#fff;border:1px solid #e2e8f4;border-left:4px solid #1b6ef3;border-radius:12px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(20,45,90,.05);"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;"><span style="font-size:15px;font-weight:800;color:#12224a;">入学手続き</span><span style="font-size:12.5px;font-weight:700;color:#1b6ef3;background:#1b6ef314;border:1px solid #1b6ef333;border-radius:20px;padding:2px 10px;">入学前</span></div><div style="font-size:13.5px;color:#5a6785;margin-top:4px;line-height:1.55;">MG/クラス決定・LMS発行・開講案内</div></div></div><div style="display:flex;gap:15px;"><div style="flex-shrink:0;width:40px;display:flex;flex-direction:column;align-items:center;"><div style="width:38px;height:38px;border-radius:50%;background:#2f7bf0;color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(27,110,243,.25);flex-shrink:0;">③</div><div style="flex:1;width:2px;min-height:14px;background:linear-gradient(#dbe4f5,#dbe4f5);margin:5px 0;"></div></div><div style="flex:1;background:#fff;border:1px solid #e2e8f4;border-left:4px solid #2f7bf0;border-radius:12px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(20,45,90,.05);"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;"><span style="font-size:15px;font-weight:800;color:#12224a;">入学ガイダンス</span><span style="font-size:12.5px;font-weight:700;color:#2f7bf0;background:#2f7bf014;border:1px solid #2f7bf033;border-radius:20px;padding:2px 10px;">入学日</span></div><div style="font-size:13.5px;color:#5a6785;margin-top:4px;line-height:1.55;">日曜21:00・Discord/WB確認・録画共有</div></div></div><div style="display:flex;gap:15px;"><div style="flex-shrink:0;width:40px;display:flex;flex-direction:column;align-items:center;"><div style="width:38px;height:38px;border-radius:50%;background:#2f7bf0;color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(27,110,243,.25);flex-shrink:0;">④</div><div style="flex:1;width:2px;min-height:14px;background:linear-gradient(#dbe4f5,#dbe4f5);margin:5px 0;"></div></div><div style="flex:1;background:#fff;border:1px solid #e2e8f4;border-left:4px solid #2f7bf0;border-radius:12px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(20,45,90,.05);"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;"><span style="font-size:15px;font-weight:800;color:#12224a;">初回1on1（計3回）</span><span style="font-size:12.5px;font-weight:700;color:#2f7bf0;background:#2f7bf014;border:1px solid #2f7bf033;border-radius:20px;padding:2px 10px;">1週〜1ヶ月</span></div><div style="font-size:13.5px;color:#5a6785;margin-top:4px;line-height:1.55;">1週 / 2〜3週 / 1ヶ月・サークルバック</div></div></div><div style="display:flex;gap:15px;"><div style="flex-shrink:0;width:40px;display:flex;flex-direction:column;align-items:center;"><div style="width:38px;height:38px;border-radius:50%;background:#4a86ec;color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(27,110,243,.25);flex-shrink:0;">⑤</div><div style="flex:1;width:2px;min-height:14px;background:linear-gradient(#dbe4f5,#dbe4f5);margin:5px 0;"></div></div><div style="flex:1;background:#fff;border:1px solid #e2e8f4;border-left:4px solid #4a86ec;border-radius:12px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(20,45,90,.05);"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;"><span style="font-size:15px;font-weight:800;color:#12224a;">定期フォロー（月次）</span><span style="font-size:12.5px;font-weight:700;color:#4a86ec;background:#4a86ec14;border:1px solid #4a86ec33;border-radius:20px;padding:2px 10px;">月次</span></div><div style="font-size:13.5px;color:#5a6785;margin-top:4px;line-height:1.55;">クラス会・各種アンケート</div></div></div><div style="display:flex;gap:15px;"><div style="flex-shrink:0;width:40px;display:flex;flex-direction:column;align-items:center;"><div style="width:38px;height:38px;border-radius:50%;background:#4a86ec;color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(27,110,243,.25);flex-shrink:0;">⑥</div><div style="flex:1;width:2px;min-height:14px;background:linear-gradient(#dbe4f5,#dbe4f5);margin:5px 0;"></div></div><div style="flex:1;background:#fff;border:1px solid #e2e8f4;border-left:4px solid #4a86ec;border-radius:12px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(20,45,90,.05);"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;"><span style="font-size:15px;font-weight:800;color:#12224a;">継続タスク（90日）</span><span style="font-size:12.5px;font-weight:700;color:#4a86ec;background:#4a86ec14;border:1px solid #4a86ec33;border-radius:20px;padding:2px 10px;">90日通して</span></div><div style="font-size:13.5px;color:#5a6785;margin-top:4px;line-height:1.55;">カリキュラム・リファレンス・毎日メッセージ</div></div></div><div style="display:flex;gap:15px;"><div style="flex-shrink:0;width:40px;display:flex;flex-direction:column;align-items:center;"><div style="width:38px;height:38px;border-radius:50%;background:#8a97b0;color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(27,110,243,.25);flex-shrink:0;">⑦</div><div style="flex:1;width:2px;min-height:14px;background:linear-gradient(#dbe4f5,#dbe4f5);margin:5px 0;"></div></div><div style="flex:1;background:#fff;border:1px solid #e2e8f4;border-left:4px solid #8a97b0;border-radius:12px;padding:12px 16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(20,45,90,.05);"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;"><span style="font-size:15px;font-weight:800;color:#12224a;">特別対応</span><span style="font-size:12.5px;font-weight:700;color:#8a97b0;background:#8a97b014;border:1px solid #8a97b033;border-radius:20px;padding:2px 10px;">随時</span></div><div style="font-size:13.5px;color:#5a6785;margin-top:4px;line-height:1.55;">返金・解約・休学（判断は運営）</div></div></div><div style="display:flex;gap:15px;"><div style="flex-shrink:0;width:40px;display:flex;flex-direction:column;align-items:center;"><div style="width:38px;height:38px;border-radius:50%;background:#1f8a54;color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(27,110,243,.25);flex-shrink:0;">⑧</div></div><div style="flex:1;background:#fff;border:1px solid #e2e8f4;border-left:4px solid #1f8a54;border-radius:12px;padding:12px 16px;margin-bottom:0px;box-shadow:0 1px 2px rgba(20,45,90,.05);"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;"><span style="font-size:15px;font-weight:800;color:#12224a;">卒業</span><span style="font-size:12.5px;font-weight:700;color:#1f8a54;background:#1f8a5414;border:1px solid #1f8a5433;border-radius:20px;padding:2px 10px;">90日後・ゴール</span></div><div style="font-size:13.5px;color:#5a6785;margin-top:4px;line-height:1.55;">修了判定・卒業生Discord・2年目プラン</div></div></div></div>
 <h3>契約後フロー全体図（No.1〜22・担当/備考）</h3><div class="tw"><table>
 <thead><tr><th>No</th><th>フェーズ</th><th>ステップ</th><th>担当</th><th>備考</th></tr></thead><tbody>
 <tr><td>1</td><td>契約</td><td>契約後面談</td><td><span class="who">営業・山崎</span></td><td>クーオフ対策</td></tr>
@@ -327,7 +327,7 @@ a{color:var(--blue)}
 <details class="sec"><summary><span class="n">1</span>契約フェーズ（CS）</summary><div class="body">
 <div class="sub">決済完了時 ／ CS・山﨑・松井・金野</div>
 <h3>契約後の即時対応</h3>
-<p style="font-size:12px;color:var(--sub)">各行（①〜⑤）をタップすると詳細フローが下に開きます。タイミング・担当・目的・使用資料（リンク）・送信文章まで一言一句。生徒へ送る文章は <b>.tmpl（コピー可）</b>。</p>
+<p style="font-size:13px;color:var(--sub)">各行（①〜⑤）をタップすると詳細フローが下に開きます。タイミング・担当・目的・使用資料（リンク）・送信文章まで一言一句。生徒へ送る文章は <b>.tmpl（コピー可）</b>。</p>
 <div class="taskacc">
 <div class="taskhead"><span class="tc1">#</span><span class="tc2">タスク</span><span class="tc3">詳細 ／ タップで展開</span></div>
 <details class="taskrow"><summary><span class="tc1">①</span><span class="tc2">公式LINE案内</span><span class="tc3">決済完了後すぐ</span></summary><div class="subbody">
@@ -504,7 +504,7 @@ CREATOR'ZZへようこそ！🎉
 <tr><td>開講案内</td><td>受講開始日・ガイダンスURL送付</td><td><span class="who">CS</span></td></tr>
 <tr><td>自動</td><td>初回アンケート・動画5本</td><td>自動</td></tr>
 <tr><td>当日</td><td>Discord招待・WBログイン確認</td><td>MG+CS</td></tr></tbody></table></div>
-<h3>MGアサイン後 LINE設定4項目</h3><p style="font-size:12px">マネ=自分の名前／講師=担当講師（確定後更新）／状態=アクティブ受講生／入学月=20○○年/○月</p>
+<h3>MGアサイン後 LINE設定4項目</h3><p style="font-size:13px">マネ=自分の名前／講師=担当講師（確定後更新）／状態=アクティブ受講生／入学月=20○○年/○月</p>
 <h4>開講案内テンプレ</h4><div class="tmpl">●●様
 3つの準備（①〜③）ありがとうございました！これで受講スタートの準備が整いました✨
 📅 受講開始（入学ガイダンス）：【○/○（○）21:00〜】
@@ -527,7 +527,7 @@ CREATOR'ZZへようこそ！🎉
 <div class="lf"><div class="msg"><b>🎓 入学ガイダンス</b>（日曜21:00・別途小林さんから案内）→ 受講スタート</div><div class="act">欠席時：担当MGが個別フォロー・再調整</div></div>
 </div>
 <h3>公式LINEステップ配信（STEP1〜8）＝入学手続きの本体フロー</h3>
-<p style="font-size:12px;color:var(--sub)">決済後に自動で流れる公式LINEステップ配信〜入学ガイダンスまで。各STEPをタップで展開（生徒へ送る文章は .tmpl でコピー可）。<b>凡例</b>：🤖自動＝ステップ配信が自動送信（人は触らない）／👤生徒＝生徒の操作・反応（橙＝関門）／CS・MG＝手動送信。上から順に流れます。</p>
+<p style="font-size:13px;color:var(--sub)">決済後に自動で流れる公式LINEステップ配信〜入学ガイダンスまで。各STEPをタップで展開（生徒へ送る文章は .tmpl でコピー可）。<b>凡例</b>：🤖自動＝ステップ配信が自動送信（人は触らない）／👤生徒＝生徒の操作・反応（橙＝関門）／CS・MG＝手動送信。上から順に流れます。</p>
 <details class="stepacc"><summary>STEP1：1通目（フルネーム依頼）🤖自動</summary><div class="stepbody">
 <div class="sfrow msg"><span class="lb">🤖 自動→生徒</span><span class="ct">送信元：運営事務局LINE｜内容：ようこそ＋フルネーム依頼 ↓</span></div>
 <div class="tmpl">【⚠️必ず最後までお読みください】
@@ -772,11 +772,11 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
 
 <div class="sfrow re"><span class="lb">✅ フェーズ完了</span><span class="ct">フルネーム送付＋3つの準備（アンケート・映像5つ・Discord）完了＋ガイダンス参加。→ この後は継続タスク・定期フォロー（第5・6章）へ。</span></div>
 <h3>講師アサイン確定後の対応</h3>
-<ul style="font-size:12.5px">
+<ul style="font-size:13.5px">
 <li>講師はサービス提供開始前までに<b>運営</b>が決定 → 顧客管理シートに入力</li>
 <li>確定後、担当クラス受講生の公式LINEタグ「講師」を確定名に更新（担当MG）</li>
 </ul>
-<h3>契約書管理</h3><p style="font-size:12px">GMOサインからDL→命名「入学日_期・組_氏名」→権限絞りフォルダ格納→シートにリンク→毎週月曜追加（合澤）。ログイン権限は広げない。</p>
+<h3>契約書管理</h3><p style="font-size:13px">GMOサインからDL→命名「入学日_期・組_氏名」→権限絞りフォルダ格納→シートにリンク→毎週月曜追加（合澤）。ログイン権限は広げない。</p>
 </div></details>
 
 <details class="sec"><summary><span class="n">3</span>入学ガイダンス</summary><div class="body">
@@ -785,7 +785,7 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
 <h3>当日必須タスク</h3><ul><li>【Zoom】自動録画ON（忘れ厳禁）</li><li>【Discord】参加の一括案内</li><li>【WisdomBase】ログイン確認（一括）</li><li>【アーカイブ】終了後に全員へ録画共有</li></ul>
 <div class="call info">共同ホスト付与は当日小林さんが手動。</div>
 <h3>欠席者対応</h3>
-<ul style="font-size:12.5px"><li>まず当日：Discordで個別連絡／自己紹介・アーカイブ視聴・WBログインを依頼</li></ul>
+<ul style="font-size:13.5px"><li>まず当日：Discordで個別連絡／自己紹介・アーカイブ視聴・WBログインを依頼</li></ul>
 <div class="sflow">
 <div class="sfrow"><span class="lb">担当MG：やること</span><span class="ct">ガイダンス当日に参加が確認できなかった生徒へDiscord/LINEで個別連絡し、再調整。</span></div>
 <div class="sfrow msg"><span class="lb">MG→生徒</span><span class="ct">送信メッセージ ↓</span></div>
@@ -816,7 +816,7 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
 <details class="sec"><summary><span class="n">4</span>初回1on1・サークルバック運用</summary><div class="body">
 <div class="sub">入学ガイダンスから1週間以内（必須）</div>
 <div class="call info"><span class="t">サークルバック運用（必須）</span>①日程調整：<b>TimeRex</b>を送付し、予約に<b>サークルバック・info・sales@creatorzz.co.jp</b>を招待必須（<b>サークルバックで議事録を残すため</b>）／②初回1on1：サークルバック同席設定／③MGのLINE権限：Discord登録漏れを確認・案内できる閲覧権限を付与</div>
-<h3>TimeRex（1on1 計3回）</h3><p style="font-size:12px">初回（ガイダンスから1週間以内・必須）／2〜3週目／1ヶ月後 の計3回。以降は任意。</p>
+<h3>TimeRex（1on1 計3回）</h3><p style="font-size:13px">初回（ガイダンスから1週間以内・必須）／2〜3週目／1ヶ月後 の計3回。以降は任意。</p>
 <div class="sflow"><div class="sfrow"><span class="lb">使用資料</span><span class="ct">📄 <a href="https://docs.google.com/document/d/1Ov3oypWA-qMIsPkJhMkt1LD7eKmYwBUBNBEtV1nQaSg/edit?usp=sharing" target="_blank">初回1on1 面談トークスクリプト</a></span></div></div>
 <h3>実施後 必須対応</h3><ul class="chk"><li>録画</li><li>文字起こし</li><li><a href="https://drive.google.com/drive/folders/13C9_tTtubSR4wMXUjnYF78HPS0rKeh7j">面談格納ドライブ</a>内の<b>自分の「MG〇〇_面談格納ファイル」</b>に保存／<b>ファイル名は「〇〇さん○回目面談」</b>（例：山田さん1回目面談）</li><li><a href="https://docs.google.com/spreadsheets/d/1PqHyNOwCHStvwBG2vtQZkTGU6DKBv_UitPu24vtRBgs/edit?usp=sharing">生徒管理シート</a>の<b>R〜U列</b>を更新</li></ul>
 <h3>面談フロー（30〜45分）</h3><div class="tw"><table><thead><tr><th>#</th><th>フェーズ</th><th>時間</th><th>ポイント</th></tr></thead><tbody>
@@ -831,10 +831,10 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
 <tr><td>2週間目</td><td>クラス会①（本音は1on1で／アーカイブ共有）</td></tr><tr><td>1ヶ月後</td><td>アンケート・<b>1on1面談（3回目）</b>・クラス会②</td></tr>
 <tr><td>2ヶ月後</td><td>アンケート・クラス会③</td></tr><tr><td>3ヶ月後</td><td>卒業前クラス会④・修了判定</td></tr>
 <tr><td>卒業後</td><td>アンケート・卒業生チャンネル招待</td></tr></tbody></table></div>
-<p style="font-size:12px;color:var(--sub)">※<b>1on1は計3回</b>（初回・1週間後あたり・1ヶ月後）／<b>クラス会は計4回</b>（2週間目・1ヶ月後・2ヶ月後・3ヶ月＝卒業前）。</p>
-<h3>1日ルーティン</h3><p style="font-size:12px">1日1回：進捗チェック(WB)・Discord確認／随時：声がけ／終業前：Discord日報（アラート生徒 名前・状態・次アクション、なければ「アラートなし」）／週1：声がけトリガー該当者チェック</p>
+<p style="font-size:13px;color:var(--sub)">※<b>1on1は計3回</b>（初回・1週間後あたり・1ヶ月後）／<b>クラス会は計4回</b>（2週間目・1ヶ月後・2ヶ月後・3ヶ月＝卒業前）。</p>
+<h3>1日ルーティン</h3><p style="font-size:13px">1日1回：進捗チェック(WB)・Discord確認／随時：声がけ／終業前：Discord日報（アラート生徒 名前・状態・次アクション、なければ「アラートなし」）／週1：声がけトリガー該当者チェック</p>
 <h3>解説ウェビナー 運用フロー</h3>
-<p style="font-size:12px">責任者：吉末（運営・満足度向上・アーカイブLMS格納）／開催：<b>水・土曜 21:00〜</b>（固定ZOOMリンク）／📅 <a href="https://docs.google.com/spreadsheets/d/1nfEQKZVQUD9jE2_vIbOyGWrVWAOFrv2ifiDkJgBLlyg/edit?usp=sharing" target="_blank">ウェビナーアンケート日程シート</a></p>
+<p style="font-size:13px">責任者：吉末（運営・満足度向上・アーカイブLMS格納）／開催：<b>水・土曜 21:00〜</b>（固定ZOOMリンク）／📅 <a href="https://docs.google.com/spreadsheets/d/1nfEQKZVQUD9jE2_vIbOyGWrVWAOFrv2ifiDkJgBLlyg/edit?usp=sharing" target="_blank">ウェビナーアンケート日程シート</a></p>
 <div class="tw"><table><thead><tr><th>タイミング</th><th>タスク</th><th>担当</th></tr></thead><tbody>
 <tr><td>水・土曜</td><td>ウェビナー告知（クラス交流場・オープンチャット）</td><td>各MG</td></tr>
 <tr><td>開催前</td><td>ZOOM（<a href="https://us06web.zoom.us/j/88221423475?pwd=HQFpkFIJ0BSTnNaIBDLJbURS5Cz10E.1">固定リンク</a>）・<a href="https://docs.google.com/document/d/1HWqzSM5FYm67-M7I3Vq2N0b1qSE9uJv0BrugN6llVoU/edit">アジェンダ</a>準備／講師登壇の確認</td><td>吉末・MG</td></tr>
@@ -844,12 +844,12 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
 </tbody></table></div>
 <div class="call info">全額返金条件：解説ウェビナー<b>月4回以上参加</b>＋参加回アンケートの期限内提出（第7章）。卒業後はウェビナー参加不可。</div>
 <h3>交流会 運用</h3>
-<p style="font-size:12px">責任者：吉末。固定ZOOMで開催し、終了後に<a href="https://forms.gle/TqkEwfkd68EffcvVA" target="_blank">交流会後アンケート</a>を回収。受講生同士の交流でモチベ維持・帰属意識を高める。お題チャレンジ等のイベントは青嶋・網島が企画・実行。</p>
+<p style="font-size:13px">責任者：吉末。固定ZOOMで開催し、終了後に<a href="https://forms.gle/TqkEwfkd68EffcvVA" target="_blank">交流会後アンケート</a>を回収。受講生同士の交流でモチベ維持・帰属意識を高める。お題チャレンジ等のイベントは青嶋・網島が企画・実行。</p>
 </div></details>
 
 <details class="sec"><summary><span class="n">6</span>継続タスク・MG運用（90日）</summary><div class="body">
 <h3>3ヶ月間 継続タスク</h3>
-<p style="font-size:12px;color:var(--sub)">各タスクの<b>告知文（生徒へ送る定型文）は第11章「メッセージ・テンプレート集」</b>にコピー可で格納。下表の資料と併せて使用。</p>
+<p style="font-size:13px;color:var(--sub)">各タスクの<b>告知文（生徒へ送る定型文）は第11章「メッセージ・テンプレート集」</b>にコピー可で格納。下表の資料と併せて使用。</p>
 <div class="tw"><table><thead><tr><th>#</th><th>タスク</th><th>内容</th><th>担当</th><th>資料／告知テンプレ</th></tr></thead><tbody>
 <tr><td>1</td><td>カリキュラム受講</td><td>Phase0〜4・WB進捗管理・倍速推奨</td><td>受講生/MG</td><td>📚 <a href="https://creatorzz.share-wis.com" target="_blank">WisdomBase(LMS)</a>／告知＝第11章「クラス初回あいさつ」「提出物・リファレンス周知」</td></tr>
 <tr><td>2</td><td>講師FB</td><td>各Phase課題後FB・卒業後不可のため在学中に完結</td><td>講師</td><td>提出＝Discord「ワーク課題提出」／告知＝第11章「提出物・リファレンス周知」</td></tr>
@@ -857,7 +857,7 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
 <tr><td>4</td><td>MG毎日メッセージ</td><td>90日間毎日・最終的に自動化</td><td>担当MG</td><td>告知＝第11章「フルネーム変更＋毎日進捗報告の依頼」（進捗報告フォーマット）</td></tr>
 <tr><td>5</td><td>週次報告</td><td>①Phase進捗②ネック③目標対比④来週取組⑤3ヶ月後ビジョン</td><td>担当MG</td><td>フォーマット＝第11章「週報フォーマット」／提出先＝金曜20:00 MG-MTG</td></tr></tbody></table></div>
 <div class="call warn"><span class="t">入会初週の手厚フォロー</span>1週間目の満足度が低い傾向。初週は毎日アプローチし「何をすれば良いか分からない」をゼロに。</div>
-<h3>MG週次報告ルール</h3><p style="font-size:12px">MG定例の前に週1回。項目=生徒数/アクティブ数/懸念生徒(無反応・体調不良)/アンケート回収。アクティブ=受講が少しでも進んでいること。</p>
+<h3>MG週次報告ルール</h3><p style="font-size:13px">MG定例の前に週1回。項目=生徒数/アクティブ数/懸念生徒(無反応・体調不良)/アンケート回収。アクティブ=受講が少しでも進んでいること。</p>
 <h3>MG 通常タスク（週次サイクル）</h3><div class="tw"><table><thead><tr><th>頻度</th><th>通常タスク</th></tr></thead><tbody>
 <tr><td>毎日</td><td>担当クラスの進捗確認（WisdomBase）・Discord確認／進捗が止まった生徒への声かけ／Discord日報投稿／90日間の毎日メッセージ送信</td></tr>
 <tr><td>水曜</td><td>解説ウェビナーの告知</td></tr>
@@ -866,7 +866,7 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
 <tr><td>土曜</td><td>解説ウェビナーの告知</td></tr>
 <tr><td>随時</td><td>1on1面談（計3回）／クラス会の運営／質問対応（10・15・20時）</td></tr>
 </tbody></table></div>
-<p style="font-size:12px;color:var(--sub)">※ノンアクティブ＝クラス交流場にコメント/リアクションなし・講義視聴なし・ウェビナー不参加。</p>
+<p style="font-size:13px;color:var(--sub)">※ノンアクティブ＝クラス交流場にコメント/リアクションなし・講義視聴なし・ウェビナー不参加。</p>
 <h3>CS 通常タスク</h3><div class="tw"><table><thead><tr><th>区分</th><th>頻度</th><th>通常タスク</th></tr></thead><tbody>
 <tr><td>入学前（小林）</td><td>毎週水曜</td><td>MG・クラス決定／受講開始予定者をCSへ共有／担当MGへ引き継ぎ／エルメ登録確認</td></tr>
 <tr><td>入学前（小林）</td><td>金〜土</td><td>LMSアカウント発行／開講案内の送付</td></tr>
@@ -878,8 +878,8 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
 </div></details>
 
 <details class="sec" id="dashSec"><summary><span class="n" style="background:#1f8a54">📊</span>満足度・アンケート回収ダッシュボード（定例用）</summary><div class="body">
-<a href="https://kazuhiramorimoto-source.github.io/creatorzz-manual/dashboard.html" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:16px;margin:4px 0 16px;padding:18px 22px;border-radius:16px;text-decoration:none;background:linear-gradient(135deg,#1b6ef3,#1746b8);box-shadow:0 6px 20px rgba(27,110,243,.28);"><span style="font-size:34px;line-height:1;flex-shrink:0;">📊</span><span style="flex:1;"><span style="display:block;color:#fff;font-size:17px;font-weight:800;">正確版ダッシュボードを開く</span><span style="display:block;color:#d6e4ff;font-size:12.5px;margin-top:3px;">名簿照合９８％ ／ 項目別の詳細・アンケートの生の声1127件はこちら</span></span><span style="display:inline-flex;align-items:center;background:rgba(255,255,255,.16);color:#fff;font-size:13px;font-weight:700;padding:9px 15px;border-radius:10px;white-space:nowrap;">詳細を見る →</span></a>
-<div style="background:#f7f9ff;border:1px solid #dbe4f5;border-radius:14px;padding:15px 18px;margin:0;"><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:13px;"><span style="font-size:13px;font-weight:800;color:#1c3566;">📊 定例サマリー（正確版）</span><span style="font-size:11px;color:#5b6a86;">基準日 2026-07-23 ・ 名簿照合98% ・ 担当MG7名</span></div><div style="background:#fff;border:1px solid #e2e8f4;border-radius:12px;padding:14px 16px;margin-bottom:12px;"><div style="font-size:13px;font-weight:800;color:#1c3566;margin-bottom:8px;">📥 担当MG別 回収率（フェーズ別） <span style="color:#8b98af;font-weight:600;">（%）</span></div><div style="height:230px;position:relative;"><canvas id="czRecChart"></canvas></div></div><div style="background:#fff;border:1px solid #e2e8f4;border-radius:12px;padding:14px 16px;margin-bottom:12px;"><div style="font-size:13px;font-weight:800;color:#1c3566;margin-bottom:8px;">😊 担当MG別 満足度（フェーズ別） <span style="color:#8b98af;font-weight:600;">（4点満点）</span></div><div style="height:230px;position:relative;"><canvas id="czSatChart"></canvas></div></div><div style="font-size:13px;font-weight:800;color:#1c3566;margin:6px 0 6px;">🧩 担当MG別 項目別満足度 <span style="color:#8b98af;font-weight:600;font-size:11px;">（全フェーズ合算・4点満点／緑=良好・赤=要注意）</span></div><div style="overflow-x:auto;border:1px solid #e2e8f4;border-radius:11px;margin-top:4px;"><table style="border-collapse:collapse;width:100%;font-size:12.5px;min-width:560px;"><thead><tr><th style="text-align:left;padding:8px 10px;background:#f7f9ff;color:#1c3566;border-bottom:2px solid #e2e8f4;position:sticky;left:0;">MG</th><th style="padding:8px 10px;background:#f7f9ff;color:#1c3566;border-bottom:2px solid #e2e8f4;font-size:11.5px;white-space:nowrap;">全体満足度</th><th style="padding:8px 10px;background:#f7f9ff;color:#1c3566;border-bottom:2px solid #e2e8f4;font-size:11.5px;white-space:nowrap;">マネージャーサポート</th><th style="padding:8px 10px;background:#f7f9ff;color:#1c3566;border-bottom:2px solid #e2e8f4;font-size:11.5px;white-space:nowrap;">講師FBの分かりやすさ</th><th style="padding:8px 10px;background:#f7f9ff;color:#1c3566;border-bottom:2px solid #e2e8f4;font-size:11.5px;white-space:nowrap;">ワークFBの活用度</th><th style="padding:8px 10px;background:#f7f9ff;color:#1c3566;border-bottom:2px solid #e2e8f4;font-size:11.5px;white-space:nowrap;">教材・講義動画</th><th style="padding:8px 10px;background:#f7f9ff;color:#1c3566;border-bottom:2px solid #e2e8f4;font-size:11.5px;white-space:nowrap;">Discord・コミュニティ</th></tr></thead><tbody><tr><td style="text-align:left;padding:8px 10px;font-weight:700;color:#1c3566;border-bottom:1px solid #eef2fa;background:#f7f9ff;position:sticky;left:0;">上枝</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.74</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.07</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.07</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.79</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.97</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.94</td></tr><tr><td style="text-align:left;padding:8px 10px;font-weight:700;color:#1c3566;border-bottom:1px solid #eef2fa;background:#f7f9ff;position:sticky;left:0;">合澤</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.54</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.93</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">3.53</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">3.35</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.91</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.61</td></tr><tr><td style="text-align:left;padding:8px 10px;font-weight:700;color:#1c3566;border-bottom:1px solid #eef2fa;background:#f7f9ff;position:sticky;left:0;">堂庭</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.21</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">3.54</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">3.40</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.80</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.21</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.69</td></tr><tr><td style="text-align:left;padding:8px 10px;font-weight:700;color:#1c3566;border-bottom:1px solid #eef2fa;background:#f7f9ff;position:sticky;left:0;">川﨑</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.00</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.14</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">4.00</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">4.00</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.00</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.75</td></tr><tr><td style="text-align:left;padding:8px 10px;font-weight:700;color:#1c3566;border-bottom:1px solid #eef2fa;background:#f7f9ff;position:sticky;left:0;">松井</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.86</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.11</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">3.50</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">3.30</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.24</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.71</td></tr><tr><td style="text-align:left;padding:8px 10px;font-weight:700;color:#1c3566;border-bottom:1px solid #eef2fa;background:#f7f9ff;position:sticky;left:0;">清水</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.68</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.57</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.21</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.15</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.84</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.60</td></tr><tr><td style="text-align:left;padding:8px 10px;font-weight:700;color:#1c3566;border-bottom:1px solid #eef2fa;background:#f7f9ff;position:sticky;left:0;">阿部</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.64</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">3.34</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">3.32</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.00</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.00</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.92</td></tr></tbody></table></div><div style="margin-top:12px;font-size:12px;color:#8a2018;background:#fdeceb;border:1px solid #f3c7c2;border-radius:9px;padding:9px 13px;">🚨 要フォロー 3項目：<b>上枝</b>2ヶ月後 回収33% ／ <b>合澤</b>2ヶ月後 回収40% ／ <b>合澤</b>2ヶ月後 満足2.00　<span style="color:#5b6a86;">（生の声・細かい数字は上のボタンから）</span></div></div>
+<a href="https://kazuhiramorimoto-source.github.io/creatorzz-manual/dashboard.html" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:16px;margin:4px 0 16px;padding:18px 22px;border-radius:16px;text-decoration:none;background:linear-gradient(135deg,#1b6ef3,#1746b8);box-shadow:0 6px 20px rgba(27,110,243,.28);"><span style="font-size:34px;line-height:1;flex-shrink:0;">📊</span><span style="flex:1;"><span style="display:block;color:#fff;font-size:17px;font-weight:800;">正確版ダッシュボードを開く</span><span style="display:block;color:#d6e4ff;font-size:13.5px;margin-top:3px;">名簿照合９８％ ／ 項目別の詳細・アンケートの生の声1127件はこちら</span></span><span style="display:inline-flex;align-items:center;background:rgba(255,255,255,.16);color:#fff;font-size:13.5px;font-weight:700;padding:9px 15px;border-radius:10px;white-space:nowrap;">詳細を見る →</span></a>
+<div style="background:#f7f9ff;border:1px solid #dbe4f5;border-radius:14px;padding:15px 18px;margin:0;"><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:13px;"><span style="font-size:13.5px;font-weight:800;color:#1c3566;">📊 定例サマリー（正確版）</span><span style="font-size:12.5px;color:#5b6a86;">基準日 2026-07-23 ・ 名簿照合98% ・ 担当MG7名</span></div><div style="background:#fff;border:1px solid #e2e8f4;border-radius:12px;padding:14px 16px;margin-bottom:12px;"><div style="font-size:13.5px;font-weight:800;color:#1c3566;margin-bottom:8px;">📥 担当MG別 回収率（フェーズ別） <span style="color:#8b98af;font-weight:600;">（%）</span></div><div style="height:230px;position:relative;"><canvas id="czRecChart"></canvas></div></div><div style="background:#fff;border:1px solid #e2e8f4;border-radius:12px;padding:14px 16px;margin-bottom:12px;"><div style="font-size:13.5px;font-weight:800;color:#1c3566;margin-bottom:8px;">😊 担当MG別 満足度（フェーズ別） <span style="color:#8b98af;font-weight:600;">（4点満点）</span></div><div style="height:230px;position:relative;"><canvas id="czSatChart"></canvas></div></div><div style="font-size:13.5px;font-weight:800;color:#1c3566;margin:6px 0 6px;">🧩 担当MG別 項目別満足度 <span style="color:#8b98af;font-weight:600;font-size:12.5px;">（全フェーズ合算・4点満点／緑=良好・赤=要注意）</span></div><div style="overflow-x:auto;border:1px solid #e2e8f4;border-radius:11px;margin-top:4px;"><table style="border-collapse:collapse;width:100%;font-size:13.5px;min-width:560px;"><thead><tr><th style="text-align:left;padding:8px 10px;background:#f7f9ff;color:#1c3566;border-bottom:2px solid #e2e8f4;position:sticky;left:0;">MG</th><th style="padding:8px 10px;background:#f7f9ff;color:#1c3566;border-bottom:2px solid #e2e8f4;font-size:12.5px;white-space:nowrap;">全体満足度</th><th style="padding:8px 10px;background:#f7f9ff;color:#1c3566;border-bottom:2px solid #e2e8f4;font-size:12.5px;white-space:nowrap;">マネージャーサポート</th><th style="padding:8px 10px;background:#f7f9ff;color:#1c3566;border-bottom:2px solid #e2e8f4;font-size:12.5px;white-space:nowrap;">講師FBの分かりやすさ</th><th style="padding:8px 10px;background:#f7f9ff;color:#1c3566;border-bottom:2px solid #e2e8f4;font-size:12.5px;white-space:nowrap;">ワークFBの活用度</th><th style="padding:8px 10px;background:#f7f9ff;color:#1c3566;border-bottom:2px solid #e2e8f4;font-size:12.5px;white-space:nowrap;">教材・講義動画</th><th style="padding:8px 10px;background:#f7f9ff;color:#1c3566;border-bottom:2px solid #e2e8f4;font-size:12.5px;white-space:nowrap;">Discord・コミュニティ</th></tr></thead><tbody><tr><td style="text-align:left;padding:8px 10px;font-weight:700;color:#1c3566;border-bottom:1px solid #eef2fa;background:#f7f9ff;position:sticky;left:0;">上枝</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.74</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.07</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.07</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.79</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.97</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.94</td></tr><tr><td style="text-align:left;padding:8px 10px;font-weight:700;color:#1c3566;border-bottom:1px solid #eef2fa;background:#f7f9ff;position:sticky;left:0;">合澤</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.54</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.93</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">3.53</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">3.35</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.91</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.61</td></tr><tr><td style="text-align:left;padding:8px 10px;font-weight:700;color:#1c3566;border-bottom:1px solid #eef2fa;background:#f7f9ff;position:sticky;left:0;">堂庭</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.21</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">3.54</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">3.40</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.80</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.21</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.69</td></tr><tr><td style="text-align:left;padding:8px 10px;font-weight:700;color:#1c3566;border-bottom:1px solid #eef2fa;background:#f7f9ff;position:sticky;left:0;">川﨑</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.00</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.14</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">4.00</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">4.00</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.00</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.75</td></tr><tr><td style="text-align:left;padding:8px 10px;font-weight:700;color:#1c3566;border-bottom:1px solid #eef2fa;background:#f7f9ff;position:sticky;left:0;">松井</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.86</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.11</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">3.50</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">3.30</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.24</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.71</td></tr><tr><td style="text-align:left;padding:8px 10px;font-weight:700;color:#1c3566;border-bottom:1px solid #eef2fa;background:#f7f9ff;position:sticky;left:0;">清水</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.68</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.57</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.21</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.15</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.84</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.60</td></tr><tr><td style="text-align:left;padding:8px 10px;font-weight:700;color:#1c3566;border-bottom:1px solid #eef2fa;background:#f7f9ff;position:sticky;left:0;">阿部</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.64</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">3.34</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:#e7f6ee;color:#166a41;font-weight:800;font-variant-numeric:tabular-nums;">3.32</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.00</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">3.00</td><td style="padding:8px 10px;text-align:center;border-bottom:1px solid #eef2fa;background:;color:#16233c;font-weight:600;font-variant-numeric:tabular-nums;">2.92</td></tr></tbody></table></div><div style="margin-top:12px;font-size:13px;color:#8a2018;background:#fdeceb;border:1px solid #f3c7c2;border-radius:9px;padding:9px 13px;">🚨 要フォロー 3項目：<b>上枝</b>2ヶ月後 回収33% ／ <b>合澤</b>2ヶ月後 回収40% ／ <b>合澤</b>2ヶ月後 満足2.00　<span style="color:#5b6a86;">（生の声・細かい数字は上のボタンから）</span></div></div>
 <script>(function(){var sec=document.getElementById("dashSec");var done=false;function draw(){if(done||typeof Chart==="undefined")return;done=true;var L=["上枝","合澤","堂庭","川﨑","松井","清水","阿部"];var C=["#1b6ef3","#37c8ff","#f5c542"];var recD=[{label:"1週間後",backgroundColor:C[0],data:[95,100,57,100,86,92,75]},{label:"1ヶ月後",backgroundColor:C[1],data:[85,83,60,null,64,77,95]},{label:"2ヶ月後",backgroundColor:C[2],data:[33,40,null,null,null,60,56]}];var satD=[{label:"1週間後",backgroundColor:C[0],data:[2.74,2.56,3.13,3,2.92,2.75,2.53]},{label:"1ヶ月後",backgroundColor:C[1],data:[2.65,2.6,3.33,null,2.78,2.5,2.63]},{label:"2ヶ月後",backgroundColor:C[2],data:[3.5,2,null,null,null,3,3]}];new Chart(document.getElementById("czRecChart"),{type:"bar",data:{labels:L,datasets:recD},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true,max:100,title:{display:true,text:"回収率(%)"}}},plugins:{legend:{position:"top"}}}});new Chart(document.getElementById("czSatChart"),{type:"bar",data:{labels:L,datasets:satD},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true,max:4,title:{display:true,text:"満足度(平均)"}}},plugins:{legend:{position:"top"}}}});}if(sec){sec.addEventListener("toggle",function(){if(sec.open)draw();});if(sec.open)draw();}else{draw();}})();</script>
 </div></details>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
@@ -888,18 +888,18 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
 <details class="sec" id="refundSec"><summary><span class="n" style="background:var(--red)">💴</span>全額返金 進捗ダッシュボード（自動集計）</summary><div class="body">
 <div class="call info"><span class="t">自動連携（読取専用・個人情報なし）</span>データ元＝<a href="https://docs.google.com/spreadsheets/d/1cBuI4ImfLs9BlnPyL0uYCZkyT4i7XQ3dMR5_yeZBWLw/edit" target="_blank">全額返金 進捗管理シート</a>。<b>取得するのは「担当MG・カリ・申請状況」の3列のみ</b>（生徒名・Discord ID・備考＝体調等は取得も表示もしません）。シートを更新すれば自動反映。</div>
 <div id="refundAlert"></div>
-<div id="refundStats" style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;color:var(--sub);font-size:12px">開くと読み込みます…</div>
+<div id="refundStats" style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;color:var(--sub);font-size:13px">開くと読み込みます…</div>
 <h3>申請状況の内訳（＝結果・解約理由の区分）</h3>
 <div style="overflow-x:auto"><div style="min-width:520px;height:280px"><canvas id="chartRefund"></canvas></div></div>
 <div id="refundBreak" style="margin-top:12px"></div>
-<p style="font-size:11.5px;color:var(--sub)">※ヘッダー/集計行は自動除外。表示にはネット接続が必要。詳しい解約理由は備考欄（個人情報を含むため非表示）。シートに「解約理由」列（体調/家庭/仕事/経済/成果未達 等）を設ければ、理由の内訳も安全に自動集計できます。</p>
+<p style="font-size:12.5px;color:var(--sub)">※ヘッダー/集計行は自動除外。表示にはネット接続が必要。詳しい解約理由は備考欄（個人情報を含むため非表示）。シートに「解約理由」列（体調/家庭/仕事/経済/成果未達 等）を設ければ、理由の内訳も安全に自動集計できます。</p>
 <h3>📈 申請・適用の集計（自動集計・シート連動）</h3>
 <div class="call info"><span class="t">集計の定義</span>「入学月」＝受講開始日でグルーピング（<b>契約月は本シートに無いため入学月で集計</b>）。「申請」＝申請日が記録されたレコード、「適用」＝返金完了。<b>契約数（分母）が本シートに無いため「申請率（対契約）」は未算出</b>。<b>数値は上のダッシュボードと同じシートから自動計算</b>（シートを更新すれば自動反映）。</div>
 <h4>申請の月次推移（入学月 × 申請月）</h4>
-<div style="overflow-x:auto;margin:10px 0" id="refundPivot"><p style="color:var(--sub);font-size:12px">開くと読み込みます…</p></div>
+<div style="overflow-x:auto;margin:10px 0" id="refundPivot"><p style="color:var(--sub);font-size:13px">開くと読み込みます…</p></div>
 <h4>申請 → 適用（返金完了）率</h4>
-<div style="overflow-x:auto;margin:10px 0" id="refundRate"><p style="color:var(--sub);font-size:12px">開くと読み込みます…</p></div>
-<p style="font-size:11.5px;color:var(--sub)">※「申請」＝申請日（H列）が記録されたレコード。申請なし（受講継続・返金対象外・集計中など）は申請数に含めません。「適用」＝申請状況が「返金完了」のもの。契約数を紐づければ「申請率（対契約）」も自動算出できます。</p>
+<div style="overflow-x:auto;margin:10px 0" id="refundRate"><p style="color:var(--sub);font-size:13px">開くと読み込みます…</p></div>
+<p style="font-size:12.5px;color:var(--sub)">※「申請」＝申請日（H列）が記録されたレコード。申請なし（受講継続・返金対象外・集計中など）は申請数に含めません。「適用」＝申請状況が「返金完了」のもの。契約数を紐づければ「申請率（対契約）」も自動算出できます。</p>
 </div></details>
 <script>
 (function(){
@@ -936,8 +936,8 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
    renderPivot(intake,appMonths);
   }catch(e){document.getElementById('refundStats').textContent='読込エラー：'+e;}
  };
- function chip(l,v,c){return '<div style="background:'+c+';color:#fff;border-radius:10px;padding:7px 13px;font-weight:700;min-width:74px;text-align:center"><div style="font-size:11px;font-weight:600;opacity:.9">'+l+'</div><div style="font-size:19px">'+v+'</div></div>';}
- function tbl(t,o){var ks=Object.keys(o).sort(function(a,b){return o[b]-o[a];});return '<b style="font-size:12.5px">'+t+'</b><div style="display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 10px">'+ks.map(function(k){return '<span style="background:#eef3ff;border:1px solid #d6e2fb;border-radius:7px;padding:3px 9px;font-size:12px">'+k+'：<b>'+o[k]+'</b></span>';}).join('')+'</div>';}
+ function chip(l,v,c){return '<div style="background:'+c+';color:#fff;border-radius:10px;padding:7px 13px;font-weight:700;min-width:74px;text-align:center"><div style="font-size:12.5px;font-weight:600;opacity:.9">'+l+'</div><div style="font-size:19px">'+v+'</div></div>';}
+ function tbl(t,o){var ks=Object.keys(o).sort(function(a,b){return o[b]-o[a];});return '<b style="font-size:13.5px">'+t+'</b><div style="display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 10px">'+ks.map(function(k){return '<span style="background:#eef3ff;border:1px solid #d6e2fb;border-radius:7px;padding:3px 9px;font-size:13px">'+k+'：<b>'+o[k]+'</b></span>';}).join('')+'</div>';}
  function renderRefund(stt,mg,ka,tot){
   document.getElementById('refundStats').innerHTML=chip('総件数',tot,'#0b1533')+chip('返金完了',stt['返金完了']||0,'#1f8a54')+chip('対応中',stt['返金対応中']||0,'#b7791f')+chip('対象外',stt['返金対象外']||0,'#c0392b')+chip('中途解約',stt['中途解約']||0,'#c0392b')+chip('受講継続',stt['受講継続']||0,'#1b6ef3');
   var order=['返金完了','返金対応中','返金対象外','中途解約','受講継続','未達成','集計中','未申請(集計のみ)'];
@@ -958,12 +958,12 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
   var tA=0,tM={};
   keys.forEach(function(k){var o=intake[k];tA+=o.apps;h1+='<tr><td>'+k+'</td><td>'+o.apps+'</td>'+months.map(function(m){var v=o.months[m]||0;tM[m]=(tM[m]||0)+v;return '<td>'+(v||'–')+'</td>';}).join('')+'</tr>';});
   h1+='<tr class="tot"><td>合計</td><td>'+tA+'</td>'+months.map(function(m){return '<td>'+(tM[m]||0)+'</td>';}).join('')+'</tr></tbody></table>';
-  var e1=document.getElementById('refundPivot');if(e1)e1.innerHTML=keys.length?h1:'<p style="color:var(--sub);font-size:12px">対象データがありません</p>';
+  var e1=document.getElementById('refundPivot');if(e1)e1.innerHTML=keys.length?h1:'<p style="color:var(--sub);font-size:13px">対象データがありません</p>';
   var h2='<table class="dtbl"><thead><tr><th>入学月</th><th>申請数</th><th>適用（返金完了）</th><th>適用率</th></tr></thead><tbody>';
   var sA=0,sD=0;
   keys.forEach(function(k){var o=intake[k];sA+=o.apps;sD+=o.adopt;h2+='<tr><td>'+k+'</td><td>'+o.apps+'</td><td>'+(o.apps?o.adopt:'–')+'</td><td>'+_rate(o.adopt,o.apps)+'</td></tr>';});
   h2+='<tr class="tot"><td>合計</td><td>'+sA+'</td><td>'+sD+'</td><td>'+_rate(sD,sA)+'</td></tr></tbody></table>';
-  var e2=document.getElementById('refundRate');if(e2)e2.innerHTML=keys.length?h2:'<p style="color:var(--sub);font-size:12px">対象データがありません</p>';
+  var e2=document.getElementById('refundRate');if(e2)e2.innerHTML=keys.length?h2:'<p style="color:var(--sub);font-size:13px">対象データがありません</p>';
  }
  function load(){ if(loaded)return; loaded=true;
   var s=document.createElement('script');
@@ -992,7 +992,7 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
 <tr><td>5</td><td>返金手続き実行（こじれたら森本・杉山）</td><td>CS/森本</td></tr></tbody></table></div>
 <div class="call info"><span class="t">全額返金が確定したら（CS）</span><a href="https://docs.google.com/spreadsheets/d/1PqHyNOwCHStvwBG2vtQZkTGU6DKBv_UitPu24vtRBgs/edit?usp=sharing" target="_blank">生徒管理シート</a>のステータスを<b>「🟡全額返金」</b>に変更。LINE表示名も<b>🟡全額返金／氏名</b>へ。</div>
 <h4>全額返金の達成条件（現行・契約書 第3条6項／全7条件）</h4>
-<p style="font-size:12px"><b>前提：</b>入会から1か月の間に下記<b>すべて</b>を満たしたうえで、入会起算日から1か月経過日の翌日から起算し<b>3日以内</b>に当社所定の方法で申請し、当社の承認を得た場合に限り全額返金。</p>
+<p style="font-size:13px"><b>前提：</b>入会から1か月の間に下記<b>すべて</b>を満たしたうえで、入会起算日から1か月経過日の翌日から起算し<b>3日以内</b>に当社所定の方法で申請し、当社の承認を得た場合に限り全額返金。</p>
 <div class="tw"><table><thead><tr><th>#</th><th>条件</th><th>詳細</th></tr></thead><tbody>
 <tr><td>(1)</td><td>2か月目以降のサービス利用停止</td><td>返金申請後〜承認後まで、2か月目以降に該当する一切のサービス（講義・質疑応答・イベント参加・コミュニティ参加等）を受けない。1回でも受けたら対象外。</td></tr>
 <tr><td>(2)</td><td>SNS投稿 15本以上</td><td>入会日から1か月、協議で定めたSNS（X／Instagram／TikTok）に要件を満たす動画を15本以上投稿。(a)指示外・再投稿は不算入 (b)削除分は不算入 (c)講師添削を経ない/反映しない動画は不算入 (d)ハッシュタグ「#CREATORZZ」なしは不算入 (e)同一動画の複数媒体投稿は1本として算入。</td></tr>
@@ -1002,9 +1002,9 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
 <tr><td>(6)</td><td>満足度アンケート 全提出</td><td>初回・入学時・入学1週間後・入学1か月後アンケートをすべて期限内に提出（解説ウェビナー等 任意参加イベント紐づきは除く）。</td></tr>
 <tr><td>(7)</td><td>案件受注・コンペ参加なし</td><td>入会期間中に当社（CREATOR'ZZ事務局）から案件を受注、または賞金付きコンペに参加した場合は対象外。</td></tr>
 </tbody></table></div>
-<p style="font-size:12px;color:var(--sub)">※可否判断・承認は運営（森本・杉山）。MGは「達成／未達」を自分で断定しない。</p>
+<p style="font-size:13px;color:var(--sub)">※可否判断・承認は運営（森本・杉山）。MGは「達成／未達」を自分で断定しない。</p>
 <details class="sub"><summary>▸ 全額返金 詳細フロー＋テンプレート（業務管理シート準拠）</summary><div class="subbody">
-<p style="font-size:12px"><b>ご本人とのやり取りは全て公式LINE「運営事務局」</b>で対応。都度Discord「全額返金」スレッドで報告し、<a href="https://docs.google.com/spreadsheets/d/1cBuI4ImfLs9BlnPyL0uYCZkyT4i7XQ3dMR5_yeZBWLw/edit" target="_blank">進捗管理シート</a>も更新。</p>
+<p style="font-size:13px"><b>ご本人とのやり取りは全て公式LINE「運営事務局」</b>で対応。都度Discord「全額返金」スレッドで報告し、<a href="https://docs.google.com/spreadsheets/d/1cBuI4ImfLs9BlnPyL0uYCZkyT4i7XQ3dMR5_yeZBWLw/edit" target="_blank">進捗管理シート</a>も更新。</p>
 <div class="tw"><table><thead><tr><th>Step</th><th>内容</th><th>担当</th></tr></thead><tbody>
 <tr><td>①</td><td>全額返金保証の申請希望の連絡あり → 入会案内LINEへ誘導</td><td>申し出を受けた人</td></tr>
 <tr><td>②</td><td>全額返金保証の申請フォームを送付</td><td><span class="who">CS</span></td></tr>
@@ -1015,7 +1015,7 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
 <tr><td>⑦</td><td>返金処理後、LMS・Discordサーバーの処理対応を依頼</td><td><span class="who">CS</span></td></tr>
 </tbody></table></div>
 <div class="call warn"><span class="t">⚠️ 返金条件は契約日により異なる</span>条件は複数回変更されている（旧カリ①5/1〜／旧カリ②5/18〜／新カリ6/10〜等）。<b>必ずご本人の契約書で最新条件を確認</b>すること。上の「達成条件7項目」は代表版で、ウェビナー・リファレンスの回数等は契約により差異あり。</div>
-<p style="font-size:12px">📊 <a href="https://docs.google.com/spreadsheets/d/1cBuI4ImfLs9BlnPyL0uYCZkyT4i7XQ3dMR5_yeZBWLw/edit" target="_blank">進捗管理シート</a>／📝 <a href="https://docs.google.com/forms/d/e/1FAIpQLScToZd4lAQB8brDwZTYEQ13RaakZtQtG-j5YBDqYU6muZseGA/viewform" target="_blank">申請フォーム</a>／🧮 <a href="https://docs.google.com/spreadsheets/d/19-DZaDJPhI--MPRF6gPoopVxSdFceqRQg4gpAvBbbxg/edit" target="_blank">確認フォーマット</a></p>
+<p style="font-size:13px">📊 <a href="https://docs.google.com/spreadsheets/d/1cBuI4ImfLs9BlnPyL0uYCZkyT4i7XQ3dMR5_yeZBWLw/edit" target="_blank">進捗管理シート</a>／📝 <a href="https://docs.google.com/forms/d/e/1FAIpQLScToZd4lAQB8brDwZTYEQ13RaakZtQtG-j5YBDqYU6muZseGA/viewform" target="_blank">申請フォーム</a>／🧮 <a href="https://docs.google.com/spreadsheets/d/19-DZaDJPhI--MPRF6gPoopVxSdFceqRQg4gpAvBbbxg/edit" target="_blank">確認フォーマット</a></p>
 <details class="sub"><summary>▸ 全額返金 送信テンプレート（全文）</summary><div class="subbody">
 <h4>② 申請フォーム送付（CS→生徒）</h4><div class="tmpl">〇〇様
 お世話になっております。
@@ -1050,7 +1050,7 @@ CREATOR'ZZ運営 〇〇</div>
 </div></details>
 </div></details>
 <h3>⏸ 休会（休学）フロー</h3>
-<p style="font-size:12px">🟢休学タグ／<a href="https://forms.gle/xU7kNFpCQpq1jz7R8" target="_blank">休会フォーム</a>／<a href="https://docs.google.com/spreadsheets/d/1bYFcp24Eya3-6tslipjPkMREE3nZcd6smOF_UMGWsZM/edit" target="_blank">休会者管理シート</a>。<b>担当MGに来た場合は「運営事務局LINE」へ誘導 → 以降のやり取りは全て公式LINE「運営事務局」で対応</b>。</p>
+<p style="font-size:13px">🟢休学タグ／<a href="https://forms.gle/xU7kNFpCQpq1jz7R8" target="_blank">休会フォーム</a>／<a href="https://docs.google.com/spreadsheets/d/1bYFcp24Eya3-6tslipjPkMREE3nZcd6smOF_UMGWsZM/edit" target="_blank">休会者管理シート</a>。<b>担当MGに来た場合は「運営事務局LINE」へ誘導 → 以降のやり取りは全て公式LINE「運営事務局」で対応</b>。</p>
 <div class="tw"><table><thead><tr><th>Step</th><th>内容</th><th>担当</th></tr></thead><tbody>
 <tr><td>①</td><td>休会の申し出あり。回数・期間ルールは申請フォームで確認</td><td>全員</td></tr>
 <tr><td>②</td><td>公式LINE（運営事務局）へ誘導し、休会ルールを必ず確認いただく</td><td>申し出を受けた人</td></tr>
@@ -1103,15 +1103,15 @@ CREATOR'ZZ運営 〇〇</div>
 CREATOR'ZZ運営 〇〇</div>
 </div></details>
 <h3>中途解約</h3>
-<p style="font-size:12px">受講期間は<b>3ヶ月</b>。返金対象額＝¥50,000×契約残月数／手数料＝min(¥50,000, 月額¥50,000×残月×20%)＝min(¥50,000, 残月×¥10,000)。実返金＝返金対象額−手数料。計算例(残2ヶ月)：返金10万−手数料2万＝<b>実返金8万円</b>。<b>金額の最終算出・確定は運営/CS</b>。</p>
+<p style="font-size:13px">受講期間は<b>3ヶ月</b>。返金対象額＝¥50,000×契約残月数／手数料＝min(¥50,000, 月額¥50,000×残月×20%)＝min(¥50,000, 残月×¥10,000)。実返金＝返金対象額−手数料。計算例(残2ヶ月)：返金10万−手数料2万＝<b>実返金8万円</b>。<b>金額の最終算出・確定は運営/CS</b>。</p>
 <div style="border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:#f7f9ff">
 <div style="font-weight:800;color:var(--navy);margin-bottom:10px">🧮 中途解約 返金 自動計算</div>
 <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end">
-<label style="font-size:11.5px;color:var(--sub)">受講開始日<br><input type="date" id="kaiyakuStart" oninput="calcKaiyaku()" style="margin-top:3px;border:1px solid #d6e2fb;border-radius:8px;padding:6px 9px;font-size:13px"></label>
-<label style="font-size:11.5px;color:var(--sub)">解約申込日（既定＝本日）<br><input type="date" id="kaiyakuEnd" oninput="calcKaiyaku()" style="margin-top:3px;border:1px solid #d6e2fb;border-radius:8px;padding:6px 9px;font-size:13px"></label>
-<label style="font-size:11.5px;color:var(--sub)">残り月数（手動優先）<br><select id="kaiyakuRem" onchange="calcKaiyaku()" style="margin-top:3px;border:1px solid #d6e2fb;border-radius:8px;padding:6px 9px;font-size:13px;background:#fff"><option value="">自動</option><option value="0">0ヶ月</option><option value="1">1ヶ月</option><option value="2">2ヶ月</option><option value="3">3ヶ月</option></select></label>
+<label style="font-size:12.5px;color:var(--sub)">受講開始日<br><input type="date" id="kaiyakuStart" oninput="calcKaiyaku()" style="margin-top:3px;border:1px solid #d6e2fb;border-radius:8px;padding:6px 9px;font-size:13.5px"></label>
+<label style="font-size:12.5px;color:var(--sub)">解約申込日（既定＝本日）<br><input type="date" id="kaiyakuEnd" oninput="calcKaiyaku()" style="margin-top:3px;border:1px solid #d6e2fb;border-radius:8px;padding:6px 9px;font-size:13.5px"></label>
+<label style="font-size:12.5px;color:var(--sub)">残り月数（手動優先）<br><select id="kaiyakuRem" onchange="calcKaiyaku()" style="margin-top:3px;border:1px solid #d6e2fb;border-radius:8px;padding:6px 9px;font-size:13.5px;background:#fff"><option value="">自動</option><option value="0">0ヶ月</option><option value="1">1ヶ月</option><option value="2">2ヶ月</option><option value="3">3ヶ月</option></select></label>
 </div>
-<div id="kaiyakuOut" style="margin-top:13px;font-size:13px;color:var(--ink)">受講開始日を入れると自動計算します。</div>
+<div id="kaiyakuOut" style="margin-top:13px;font-size:13.5px;color:var(--ink)">受講開始日を入れると自動計算します。</div>
 </div>
 <script>
 function calcKaiyaku(){
@@ -1127,11 +1127,11 @@ function calcKaiyaku(){
   note='（受講開始日から '+(m<0?0:m)+'ヶ月経過 → 残り'+rem+'ヶ月）';
  } else {out.innerHTML='受講開始日を入れると自動計算します。';return;}
  var taisho=50000*rem,tesu=Math.min(50000,rem*10000),refund=taisho-tesu;
- out.innerHTML='残り月数：<b>'+rem+'ヶ月</b> '+note+'<br>返金対象額 ¥'+taisho.toLocaleString()+' − 手数料 ¥'+tesu.toLocaleString()+' ＝ <b style="color:var(--blue);font-size:16px">実返金 ¥'+refund.toLocaleString()+'</b><br><span style="font-size:11px;color:var(--sub)">※端数月の扱い・最終確定は運営/CS。「残り月数」を手動で選ぶと自動より優先。</span>';
+ out.innerHTML='残り月数：<b>'+rem+'ヶ月</b> '+note+'<br>返金対象額 ¥'+taisho.toLocaleString()+' − 手数料 ¥'+tesu.toLocaleString()+' ＝ <b style="color:var(--blue);font-size:16px">実返金 ¥'+refund.toLocaleString()+'</b><br><span style="font-size:12.5px;color:var(--sub)">※端数月の扱い・最終確定は運営/CS。「残り月数」を手動で選ぶと自動より優先。</span>';
 }
 </script>
 <details class="sub"><summary>▸ 中途解約 詳細フロー＋テンプレート（※業務管理シートは未完成）</summary><div class="subbody">
-<p style="font-size:12px"><b>ご本人とのやり取りは全て公式LINE「運営事務局」</b>で対応。都度Discordスレッドで報告（メンション：かずひら・担当MG）。<a href="https://docs.google.com/spreadsheets/d/1cBuI4ImfLs9BlnPyL0uYCZkyT4i7XQ3dMR5_yeZBWLw/edit" target="_blank">進捗管理シート</a>も更新。</p>
+<p style="font-size:13px"><b>ご本人とのやり取りは全て公式LINE「運営事務局」</b>で対応。都度Discordスレッドで報告（メンション：かずひら・担当MG）。<a href="https://docs.google.com/spreadsheets/d/1cBuI4ImfLs9BlnPyL0uYCZkyT4i7XQ3dMR5_yeZBWLw/edit" target="_blank">進捗管理シート</a>も更新。</p>
 <div class="tw"><table><thead><tr><th>Step</th><th>内容</th><th>担当</th></tr></thead><tbody>
 <tr><td>①</td><td>中途解約の申請希望の連絡あり → 入会案内LINEへ誘導</td><td>申し出を受けた人</td></tr>
 <tr><td>②</td><td>中途解約の申請フォームを送付</td><td><span class="who">CS</span></td></tr>
@@ -1161,7 +1161,7 @@ CREATOR'ZZ運営 〇〇</div>
 </div></details>
 
 <details class="sec"><summary><span class="n">8</span>卒業フェーズ</summary><div class="body">
-<h3>修了判定・通知</h3><p style="font-size:12px">①最終成果物に講師OK →②担当MGが修了通知発行 →③運営に報告 →④<a href="https://docs.google.com/spreadsheets/d/1PqHyNOwCHStvwBG2vtQZkTGU6DKBv_UitPu24vtRBgs/edit?usp=sharing" target="_blank">生徒管理シート</a>のステータスを<b>「卒業」</b>に更新（CS）→⑤既存タグ全削除→「卒業」タグ</p>
+<h3>修了判定・通知</h3><p style="font-size:13px">①最終成果物に講師OK →②担当MGが修了通知発行 →③運営に報告 →④<a href="https://docs.google.com/spreadsheets/d/1PqHyNOwCHStvwBG2vtQZkTGU6DKBv_UitPu24vtRBgs/edit?usp=sharing" target="_blank">生徒管理シート</a>のステータスを<b>「卒業」</b>に更新（CS）→⑤既存タグ全削除→「卒業」タグ</p>
 <div class="call info"><span class="t">卒業確定後のステータス変更（CS）</span>修了通知の発行後、<b>CSが<a href="https://docs.google.com/spreadsheets/d/1PqHyNOwCHStvwBG2vtQZkTGU6DKBv_UitPu24vtRBgs/edit?usp=sharing" target="_blank">生徒管理シート</a>のステータスを「卒業」へ変更</b>。LINEは既存タグを全削除し「卒業」タグへ。以降は質問・ウェビナー・動画視聴が不可になる点も本人へ再周知。</div>
 <h3>卒業後</h3><div class="tw"><table><tbody>
 <tr><td>Discord</td><td>卒業生チャンネルへ招待（案件情報で帰属意識維持）</td></tr>
@@ -1175,7 +1175,7 @@ CREATOR'ZZ運営 〇〇</div>
 <p style="font-size:14px;color:#cfe0ff;margin:0 0 4px">あなたの周りに、<b style="color:var(--cyan)">AI動画を知らないだけで人生損してる人</b>いませんか？</p>
 <div class="big">双方に 10万円 キャッシュバック!!<small>紹介した方にも・紹介された方にも 10万円</small></div>
 <h3>ご紹介いただきたい方</h3>
-<ul style="font-size:13px">
+<ul style="font-size:13.5px">
 <li>AI動画を仕事にしたい</li>
 <li>副業で月5〜30万円を目指したい</li>
 <li>動画編集からAI動画へ移行したい</li>
@@ -1184,20 +1184,20 @@ CREATOR'ZZ運営 〇〇</div>
 <div class="call info" style="background:rgba(55,200,255,.1);border-color:rgba(55,200,255,.3);color:#dbeeff"><span class="t" style="color:var(--cyan)">ご紹介のお願い</span>キャッシュバック目的ではなく「<b>この人なら本気で挑戦しそう</b>」という方だけをご紹介ください。</div>
 <h3>紹介後の流れ</h3>
 <div style="display:flex;flex-wrap:wrap;gap:8px;margin:12px 0">
-<div style="flex:1 1 88px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:10px 8px;text-align:center"><div style="color:#37c8ff;font-weight:800;font-size:11px">01</div><div style="font-size:11.5px;font-weight:700">紹介フォーム送信</div></div>
-<div style="flex:1 1 88px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:10px 8px;text-align:center"><div style="color:#37c8ff;font-weight:800;font-size:11px">02</div><div style="font-size:11.5px;font-weight:700">無料相談</div></div>
-<div style="flex:1 1 88px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:10px 8px;text-align:center"><div style="color:#37c8ff;font-weight:800;font-size:11px">03</div><div style="font-size:11.5px;font-weight:700">入学</div></div>
-<div style="flex:1 1 88px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:10px 8px;text-align:center"><div style="color:#37c8ff;font-weight:800;font-size:11px">04</div><div style="font-size:11.5px;font-weight:700">3か月継続</div></div>
-<div style="flex:1 1 88px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:10px 8px;text-align:center"><div style="color:#37c8ff;font-weight:800;font-size:11px">05</div><div style="font-size:11.5px;font-weight:700">キャッシュバック受取</div></div>
+<div style="flex:1 1 88px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:10px 8px;text-align:center"><div style="color:#37c8ff;font-weight:800;font-size:12.5px">01</div><div style="font-size:12.5px;font-weight:700">紹介フォーム送信</div></div>
+<div style="flex:1 1 88px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:10px 8px;text-align:center"><div style="color:#37c8ff;font-weight:800;font-size:12.5px">02</div><div style="font-size:12.5px;font-weight:700">無料相談</div></div>
+<div style="flex:1 1 88px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:10px 8px;text-align:center"><div style="color:#37c8ff;font-weight:800;font-size:12.5px">03</div><div style="font-size:12.5px;font-weight:700">入学</div></div>
+<div style="flex:1 1 88px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:10px 8px;text-align:center"><div style="color:#37c8ff;font-weight:800;font-size:12.5px">04</div><div style="font-size:12.5px;font-weight:700">3か月継続</div></div>
+<div style="flex:1 1 88px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:10px 8px;text-align:center"><div style="color:#37c8ff;font-weight:800;font-size:12.5px">05</div><div style="font-size:12.5px;font-weight:700">キャッシュバック受取</div></div>
 </div>
 <h3>キャッシュバック条件（2つを満たした時点で対象）</h3>
 <div class="cond">
 <div class="c"><div class="k">条件 1</div><div class="v">ご入学</div><div class="d">紹介された方がCREATOR'ZZに正式に入学すること</div></div>
 <div class="c"><div class="k">条件 2</div><div class="v">1か月後の時点で既存生徒</div><div class="d">入学から1か月後の時点で継続して在籍していること</div></div>
 </div>
-<p style="font-size:12px;color:#9fb4e6">※不正・虚偽・いたずら等の紹介は対象外。運営が不適切と判断した場合、特典の対象外となることがあります。</p>
+<p style="font-size:13px;color:#9fb4e6">※不正・虚偽・いたずら等の紹介は対象外。運営が不適切と判断した場合、特典の対象外となることがあります。</p>
 <h3>応募フォーム</h3>
-<p style="font-size:13px">▶ ご紹介 応募フォーム：<a href="https://forms.gle/2jSxcXtdQVbxxQEU6">https://forms.gle/2jSxcXtdQVbxxQEU6</a><br>▶ 振込先登録フォーム：<a href="https://forms.gle/kXGZRbzLQ1BSZ5TL6">forms.gle/kXGZRbzLQ1BSZ5TL6</a></p>
+<p style="font-size:13.5px">▶ ご紹介 応募フォーム：<a href="https://forms.gle/2jSxcXtdQVbxxQEU6">https://forms.gle/2jSxcXtdQVbxxQEU6</a><br>▶ 振込先登録フォーム：<a href="https://forms.gle/kXGZRbzLQ1BSZ5TL6">forms.gle/kXGZRbzLQ1BSZ5TL6</a></p>
 </div></details>
 
 <details class="sec"><summary><span class="n">10</span>ツール・リンク集</summary><div class="body">
@@ -1240,8 +1240,8 @@ CREATOR'ZZ運営 〇〇</div>
 <tr><td>MG変更</td><td><a href="https://forms.gle/hunNhr8rotRxL1xe8">開く</a></td></tr>
 <tr><td>アンケート集計</td><td><a href="https://docs.google.com/spreadsheets/d/1i5MF5m8CXDTlagfXzIIps3CGRc9YqO6TsreAHSvSLOY/edit">開く</a></td></tr>
 <tr><td>LMS発行マニュアル(Loom)</td><td><a href="https://www.loom.com/share/01c25ecbc1894f1f8decdd118e5d5f18">開く</a></td></tr></tbody></table></div>
-<h3>エスカレーション先</h3><p style="font-size:12px">金銭・契約・返金・クレーム→運営事務局(統括:上田)／こじれた案件→森本・杉山／専門質問・添削→講師／Discord・システム→青嶋／ロール分け→小林／契約後面談→山﨑・松井・金野／カリキュラム→杉山／MG・CS統括→阿部</p>
-<h3>関連資料</h3><p style="font-size:12.5px">
+<h3>エスカレーション先</h3><p style="font-size:13px">金銭・契約・返金・クレーム→運営事務局(統括:上田)／こじれた案件→森本・杉山／専門質問・添削→講師／Discord・システム→青嶋／ロール分け→小林／契約後面談→山﨑・松井・金野／カリキュラム→杉山／MG・CS統括→阿部</p>
+<h3>関連資料</h3><p style="font-size:13.5px">
 <a href="https://docs.google.com/spreadsheets/d/181kU5Q7ZBNWHB9DCeruSJqRgTZ1Nag0K4qeJGLPFN-Y/edit">入会後フロー</a>／
 <a href="https://docs.google.com/spreadsheets/d/1kkj48WQC2SnzspLH5Yc57AwptOqcwrrqvNKrSkIeT3Y/edit">学習進捗マトリクス</a>／
 <a href="https://docs.google.com/spreadsheets/d/1qS3ZRnfHlU8dKtXY-cRlLrXiN5y-pD2-VsW_DWzQ8KQ/edit">CSマニュアル(30タブ)</a>／
@@ -1253,8 +1253,8 @@ CREATOR'ZZ運営 〇〇</div>
 <details class="sec" id="s11ai"><summary><span class="n" style="background:#10a37f">🤖</span>AIアシスタント（質問対応）</summary><div class="body">
 <div class="sec-sub">わからないことは、まずここで質問。右下の 💬 ボタンから本マニュアル内蔵のFAQボットにも聞けます。</div>
 <div class="call info"><span class="t">CREATOR'ZZ 質問対応GPT</span>ナレッジを反映したAIに直接質問できます（ChatGPT／別タブで開きます）。<br><a href="https://chatgpt.com/g/g-6a30ba47a9c8819194fe384e31cb4060-creator-zzzhi-wen-dui-ying" style="display:inline-block;margin-top:8px;background:#10a37f;color:#fff;padding:9px 16px;border-radius:9px;font-weight:700">▶ 質問対応GPTを開く</a></div>
-<p style="font-size:12px;color:var(--sub)">※ChatGPTのGPTsはページ内に直接埋め込め（iframe表示でき）ないため、リンクで開く形にしています。オフラインでも使える<b>内蔵FAQボット（💬 右下）</b>を併設しました。</p>
-<p style="font-size:12.5px">💬 右下のチャットボタンから、返金・休学・1on1・ウェビナー・禁止事項・フォーム等をその場で回答します。回答しきれない質問は上記GPTへ誘導します。</p>
+<p style="font-size:13px;color:var(--sub)">※ChatGPTのGPTsはページ内に直接埋め込め（iframe表示でき）ないため、リンクで開く形にしています。オフラインでも使える<b>内蔵FAQボット（💬 右下）</b>を併設しました。</p>
+<p style="font-size:13.5px">💬 右下のチャットボタンから、返金・休学・1on1・ウェビナー・禁止事項・フォーム等をその場で回答します。回答しきれない質問は上記GPTへ誘導します。</p>
 </div></details>
 <details class="sec" id="s11"><summary><span class="n" style="background:#06c755">📝</span>メッセージ・テンプレート集</summary><div class="body">
 <div class="sec-sub">クラス交流場でMGが送る定型文。各項目をタップで開いてコピー。（LINE公式ステップ配信の全文テンプレは第2章に格納）</div>
@@ -1319,7 +1319,7 @@ CREATOR'ZZ運営 〇〇</div>
 ⑤ 3ヶ月後にどうなっていたい？（今の気持ちでOK）
 無理なく、思ったままで大丈夫です😊</div></div></details>
 <h3 style="margin-top:20px">継続フォロー・節目のテンプレート（⑨〜）</h3>
-<p style="font-size:12px;color:var(--sub)">初週（①〜⑧）以降、90日間の継続フォローと卒業までの節目で使う定型文。状況に合わせてコピーして使用。</p>
+<p style="font-size:13px;color:var(--sub)">初週（①〜⑧）以降、90日間の継続フォローと卒業までの節目で使う定型文。状況に合わせてコピーして使用。</p>
 <details class="sub"><summary>⑨ クラス会 開催案内（毎回・汎用）</summary><div class="subbody"><div class="tmpl">【クラス会のご案内🎉】
 ○/○（○）○○:○○〜、クラス会を開催します！
 進捗の共有や、悩み・気づきをゆるっと話す場です。カメラは任意、顔出しなしでもOK😊

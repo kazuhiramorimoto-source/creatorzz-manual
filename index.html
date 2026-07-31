@@ -1982,7 +1982,7 @@ function ask(q){q=(q||'').trim();if(!q)return;add(q.replace(/</g,"&lt;"),'me');s
 btn.onclick=function(){panel.classList.add('open');btn.style.display='none';if(!body.dataset.init){body.dataset.init='1';add('こんにちは！CREATOR\'ZZの運用について質問にお答えします（内蔵FAQ）。下のボタンを押すか、質問を入力してください。','bot');chips();}};
 panel.querySelector('.x').onclick=function(){panel.classList.remove('open');btn.style.display='';};
 panel.querySelector('#csend').onclick=function(){ask(input.value);input.value='';};
-input.addEventListener('keydown',function(e){if(e.key==='Enter'){ask(input.value);input.value='';}});
+input.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.isComposing&&e.keyCode!==229){ask(input.value);input.value='';}});
 })();
 </script>
 <script>

@@ -1249,7 +1249,7 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
 })();
 </script>
 <details class="sec" id="satSec"><summary><span class="n" style="background:#1f8a54">📈</span>解説ウェビナー 満足度・参加率（自動集計）</summary><div class="body">
-<div class="sched-sub">📊 <a href="https://docs.google.com/spreadsheets/d/12JrIpbOQJYQPBTfAwxG4BdAoKRwiMlpUTHXySrJG_lE/edit" target="_blank">満足度集計シート</a>から自動取得（毎日9:00時点で自動更新）。満足度は<b>4点満点</b>。<span class="tbd">※参加人数・回答率は直近回から取得開始</span></div>
+<div class="sched-sub">📊 <a href="https://docs.google.com/spreadsheets/d/12JrIpbOQJYQPBTfAwxG4BdAoKRwiMlpUTHXySrJG_lE/edit" target="_blank">満足度集計シート</a>から自動取得（毎日9:00時点で自動更新）。満足度は<b>4点満点</b>。<span class="tbd">※参加人数・回答率は直近回から取得開始。回答率＝<b>リアルタイム回答率</b>（参加人数→RT回答）</span></div>
 <div id="satKpi" style="display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 12px"><p style="color:var(--sub);font-size:13px">読み込み中…</p></div>
 
 <h3>満足度の推移（開催回ごと）</h3>
@@ -1296,7 +1296,7 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
     chip('全体満足度',(overall!=null?overall.toFixed(2):'—'),scol(overall),'/ 4点満点')+
     chip('最新回満足度',last.sat.toFixed(2),scol(last.sat),(last.d.getMonth()+1)+'/'+last.d.getDate()+'('+WK[last.d.getDay()]+')')+
     chip('総回答数',totN,'#0b1533','全'+rows.length+'回')+
-    chip('直近の回答率',rateTxt,'#1b6ef3','参加→回答');
+    chip('直近のRT回答率',rateTxt,'#1b6ef3','参加→リアルタイム回答');
    // trend chart
    if(typeof Chart!=='undefined'){
     var labels=rows.map(function(r){return (r.d.getMonth()+1)+'/'+r.d.getDate();});
@@ -1312,7 +1312,7 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
    }
    // detail table (recent first)
    var rev=rows.slice().reverse();
-   var head='<tr><th>開催日</th><th>講師</th><th>参加</th><th>回答率</th><th>RT</th><th>アーカイブ</th><th>全体満足度</th></tr>';
+   var head='<tr><th>開催日</th><th>講師</th><th>参加</th><th>RT回答率</th><th>RT</th><th>アーカイブ</th><th>全体満足度</th></tr>';
    var body=rev.map(function(r){ var dw=r.d.getDay(); var wc=dw===0?'sun':(dw===6?'sat':'');
     return '<tr><td class="dt">'+(r.d.getMonth()+1)+'/'+r.d.getDate()+' <span class="wd '+wc+'">'+WK[dw]+'</span></td>'+
      '<td>'+(r.lect?esc(r.lect):'<span class="tbd">—</span>')+'</td>'+
@@ -1339,7 +1339,7 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
  function load(){ if(loaded)return; loaded=true;
   var base='https://docs.google.com/spreadsheets/d/12JrIpbOQJYQPBTfAwxG4BdAoKRwiMlpUTHXySrJG_lE/gviz/tq?';
   var s1=document.createElement('script');
-  s1.src=base+'gid=204438373&headers=3&tqx=out:json;responseHandler:gvizSatDates&tq='+encodeURIComponent('SELECT A,C,D,E,I,J,K,L,M');
+  s1.src=base+'gid=204438373&headers=3&tqx=out:json;responseHandler:gvizSatDates&tq='+encodeURIComponent('SELECT A,C,D,E,H,J,K,L,M');
   s1.onerror=function(){var b=document.getElementById('satKpi');if(b)b.innerHTML='<p style="color:var(--red);font-size:13px">読込失敗（シートの共有設定/ネットを確認）</p>';};
   document.body.appendChild(s1);
   var s2=document.createElement('script');
@@ -1433,7 +1433,7 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
 <div style="overflow-x:auto"><div style="min-width:360px;height:220px"><canvas id="webDow"></canvas></div></div>
 <h3>🗓️ 直近の開催回</h3>
 <div id="webTable" style="overflow-x:auto"><p style="color:var(--sub);font-size:13px">開くと読み込みます…</p></div>
-<p style="font-size:12.5px;color:var(--sub)">※「回答率」＝シート算出の<b>総回答率</b>（リアルタイム＋アーカイブ）。満足度・回答数はRT＋アーカイブの加重合算。参加人数は直近回から記録開始（順次埋まると推移グラフに反映）。ヘッダー/集計行は自動除外。表示にはネット接続が必要。</p>
+<p style="font-size:12.5px;color:var(--sub)">※「RT回答率」＝シート算出の<b>リアルタイム回答率</b>（参加人数に対するリアルタイム回答の割合。アーカイブ回答は含まない）。満足度・回答数はRT＋アーカイブの加重合算。参加人数は直近回から記録開始（順次埋まると推移グラフに反映）。ヘッダー/集計行は自動除外。表示にはネット接続が必要。</p>
 </div></details>
 <script>
 (function(){
@@ -1447,13 +1447,13 @@ CREATOR'ZZは、本気で取り組んでいただいた方に成果で応える�
  window.gvizWebTeach=function(r){var rows=(r.table&&r.table.rows)||[];var o=[];rows.forEach(function(x){var c=x.c||[];var s=c[3]&&c[3].v;if(typeof s!=='number')return;o.push({t:v(c[0]),cnt:v(c[1]),resp:v(c[2]),sat:s});});o.sort(function(a,b){return b.sat-a.sat;});D.teach=o;render();};
  window.gvizWebDow=function(r){var rows=(r.table&&r.table.rows)||[];var o=[];rows.forEach(function(x){var c=x.c||[];var s=c[2]&&c[2].v;if(typeof s!=='number')return;o.push({d:v(c[0]),resp:v(c[1]),sat:s});});D.dow=o;render();};
  function inj(gid,q,h){var s=document.createElement('script');s.src='https://docs.google.com/spreadsheets/d/'+SID+'/gviz/tq?gid='+gid+'&tqx=out:json;responseHandler:'+h+'&tq='+encodeURIComponent(q);s.onerror=function(){var e=document.getElementById('webKpi');if(e)e.textContent='読込失敗（シートの共有設定/ネット接続を確認）';};document.body.appendChild(s);}
- function load(){if(loaded)return;loaded=true;inj('204438373','SELECT A,B,C,D,E,I,J,K,L,M','gvizWebDates');inj('47461476','SELECT A,B,C,D','gvizWebTeach');inj('1911542252','SELECT A,B,C','gvizWebDow');}
+ function load(){if(loaded)return;loaded=true;inj('204438373','SELECT A,B,C,D,E,H,J,K,L,M','gvizWebDates');inj('47461476','SELECT A,B,C,D','gvizWebTeach');inj('1911542252','SELECT A,B,C','gvizWebDow');}
  function render(){if(typeof Chart==='undefined'){setTimeout(render,200);return;}
   if(D.dates&&D.dates.length){var a=D.dates;var tot=0,ws=0,wn=0;a.forEach(function(r){tot+=r.tot;if(r.all!=null){ws+=r.all*r.tot;wn+=r.tot;}});var ov=wn?ws/wn:0;var last=a[a.length-1];
-   var k=document.getElementById('webKpi');if(k){k.innerHTML=chip('全体満足度 / 4.0',ov.toFixed(2),sc(ov))+chip('最新回満足度',last.all!=null?last.all.toFixed(2):'–',last.all!=null?sc(last.all):'#8b98af')+chip('対象回答数',tot,'#1b6ef3')+chip('開催回数',a.length,'#0b1533')+chip('直近開催',last.date.slice(5).replace('-','/'),'#0b1533')+chip('直近 参加/回答率',(last.attend!=null?last.attend+'名':'–')+(last.resp!=null?' / '+(Math.round(last.resp*1000)/10)+'%':''),'#0b1533');}
+   var k=document.getElementById('webKpi');if(k){k.innerHTML=chip('全体満足度 / 4.0',ov.toFixed(2),sc(ov))+chip('最新回満足度',last.all!=null?last.all.toFixed(2):'–',last.all!=null?sc(last.all):'#8b98af')+chip('対象回答数',tot,'#1b6ef3')+chip('開催回数',a.length,'#0b1533')+chip('直近開催',last.date.slice(5).replace('-','/'),'#0b1533')+chip('直近 参加/RT回答率',(last.attend!=null?last.attend+'名':'–')+(last.resp!=null?' / '+(Math.round(last.resp*1000)/10)+'%':''),'#0b1533');}
    var lb=a.map(function(r){return r.date.slice(5).replace('-','/');});var sd=a.map(function(r){return r.all;});var ad=a.map(function(r){return r.attend;});
    if(window._wt)window._wt.destroy();window._wt=new Chart(document.getElementById('webTrend'),{data:{labels:lb,datasets:[{type:'bar',label:'参加人数',data:ad,yAxisID:'y1',backgroundColor:'rgba(27,110,243,.16)',borderColor:'rgba(27,110,243,.35)',borderWidth:1,order:2},{type:'line',label:'全体満足度',data:sd,yAxisID:'y',borderColor:'#1b6ef3',backgroundColor:'#1b6ef3',tension:.3,spanGaps:true,pointRadius:3,order:1}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'}},scales:{y:{position:'left',min:0,max:4,title:{display:true,text:'満足度(4点満点)'}},y1:{position:'right',min:0,grid:{drawOnChartArea:false},title:{display:true,text:'参加人数'}}}}});
-   var tb=a.slice(-6).reverse();var h='<table class="dtbl"><thead><tr><th>開催日</th><th>講師</th><th>参加</th><th>回答率</th><th>RT満足</th><th>アーカ満足</th><th>全体満足</th></tr></thead><tbody>';tb.forEach(function(r){h+='<tr><td>'+r.date+'</td><td>'+(r.teacher||'')+'</td><td>'+(r.attend!=null?r.attend:'–')+'</td><td>'+(r.resp!=null?(Math.round(r.resp*1000)/10)+'%':'–')+'</td><td>'+(r.rt!=null?r.rt.toFixed(2):'–')+'</td><td>'+(r.arc!=null?r.arc.toFixed(2):'–')+'</td><td style="font-weight:800;color:'+(r.all!=null?sc(r.all):'#8b98af')+'">'+(r.all!=null?r.all.toFixed(2):'–')+'</td></tr>';});h+='</tbody></table>';var te=document.getElementById('webTable');if(te)te.innerHTML=h;
+   var tb=a.slice(-6).reverse();var h='<table class="dtbl"><thead><tr><th>開催日</th><th>講師</th><th>参加</th><th>RT回答率</th><th>RT満足</th><th>アーカ満足</th><th>全体満足</th></tr></thead><tbody>';tb.forEach(function(r){h+='<tr><td>'+r.date+'</td><td>'+(r.teacher||'')+'</td><td>'+(r.attend!=null?r.attend:'–')+'</td><td>'+(r.resp!=null?(Math.round(r.resp*1000)/10)+'%':'–')+'</td><td>'+(r.rt!=null?r.rt.toFixed(2):'–')+'</td><td>'+(r.arc!=null?r.arc.toFixed(2):'–')+'</td><td style="font-weight:800;color:'+(r.all!=null?sc(r.all):'#8b98af')+'">'+(r.all!=null?r.all.toFixed(2):'–')+'</td></tr>';});h+='</tbody></table>';var te=document.getElementById('webTable');if(te)te.innerHTML=h;
   }
   if(D.teach&&D.teach.length){var t=D.teach;if(window._wte)window._wte.destroy();window._wte=new Chart(document.getElementById('webTeach'),{type:'bar',data:{labels:t.map(function(r){return r.t;}),datasets:[{label:'平均満足度',data:t.map(function(r){return r.sat;}),backgroundColor:t.map(function(r){return sc(r.sat);})}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{afterLabel:function(ctx){var r=t[ctx.dataIndex];return '開催'+r.cnt+'回 / 回答'+r.resp+'件';}}}},scales:{x:{min:0,max:4,title:{display:true,text:'満足度(4点満点)'}}}}});}
   if(D.dow&&D.dow.length){var w=D.dow;if(window._wdo)window._wdo.destroy();window._wdo=new Chart(document.getElementById('webDow'),{type:'bar',data:{labels:w.map(function(r){return r.d;}),datasets:[{label:'平均満足度',data:w.map(function(r){return r.sat;}),backgroundColor:w.map(function(r){return sc(r.sat);})}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{afterLabel:function(ctx){return '回答'+w[ctx.dataIndex].resp+'件';}}}},scales:{y:{min:0,max:4,title:{display:true,text:'満足度'}}}}});}
